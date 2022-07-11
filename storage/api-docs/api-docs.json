@@ -1,0 +1,74 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Api Mangeons Afro Documentation",
+        "description": "Implementation of Swagger with in Laravel",
+        "contact": {
+            "email": "admin@admin.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://127.0.0.1:8001/api",
+            "description": "Demo API Server"
+        }
+    ],
+    "paths": {
+        "/v1/register": {
+            "post": {
+                "tags": [
+                    "Tests"
+                ],
+                "summary": "Register a new user",
+                "description": "Returns the new user",
+                "operationId": "register",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/shops": {
+            "get": {
+                "tags": [
+                    "Tests"
+                ],
+                "summary": "recuperer tous les shops",
+                "description": "Returns the list of shops",
+                "operationId": "getAllShops",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}

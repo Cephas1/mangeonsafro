@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+        <meta name="description" content="Smarthr - Bootstrap Admin Template">
+		<meta name="keywords" content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern, accounts, invoice, html5, responsive, CRM, Projects">
+        <meta name="author" content="Dreamguys - Bootstrap Admin Template">
+        <meta name="robots" content="noindex, nofollow">
+        <title>Dashboard MangeonsAfro</title>
+
+		<!-- Favicon -->
+        <link rel="shortcut icon" type="image/x-icon" href="assets-back/img/favicon.png">
+
+
+		<!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="assets-back/css/bootstrap.min.css">
+
+		<!-- Fontawesome CSS -->
+        <link rel="stylesheet" href="assets-back/css/font-awesome.min.css">
+
+		<!-- Lineawesome CSS -->
+        <link rel="stylesheet" href="assets-back/css/line-awesome.min.css">
+
+		<!-- Datatable CSS -->
+		<link rel="stylesheet" href="assets-back/css/dataTables.bootstrap4.min.css">
+
+		<!-- Select2 CSS -->
+		<link rel="stylesheet" href="assets-back/css/select2.min.css">
+
+		<!-- Datetimepicker CSS -->
+		<link rel="stylesheet" href="assets-back/css/bootstrap-datetimepicker.min.css">
+
+		<!-- Main CSS -->
+        <link rel="stylesheet" href="assets-back/css/style.css">
+
+    </head>
+    <body>
+		<!-- Main Wrapper -->
+        <div class="main-wrapper">
+
+			<!-- Header -->
+            <div class="header">
+
+				<!-- Logo -->
+                <div class="header-left">
+                    <a href="index.html" class="logo">
+						<img src="assets-back/img/logo-mangeonsafro.png" width="60" height="60" alt="">
+					</a>
+                </div>
+				<!-- /Logo -->
+
+				<a id="toggle_btn" href="javascript:void(0);">
+					<span class="bar-icon">
+						<span></span>
+						<span></span>
+						<span></span>
+					</span>
+				</a>
+
+				<!-- Header Title -->
+                <div class="page-title-box">
+					<h3>MangeonsAfro</h3>
+                </div>
+				<!-- /Header Title -->
+
+                <a id="mobile_btn" class="mobile_btn" href="#sidebar"><i class="fa fa-bars"></i></a>
+
+                <!-- Header Menu -->
+                <ul class="nav user-menu">
+
+                    <!-- Search -->
+                    <li class="nav-item">
+                        <div class="top-nav-search">
+                            <a href="javascript:void(0);" class="responsive-search">
+                                <i class="fa fa-search"></i>
+                           </a>
+
+                        </div>
+                    </li>
+                    <!-- /Search -->
+
+                    <!-- Flag -->
+                    <li class="nav-item dropdown has-arrow flag-nav">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button">
+                            <img src="assets-back/img/flags/fr.png" alt="" height="20"> <span>Français</span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a href="javascript:void(0);" class="dropdown-item">
+                                <img src="assets-back/img/flags/fr.png" alt="" height="16"> Français
+                            </a>
+                            <a href="javascript:void(0);" class="dropdown-item">
+                                <img src="assets-back/img/flags/us.png" alt="" height="16"> English
+                            </a>
+                            <a href="javascript:void(0);" class="dropdown-item">
+                                <img src="assets-back/img/flags/es.png" alt="" height="16"> Spanish
+                            </a>
+                            <a href="javascript:void(0);" class="dropdown-item">
+                                <img src="assets-back/img/flags/de.png" alt="" height="16"> German
+                            </a>
+                        </div>
+                    </li>
+                    <!-- /Flag -->
+
+                    <!-- Notifications -->
+                    <li class="nav-item dropdown">
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                            <i class="fa fa-bell-o"></i> <span class="badge badge-pill">3</span>
+                        </a>
+                        <div class="dropdown-menu notifications">
+                            <div class="topnav-dropdown-header">
+                                <span class="notification-title">Notifications</span>
+                                <a href="javascript:void(0)" class="clear-noti"> Clear All </a>
+                            </div>
+                            <div class="noti-content">
+                                <ul class="notification-list">
+                                    <li class="notification-message">
+                                        <a href="activities.html">
+                                            <div class="media">
+                                                <span class="avatar">
+                                                    <img alt="" src="assets-back/img/profiles/avatar-02.jpg">
+                                                </span>
+                                                <div class="media-body">
+                                                    <p class="noti-details"><span class="noti-title">John Doe</span> added new task <span class="noti-title">Patient appointment booking</span></p>
+                                                    <p class="noti-time"><span class="notification-time">4 mins ago</span></p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="notification-message">
+                                        <a href="activities.html">
+                                            <div class="media">
+                                                <span class="avatar">
+                                                    <img alt="" src="assets-back/img/profiles/avatar-03.jpg">
+                                                </span>
+                                                <div class="media-body">
+                                                    <p class="noti-details"><span class="noti-title">Tarah Shropshire</span> changed the task name <span class="noti-title">Appointment booking with payment gateway</span></p>
+                                                    <p class="noti-time"><span class="notification-time">6 mins ago</span></p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="notification-message">
+                                        <a href="activities.html">
+                                            <div class="media">
+                                                <span class="avatar">
+                                                    <img alt="" src="assets-back/img/profiles/avatar-06.jpg">
+                                                </span>
+                                                <div class="media-body">
+                                                    <p class="noti-details"><span class="noti-title">Misty Tison</span> added <span class="noti-title">Domenic Houston</span> and <span class="noti-title">Claire Mapes</span> to project <span class="noti-title">Doctor available module</span></p>
+                                                    <p class="noti-time"><span class="notification-time">8 mins ago</span></p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="notification-message">
+                                        <a href="activities.html">
+                                            <div class="media">
+                                                <span class="avatar">
+                                                    <img alt="" src="assets-back/img/profiles/avatar-17.jpg">
+                                                </span>
+                                                <div class="media-body">
+                                                    <p class="noti-details"><span class="noti-title">Rolland Webber</span> completed task <span class="noti-title">Patient and Doctor video conferencing</span></p>
+                                                    <p class="noti-time"><span class="notification-time">12 mins ago</span></p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="notification-message">
+                                        <a href="activities.html">
+                                            <div class="media">
+                                                <span class="avatar">
+                                                    <img alt="" src="assets-back/img/profiles/avatar-13.jpg">
+                                                </span>
+                                                <div class="media-body">
+                                                    <p class="noti-details"><span class="noti-title">Bernardo Galaviz</span> added new task <span class="noti-title">Private chat module</span></p>
+                                                    <p class="noti-time"><span class="notification-time">2 days ago</span></p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="topnav-dropdown-footer">
+                                <a href="activities.html">View all Notifications</a>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- /Notifications -->
+
+                    <!-- Message Notifications -->
+                    <li class="nav-item dropdown">
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                            <i class="fa fa-comment-o"></i> <span class="badge badge-pill">8</span>
+                        </a>
+                        <div class="dropdown-menu notifications">
+                            <div class="topnav-dropdown-header">
+                                <span class="notification-title">Messages</span>
+                                <a href="javascript:void(0)" class="clear-noti"> Clear All </a>
+                            </div>
+                            <div class="noti-content">
+                                <ul class="notification-list">
+                                    <li class="notification-message">
+                                        <a href="chat.html">
+                                            <div class="list-item">
+                                                <div class="list-left">
+                                                    <span class="avatar">
+                                                        <img alt="" src="assets-back/img/profiles/avatar-09.jpg">
+                                                    </span>
+                                                </div>
+                                                <div class="list-body">
+                                                    <span class="message-author">Richard Miles </span>
+                                                    <span class="message-time">12:28 AM</span>
+                                                    <div class="clearfix"></div>
+                                                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="notification-message">
+                                        <a href="chat.html">
+                                            <div class="list-item">
+                                                <div class="list-left">
+                                                    <span class="avatar">
+                                                        <img alt="" src="assets-back/img/profiles/avatar-02.jpg">
+                                                    </span>
+                                                </div>
+                                                <div class="list-body">
+                                                    <span class="message-author">John Doe</span>
+                                                    <span class="message-time">6 Mar</span>
+                                                    <div class="clearfix"></div>
+                                                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="notification-message">
+                                        <a href="chat.html">
+                                            <div class="list-item">
+                                                <div class="list-left">
+                                                    <span class="avatar">
+                                                        <img alt="" src="assets-back/img/profiles/avatar-03.jpg">
+                                                    </span>
+                                                </div>
+                                                <div class="list-body">
+                                                    <span class="message-author"> Tarah Shropshire </span>
+                                                    <span class="message-time">5 Mar</span>
+                                                    <div class="clearfix"></div>
+                                                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="notification-message">
+                                        <a href="chat.html">
+                                            <div class="list-item">
+                                                <div class="list-left">
+                                                    <span class="avatar">
+                                                        <img alt="" src="assets-back/img/profiles/avatar-05.jpg">
+                                                    </span>
+                                                </div>
+                                                <div class="list-body">
+                                                    <span class="message-author">Mike Litorus</span>
+                                                    <span class="message-time">3 Mar</span>
+                                                    <div class="clearfix"></div>
+                                                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="notification-message">
+                                        <a href="chat.html">
+                                            <div class="list-item">
+                                                <div class="list-left">
+                                                    <span class="avatar">
+                                                        <img alt="" src="assets-back/img/profiles/avatar-08.jpg">
+                                                    </span>
+                                                </div>
+                                                <div class="list-body">
+                                                    <span class="message-author"> Catherine Manseau </span>
+                                                    <span class="message-time">27 Feb</span>
+                                                    <div class="clearfix"></div>
+                                                    <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="topnav-dropdown-footer">
+                                <a href="chat.html">View all Messages</a>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- /Message Notifications -->
+
+                    <li class="nav-item dropdown has-arrow main-drop">
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                            <span class="user-img"><i class="fa fa-user"></i>
+                            <!-- <span class="status online"></span></span> -->
+                            <span>Admin</span>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="profile.html">My Profile</a>
+                            <a class="dropdown-item" href="settings.html">Settings</a>
+                            <a class="dropdown-item" href="login.html">Logout</a>
+                        </div>
+                    </li>
+                </ul>
+                <!-- /Header Menu -->
+
+                <!-- Mobile Menu -->
+                <div class="dropdown mobile-user-menu">
+                    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="profile.html">My Profile</a>
+                        <a class="dropdown-item" href="settings.html">Settings</a>
+                        <a class="dropdown-item" href="login.html">Logout</a>
+                    </div>
+                </div>
+                <!-- /Mobile Menu -->
+
+            </div>
+            <!-- /Header -->
+
+            <!-- Sidebar -->
+            <div class="sidebar" id="sidebar">
+                <div class="sidebar-inner slimscroll">
+					<div id="sidebar-menu" class="sidebar-menu">
+						<ul>
+							<li class="menu-title">
+
+								<span class="avatar">
+                                    <img alt="" src="assets-back/img/profiles/avatar-09.jpg">
+                                </span>
+
+							</li>
+                            <!-- Dashboard  -->
+							<li class="submenu">
+								<a href="#"><i class="la la-dashboard"></i> <span> Dashboard</span> <span class="menu-arrow"></span></a>
+								<ul style="display: none;">
+									<li><a class="" href="index.html">Graphes statistiques</a></li>
+									<li><a class="" href="statistical-board.html">Tableaux statistiques</a></li>
+									<!-- <li><a href="crm.html">CRM</a></li> -->
+									<!-- <li><a href="list-commerce.html">Liste des commerces</a></li> -->
+								</ul>
+							</li>
+                            <!-- End/Dashboard -->
+
+                            <!-- Trade management -->
+                            <li class="submenu">
+								<a href="#" ><i class="las la-store-alt"></i> <span>Gestion de commerces</span> <span class="menu-arrow"></span></a>
+								<ul style="display: none;">
+                                    <li><a href="list-commerce.html">Liste des commerces</a></li>
+									<li><a href="order.html">Commandes <span class="badge badge-pill bg-primary float-right">1</span></a></li>
+                                    <li><a href="categories-products.html">Catégories commerces</a></li>
+
+								</ul>
+							</li>
+                            <!-- end trade management -->
+
+                            <!-- product management -->
+                            <li class="menu-title">
+								<span> </span>
+							</li>
+                            <li class="submenu">
+								<a href="#"><i class="la la-shopping-bag"></i> <span>Gestion de produits</span> <span class="menu-arrow"></span></a>
+								<ul style="display: none;">
+									<li><a class="" href="products.html">Produits</a></li>
+									<li><a class="" href="categories-product.html">Catégories produits</a></li>
+								</ul>
+							</li>
+                            <!-- end products manager -->
+
+                            <!-- Users manager -->
+                            <li class="menu-title">
+								<span></span>
+							</li>
+                            <li class="submenu">
+								<a href="#"><i class="la la-users"></i> <span>Gestion des utilisateurs </span> <span class="menu-arrow"></span></a>
+								<ul style="display: none;">
+									<li><a class="" href="users.html">Tous les utilisateurs</a></li>
+									<li><a class="" href="super-admin.html">Super Admin</a></li>
+									<li><a class=""href="admin.html">Admin</a></li>
+									<li><a class=""href="customer.html">Client</a></li>
+									<li><a class=""href="deliveryman.html">Livreur</a></li>
+									<li><a class=""href="sale-manager.html">Responsable commerce</a></li>
+								</ul>
+							</li>
+                            <!-- End users manager -->
+
+                            <!-- payment manager -->
+                            <li class="menu-title">
+								<span></span>
+							</li>
+                            <li class="submenu">
+								<a href="#"><i class="la la-money"></i> <span>Gestion des paiements</span> <span class="menu-arrow"></span></a>
+								<ul style="display: none;">
+									<li><a class="" href="#">Paiements</a></li>
+									<li>
+                                        <li class="submenu">
+                                            <a href="#"><span>Mode de paiement</span> <span class="menu-arrow"></span></a>
+                                            <ul style="display: none;">
+                                                <li><a class="" href="#">Espèce</a></li>
+                                                <li><a class="" href="#">Carte bancaire</a></li>
+                                                <li><a class=""href="#">Mobile Banking</a></li>
+                                            </ul>
+                                        </li>
+
+                                    </li>
+								</ul>
+							</li>
+                            <!-- end payment manager -->
+
+                            <!-- Delivery manager -->
+                            <li class="menu-title">
+								<span> </span>
+							</li>
+                            <li class="submenu">
+								<a href="#"><i class="las la-motorcycle"></i> <span>Gestion des livraisons</span> <span class="menu-arrow"></span></a>
+								<ul style="display: none;">
+									<li><a href="delivery.html">Livraisons</a></li>
+									<li><a href="delivery-address.html">Adresse de livraison</a></li>
+								</ul>
+							</li>
+                            <!-- end delivery manager -->
+
+                            <!-- Reprots -->
+                            <li class="menu-title">
+								<span></span>
+							</li>
+							<li class="submenu">
+								<a href="#"><i class="la la-pie-chart"></i> <span> Rapports </span> <span class="menu-arrow"></span></a>
+								<ul style="display: none;">
+									<li><a href="sales-report.html">Rapport de Vente</a></li>
+									<li><a href="users-report.html">Rapport client</a></li>
+									<li><a href="deliveryman-report.html">Rapport livreurs</a></li>
+									<li><a href="orders-report.html">Rapport commande</a></li>
+									<li><a href="trades-report.html">Rapport commerce</a></li>
+									<li><a href="products-report.html"> Rapport Produit </a></li>
+								</ul>
+							</li>
+                            <!-- end reports -->
+
+                            <!-- CRM manager -->
+                            <li class="menu-title">
+								<span></span>
+							</li>
+                            <li class="submenu">
+								<a href="#"><i class="las la-user-tie"></i><span>Gestion CRM</span> <span class="menu-arrow"></span></a>
+								<ul style="display: none;">
+									<li><a href="#">Prospect</a></li>
+									<li><a href="#">Appels</a></li>
+									<li><a href="#">Mailing</a></li>
+								</ul>
+							</li>
+                            <!-- end CRM manager -->
+
+                            <!-- Settings -->
+                            <li class="menu-title">
+								<span></span>
+							</li>
+							<li class="submenu">
+								<a href="#"><i class="las la-tools"></i><span> Parametres </span> <span class="menu-arrow"></span></a>
+								<ul style="display: none;">
+                                    <li><a href="banner.html">Bannières</a></li>
+                                    <li><a href="#">Rôles</a></li>
+                                    <li><a href="#">Permissions</a></li>
+								</ul>
+							</li>
+                            <!-- end settings -->
+						</ul>
+					</div>
+                </div>
+            </div>
+            <!-- /Sidebar -->
+
+			<!-- Page Wrapper -->
+            <div class="page-wrapper">
+
+				<!-- Page Content -->
+                <div class="content container-fluid">
+
+					<!-- Page Header -->
+					<div class="page-header">
+						<div class="row align-items-center">
+							<div class="col">
+								<h3 class="page-title">Catégorie produit</h3>
+								<ul class="breadcrumb">
+									<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+									<li class="breadcrumb-item active">Liste catégorie</li>
+								</ul>
+							</div>
+							<div class="col-auto float-right ml-auto">
+								<a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_leave"><i class="fa fa-plus"></i> Ajouter une catégorie</a>
+							</div>
+						</div>
+					</div>
+					<!-- /Page Header -->
+
+					<!-- Search Filter -->
+					<div class="row filter-row">
+					   <div class="col-sm-6 col-md-3 col-lg-3 col-xl-2 col-12">
+							<div class="form-group form-focus">
+								<input type="text" class="form-control floating">
+								<label class="focus-label">Nom catégorie...</label>
+							</div>
+					   </div>
+					   <div class="col-sm-6 col-md-3 col-lg-3 col-xl-2 col-12">
+							<div class="form-group form-focus select-focus">
+								<select class="select floating">
+									<option> -- Select -- </option>
+									<option> Active </option>
+									<option> Desactive </option>
+								</select>
+								<label class="focus-label">Statut catégorie</label>
+							</div>
+					   </div>
+					   <div class="col-sm-6 col-md-3 col-lg-3 col-xl-2 col-12">
+							<div class="form-group form-focus">
+								<div class="cal-icon">
+									<input class="form-control floating datetimepicker" type="text">
+								</div>
+								<label class="focus-label">Date</label>
+							</div>
+						</div>
+
+					   <div class="col-sm-6 col-md-3 col-lg-3 col-xl-2 col-12">
+							<a href="#" class="btn btn-success btn-block"> Recherche </a>
+					   </div>
+                    </div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="table-responsive">
+								<table class="table table-striped custom-table mb-0 datatable">
+									<thead>
+										<tr>
+											<th>Catégorie</th>
+											<th>Designation</th>
+											<th>Description</th>
+                                            <th>Date</th>
+											<th class="text-center">Statut</th>
+											<th class="text-right">Actions</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>
+												<h2 class="table-avatar">
+													<a href="profile.html" class="avatar"><img alt="" src="assets-back/img/products/image-1.png"></a>
+													<a href="#">Catégorie-01</a>
+												</h2>
+											</td>
+											<td>Catégorie-01</td>
+											<td>Description 01</td>
+											<td>20/01/2022</td>
+											<td class="text-center">
+												<div class="dropdown action-label">
+													<a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
+														<i class="fa fa-dot-circle-o text-success"></i> Active
+													</a>
+													<div class="dropdown-menu dropdown-menu-right">
+                                                        <a class="dropdown-item" href="#" data-toggle="modal" data-target="#approve_leave"><i class="fa fa-dot-circle-o text-success"></i>Active</a>
+														<a class="dropdown-item" href="#" data-toggle="modal" data-target="#desactive_status"><i class="fa fa-dot-circle-o text-danger"></i> Desactive</a>
+													</div>
+												</div>
+											</td>
+											<td class="text-right">
+												<div class="dropdown dropdown-action">
+													<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
+													<div class="dropdown-menu dropdown-menu-right">
+														<a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_leave"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+														<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+													</div>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<h2 class="table-avatar">
+													<a href="profile.html" class="avatar"><img alt="" src="assets-back/img/products/image-3.png"></a>
+													<a>Catégorie-06</span></a>
+												</h2>
+											</td>
+											<td>Catégorie-06</td>
+											<td>Description 06</td>
+											<td>12/01/2022</td>
+											<td class="text-center">
+												<div class="dropdown action-label">
+													<a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
+														<i class="fa fa-dot-circle-o text-success"></i>Active
+													</a>
+													<div class="dropdown-menu dropdown-menu-right">
+														<a class="dropdown-item" href="#" data-toggle="modal" data-target="#approve_leave"><i class="fa fa-dot-circle-o text-success"></i>Active</a>
+														<a class="dropdown-item" href="#" data-toggle="modal" data-target="#desactive_status"><i class="fa fa-dot-circle-o text-danger"></i> Desactive</a>
+													</div>
+												</div>
+											</td>
+											<td class="text-right">
+												<div class="dropdown dropdown-action">
+													<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
+													<div class="dropdown-menu dropdown-menu-right">
+														<a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_leave"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+														<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+													</div>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<h2 class="table-avatar">
+													<a href="profile.html" class="avatar"><img alt="" src="assets-back/img/products/image-4.png"></a>
+													<a>Catégorie-04</span></a>
+												</h2>
+											</td>
+											<td>Catégorie-04</td>
+											<td>Description 04</td>
+											<td>11/01/2022</td>
+											<td class="text-center">
+												<div class="dropdown action-label">
+													<a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
+														<i class="fa fa-dot-circle-o text-success"></i>Active
+													</a>
+													<div class="dropdown-menu dropdown-menu-right">
+														<a class="dropdown-item" href="#" data-toggle="modal" data-target="#approve_leave"><i class="fa fa-dot-circle-o text-success"></i>Active</a>
+														<a class="dropdown-item" href="#" data-toggle="modal" data-target="#desactive_status"><i class="fa fa-dot-circle-o text-danger"></i> Desactive</a>
+													</div>
+												</div>
+											</td>
+											<td class="text-right">
+												<div class="dropdown dropdown-action">
+													<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
+													<div class="dropdown-menu dropdown-menu-right">
+														<a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_leave"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+														<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+													</div>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<h2 class="table-avatar">
+													<a href="profile.html" class="avatar"><img alt="" src="assets-back/img/products/image-6.png"></a>
+													<a>Catégorie-03</a>
+												</h2>
+											</td>
+											<td>Catégorie-03</td>
+											<td>Description 03</td>
+											<td>15/01/2022</td>
+											<td class="text-center">
+												<div class="dropdown action-label">
+													<a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
+														<i class="fa fa-dot-circle-o text-danger"></i>Desactive
+													</a>
+													<div class="dropdown-menu dropdown-menu-right">
+														<a class="dropdown-item" href="#" data-toggle="modal" data-target="#approve_leave"><i class="fa fa-dot-circle-o text-success"></i>Active</a>
+														<a class="dropdown-item" href="#" data-toggle="modal" data-target="#desactive_status"><i class="fa fa-dot-circle-o text-danger"></i> Desactive</a>
+													</div>
+												</div>
+											</td>
+											<td class="text-right">
+												<div class="dropdown dropdown-action">
+													<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
+													<div class="dropdown-menu dropdown-menu-right">
+														<a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_leave"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+														<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+													</div>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<h2 class="table-avatar">
+													<a href="profile.html" class="avatar"><img alt="" src="assets-back/img/products/image-7.png"></a>
+													<a>Catégorie-02</a>
+												</h2>
+											</td>
+											<td>Catégorie-02</td>
+											<td>Description02</td>
+											<td>15/01/2022</td>
+											<td class="text-center">
+												<div class="dropdown action-label">
+													<a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
+														<i class="fa fa-dot-circle-o text-success"></i>Active
+													</a>
+													<div class="dropdown-menu dropdown-menu-right">
+														<a class="dropdown-item" href="#" data-toggle="modal" data-target="#approve_leave"><i class="fa fa-dot-circle-o text-success"></i>Active</a>
+														<a class="dropdown-item" href="#" data-toggle="modal" data-target="#desactive_status"><i class="fa fa-dot-circle-o text-danger"></i> Desactive</a>
+													</div>
+												</div>
+											</td>
+											<td class="text-right">
+												<div class="dropdown dropdown-action">
+													<a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
+													<div class="dropdown-menu dropdown-menu-right">
+														<a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_leave"><i class="fa fa-pencil m-r-5"></i> Edit</a>
+														<a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
+													</div>
+												</div>
+											</td>
+
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+                </div>
+				<!-- /Page Content -->
+
+				<!-- Add catégorie-product -->
+				<div id="add_leave" class="modal custom-modal fade" role="dialog">
+					<div class="modal-dialog modal-dialog-centered" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Créer une nouvelle catégorie</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<form>
+                                    <div class="form-group">
+										<label>Designation <span class="text-danger">*</span></label>
+										<div >
+											<input class="form-control" type="text">
+										</div>
+									</div>
+									<div class="form-group">
+										<label>Statut catégorie<span class="text-danger">*</span></label>
+										<select class="select">
+											<option>Active</option>
+											<option>Desactive</option>
+
+										</select>
+									</div>
+									<div class="form-group">
+										<label>Image <span class="text-danger">*</span></label>
+										<div class="">
+											<input class="form-control" type="file">
+										</div>
+									</div>
+									<div class="form-group">
+										<label>Description<span class="text-danger">*</span></label>
+										<textarea rows="4" class="form-control"></textarea>
+									</div>
+									<div class="submit-section">
+										<button class="btn btn-primary submit-btn">Enregistrer</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /Add catégorie-product Modal -->
+
+				<!-- Edit catégorie-product Modal -->
+				<div id="edit_leave" class="modal custom-modal fade" role="dialog">
+					<div class="modal-dialog modal-dialog-centered" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title">Modifier une catégorie</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<form>
+                                    <div class="form-group">
+										<label>Designation <span class="text-danger">*</span></label>
+										<div >
+											<input class="form-control" type="text">
+										</div>
+									</div>
+									<div class="form-group">
+										<label>Statut catégorie<span class="text-danger">*</span></label>
+										<select class="select">
+											<option>Active</option>
+											<option>Desactive</option>
+
+										</select>
+									</div>
+									<div class="form-group">
+										<label>Image <span class="text-danger">*</span></label>
+										<div class="">
+											<input class="form-control" type="file">
+										</div>
+									</div>
+									<div class="form-group">
+										<label>Description<span class="text-danger">*</span></label>
+										<textarea rows="4" class="form-control"></textarea>
+									</div>
+									<div class="submit-section">
+										<button class="btn btn-primary submit-btn">Enregistrer</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /Edit catégorie-product Modal -->
+
+				<!-- Active status catégorie-product  Modal -->
+				<div class="modal custom-modal fade" id="approve_leave" role="dialog">
+					<div class="modal-dialog modal-dialog-centered">
+						<div class="modal-content">
+							<div class="modal-body">
+								<div class="form-header">
+									<h3>Activer le statut catégorie produit</h3>
+									<p>Voulez-vous vraiment Activer cette catégorie?</p>
+								</div>
+								<div class="modal-btn delete-action">
+									<div class="row">
+										<div class="col-6">
+											<a href="javascript:void(0);" class="btn btn-primary continue-btn">Modifier</a>
+										</div>
+										<div class="col-6">
+											<a href="javascript:void(0);" data-dismiss="modal" class="btn btn-primary cancel-btn">Annuler</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /Active status catégorie-product  Modal -->
+
+                <!-- Active status catégorie-product  Modal -->
+				<div class="modal custom-modal fade" id="desactive_status" role="dialog">
+					<div class="modal-dialog modal-dialog-centered">
+						<div class="modal-content">
+							<div class="modal-body">
+								<div class="form-header">
+									<h3>Désactiver le statut catégorie produit</h3>
+									<p>Voulez-vous vraiment désactiver cette catégorie?</p>
+								</div>
+								<div class="modal-btn delete-action">
+									<div class="row">
+										<div class="col-6">
+											<a href="javascript:void(0);" class="btn btn-primary continue-btn">Modifier</a>
+										</div>
+										<div class="col-6">
+											<a href="javascript:void(0);" data-dismiss="modal" class="btn btn-primary cancel-btn">Annuler</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /Active status catégorie-product  Modal -->
+
+				<!-- Delete category-product Modal -->
+				<div class="modal custom-modal fade" id="delete_approve" role="dialog">
+					<div class="modal-dialog modal-dialog-centered">
+						<div class="modal-content">
+							<div class="modal-body">
+								<div class="form-header">
+									<h3>Supprimer la catégorie</h3>
+									<p>
+                                        Voulez-vous vraiment supprimer cette catégorie?</p>
+								</div>
+								<div class="modal-btn delete-action">
+									<div class="row">
+										<div class="col-6">
+											<a href="javascript:void(0);" class="btn btn-primary continue-btn">Supprimer</a>
+										</div>
+										<div class="col-6">
+											<a href="javascript:void(0);" data-dismiss="modal" class="btn btn-primary cancel-btn">Annuler</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /Delete Leave Modal -->
+
+            </div>
+			<!-- /Page Wrapper -->
+
+        </div>
+		<!-- /Main Wrapper -->
+
+        </div>
+		<!-- /Main Wrapper -->
+<!-- jQuery -->
+<script src="assets-back/js/jquery-3.5.1.min.js"></script>
+
+<!-- Bootstrap Core JS -->
+<script src="assets-back/js/popper.min.js"></script>
+<script src="assets-back/js/bootstrap.min.js"></script>
+
+<!-- Slimscroll JS -->
+<script src="assets-back/js/jquery.slimscroll.min.js"></script>
+
+<!-- Select2 JS -->
+<script src="assets-back/js/select2.min.js"></script>
+
+<!-- Datatable JS -->
+<script src="assets-back/js/jquery.dataTables.min.js"></script>
+<script src="assets-back/js/dataTables.bootstrap4.min.js"></script>
+
+<!-- Datetimepicker JS -->
+<script src="assets-back/js/moment.min.js"></script>
+<script src="assets-back/js/bootstrap-datetimepicker.min.js"></script>
+
+<!-- Custom JS -->
+<script src="assets-back/js/app.js"></script>
+
+    </body>
+</html>
+
