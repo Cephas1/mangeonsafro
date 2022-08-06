@@ -135,6 +135,102 @@ Route::get('shoping-cart', function () {
 
 /*
 |--------------------------------------------------------------------------
+| Web Routes - Stevie-Frontend
+|--------------------------------------------------------------------------
+*/
+
+
+
+Route::get('stevie-commerce-a-propos-de-nous', function () {
+    return view('stevie.frontend.a-propos-de-nous.a-propos-de-nous');
+})->name('stevie-a-propos-de-nous');
+
+Route::get('stevie-commerce', function () {
+    return view('stevie.frontend.blog.blog');
+})->name('stevie-blog');
+
+Route::get('stevie-checkout', function () {
+    return view('stevie.frontend.checkout.checkout');
+})->name('stevie-checkout');
+
+Route::get('stevie-comment-ca-marche', function () {
+    return view('stevie.frontend.comment-ca-marche.comment-ca-marche');
+})->name('stevie-comment-ca-marche');
+
+Route::get('stevie-commerce', function () {
+    return view('stevie.frontend.commerce.commerce');
+})->name('stevie-commerce');
+
+Route::get('stevie-commerce-map', function () {
+    return view('stevie.frontend.commerce-map.commerce-map');
+})->name('stevie-commerce-map');
+
+Route::get('stevie-commerce-page', function () {
+    return view('stevie.frontend.commerce-page.commerce-page');
+})->name('stevie-commerce-page');
+
+Route::get('stevie-comming-soon', function () {
+    return view('stevie.frontend.comming-soon.comming-soon');
+})->name('stevie-comming-soon');
+
+Route::get('stevie-conditions-generales-utilisation', function () {
+    return view('stevie.frontend.conditions-generales-d-utilisation.conditions-generales-d-utilisation');
+})->name('stevie-conditions-generales-utilisation');
+
+Route::get('stevie-conditions-generales-utilisation-pro', function () {
+    return view('stevie.frontend.conditions-generales-d-utilisation-pro.conditions-generales-d-utilisation-pro');
+})->name('stevie-conditions-generales-utilisation-pro');
+
+Route::get('stevie-conditions-generales-de-vente', function () {
+    return view('stevie.frontend.conditions-generales-de-vente.conditions-generales-de-vente');
+})->name('stevie-conditions-generales-de-vente');
+
+Route::get('stevie-conditions-generales-de-vente-pro', function () {
+    return view('stevie.frontend.conditions-generales-de-vente-pro.conditions-generales-de-vente-pro');
+})->name('stevie-conditions-generales-de-vente-pro');
+
+Route::get('stevie-conctact', function () {
+    return view('stevie.frontend.contact.contact');
+})->name('stevie-conctact');
+
+Route::get('stevie-faq', function () {
+    return view('stevie.frontend.faq.faq');
+})->name('stevie-faq');
+
+Route::get('stevie-faq-pro', function () {
+    return view('stevie.frontend.faq-pro.faq-pro');
+})->name('stevie-faq-pro');
+
+Route::get('stevie-favoris', function () {
+    return view('stevie.frontend.favoris.favoris');
+})->name('stevie-favoris');
+
+Route::get('stevie-index', function () {
+    return view('stevie.frontend.home.home');
+})->name('stevie-index');
+
+Route::get('stevie-politique-de-confidentialite', function () {
+    return view('stevie.frontend.politique-de-confidentialite.politique-de-confidentialite');
+})->name('stevie-politique-de-confidentialite');
+
+Route::get('stevie-product-details', function () {
+    return view('stevie.frontend.product-details.product-details');
+})->name('stevie-product-details');
+
+Route::get('stevie-services-et-prestations', function () {
+    return view('stevie.frontend.services-et-prestations.services-et-prestations');
+})->name('stevie-services-et-prestations');
+
+Route::get('stevie-shop-grid', function () {
+    return view('stevie.frontend.shop-grid.shop-grid');
+})->name('stevie-shop-grid');
+
+Route::get('stevie-shopping-cart', function () {
+    return view('stevie.frontend.shopping-cart.shopping-cart');
+})->name('stevie-shopping-cart');
+
+/*
+|--------------------------------------------------------------------------
 | Web Routes - Images upload
 |--------------------------------------------------------------------------
 */
