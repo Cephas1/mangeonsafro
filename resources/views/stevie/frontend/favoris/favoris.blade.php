@@ -36,7 +36,7 @@
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="#">Viande Fraiche</a></h6>
+                                    <h6><a href="{{route('product-details')}}">Viande Fraiche</a></h6>
                                     <h5>30.00€</h5>
                                 </div>
                             </div>
@@ -51,7 +51,7 @@
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="#">Banane</a></h6>
+                                    <h6><a href="{{route('product-details')}}">Banane</a></h6>
                                     <h5>30.00€</h5>
                                 </div>
                             </div>
@@ -66,7 +66,7 @@
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="#">Fruits</a></h6>
+                                    <h6><a href="{{route('product-details')}}">Fruits</a></h6>
                                     <h5>30.00€</h5>
                                 </div>
                             </div>
@@ -81,7 +81,7 @@
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="#">Raisins</a></h6>
+                                    <h6><a href="{{route('product-details')}}">Raisins</a></h6>
                                     <h5>30.00€</h5>
                                 </div>
                             </div>
@@ -96,7 +96,7 @@
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="#">Hamburger</a></h6>
+                                    <h6><a href="{{route('product-details')}}">Hamburger</a></h6>
                                     <h5>30.00€</h5>
                                 </div>
                             </div>
@@ -111,7 +111,7 @@
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="#">Mangue</a></h6>
+                                    <h6><a href="{{route('product-details')}}">Mangue</a></h6>
                                     <h5>30.00€</h5>
                                 </div>
                             </div>
@@ -126,7 +126,7 @@
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="#">Pastèque</a></h6>
+                                    <h6><a href="{{route('product-details')}}">Pastèque</a></h6>
                                     <h5>30.00€</h5>
                                 </div>
                             </div>
@@ -141,7 +141,7 @@
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="#">Pomme</a></h6>
+                                    <h6><a href="{{route('product-details')}}">Pomme</a></h6>
                                     <h5>30.00€</h5>
                                 </div>
                             </div>
@@ -156,7 +156,7 @@
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="#">Jus</a></h6>
+                                    <h6><a href="{{route('product-details')}}">Jus</a></h6>
                                     <h5>30.00€</h5>
                                 </div>
                             </div>
@@ -171,7 +171,7 @@
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="#">Poulet</a></h6>
+                                    <h6><a href="{{route('product-details')}}">Poulet</a></h6>
                                     <h5>30.00€</h5>
                                 </div>
                             </div>
@@ -186,7 +186,7 @@
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="#">Jus de Fruits</a></h6>
+                                    <h6><a href="{{route('product-details')}}">Jus de Fruits</a></h6>
                                     <h5>30.00€</h5>
                                 </div>
                             </div>
@@ -201,7 +201,7 @@
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="#">Mélange de Fruits</a></h6>
+                                    <h6><a href="{{route('product-details')}}">Mélange de Fruits</a></h6>
                                     <h5>30.00€</h5>
                                 </div>
                             </div>

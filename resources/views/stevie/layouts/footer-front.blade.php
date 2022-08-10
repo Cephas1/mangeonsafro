@@ -5,7 +5,7 @@
             <div class="col-lg-2 col-md-6 col-sm-6">
                 <div class="footer__about">
                     <div class="footer__about__logo">
-                        <a href="{{route('stevie-index')}}"><img src="{{asset('assets-front/img/logo.png')}}" style="height: 30px; width: 30px" alt=""></a>
+                        <a href="{{route('home')}}"><img src="{{asset('assets-front/img/logo.png')}}" style="height: 30px; width: 30px" alt=""></a>
                     </div>
                     <ul>
                         <!-- <li>Address: 60-49 Road 11378 New York</li> -->
@@ -18,14 +18,14 @@
                 <div class="footer__widget">
                     <h6>Mentions légales</h6>
                     <ul>
-                        <li><a href="{{route('stevie-conditions-generales-utilisation')}}">Conditions Générales d'utilisation</a></li>
-                        <li><a href="{{route('stevie-conditions-generales-de-vente')}}">Conditions Générales de vente</a></li>
-                        <li><a href="{{route('stevie-politique-de-confidentialite')}}">Politique de confidentialité et de cookies</a></li>
+                        <li><a href="{{route('conditions-generales-utilisation')}}">Conditions Générales d'utilisation</a></li>
+                        <li><a href="{{route('conditions-generales-de-vente')}}">Conditions Générales de vente</a></li>
+                        <li><a href="{{route('politique-de-confidentialite')}}">Politique de confidentialité et de cookies</a></li>
 
                     </ul>
                     <ul>
-                        <li><a href="{{route('stevie-comment-ca-marche')}}">Comment ça marche ?</a></li>
-                        <li><a href="{{route('stevie-faq')}}">F.A.Q</a></li>
+                        <li><a href="{{route('comment-ca-marche')}}">Comment ça marche ?</a></li>
+                        <li><a href="{{route('faq')}}">F.A.Q</a></li>
 
                     </ul>
                     <div class="footer__widget__social">

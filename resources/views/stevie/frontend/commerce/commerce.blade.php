@@ -14,7 +14,7 @@
                 </div>
                 <!-- List Commerce Begin -->
                 <div class="col-lg-6 col-md-12 col-sm-12">
-                    <a href="{{route('stevie-commerce-page')}}">
+                    <a href="{{route('commerce-page')}}">
                         <div class="shop">
                             <div class="Picture-Shop">
                                 <img src="{{asset('assets-front/img/shop/business-plan-epicerie.jpg')}}" alt="">
@@ -36,7 +36,7 @@
                     </a>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12">
-                    <a href="{{route('stevie-commerce-page')}}">
+                    <a href="{{route('commerce-page')}}">
                         <div class="shop">
                             <div class="Picture-Shop">
                                 <img src="{{asset('assets-front/img/shop/cb10e02ab32a62f5301611c021b04deb.jpg')}}" alt="">
@@ -58,7 +58,7 @@
                     </a>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12">
-                    <a href="{{route('stevie-commerce-page')}}">
+                    <a href="{{route('commerce-page')}}">
                         <div class="shop">
                             <div class="Picture-Shop">
                                 <img src="{{asset('assets-front/img/shop/ece1d0082c23ef68371369c35ecf55ed.jpg')}}" alt="">
@@ -80,7 +80,7 @@
                     </a>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12">
-                    <a href="{{route('stevie-commerce-page')}}">
+                    <a href="{{route('commerce-page')}}">
                         <div class="shop">
                             <div class="Picture-Shop">
                                 <img src="{{asset('assets-front/img/shop/ouvrir-epicerie-village.jpg')}}" alt="">
@@ -102,7 +102,7 @@
                     </a>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12">
-                    <a href="{{route('stevie-commerce-page')}}">
+                    <a href="{{route('commerce-page')}}">
                         <div class="shop">
                             <div class="Picture-Shop">
                                 <img src="{{asset('assets-front/img/shop/business-plan-epicerie.jpg')}}" alt="">
@@ -124,7 +124,7 @@
                     </a>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12">
-                    <a href="{{route('stevie-commerce-page')}}">
+                    <a href="{{route('commerce-page')}}">
                         <div class="shop">
                             <div class="Picture-Shop">
                                 <img src="{{asset('assets-front/img/shop/cb10e02ab32a62f5301611c021b04deb.jpg')}}" alt="">

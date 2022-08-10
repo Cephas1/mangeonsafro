@@ -9,7 +9,7 @@
                 <div class="col-lg-12">
                     <div class="blog__details__hero__text">
                         <h2>Bientôt disponible...</h2>
-                        <h4><a href="{{route('stevie-index')}}">Accueil</a> </h4>
+                        <h4><a href="{{route('home')}}">Accueil</a> </h4>
                     </div>
                 </div>
             </div>

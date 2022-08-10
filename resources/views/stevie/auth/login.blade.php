@@ -1,83 +1,51 @@
-<!DOCTYPE html>
-<html lang="fr">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-        <meta name="description" content="Smarthr - Bootstrap Admin Template">
-		<meta name="keywords" content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern, accounts, invoice, html5, responsive, CRM, Projects">
-        <meta name="author" content="Dreamguys - Bootstrap Admin Template">
-        <meta name="robots" content="noindex, nofollow">
-		<title>Dashboard MangeonsAfro</title>
-
-
-		<!-- Favicon -->
-        <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets-back/img/favicon.png')}}">
-
-		<!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="{{asset('assets-back/css/bootstrap.min.css')}}">
-
-		<!-- Fontawesome CSS -->
-        <link rel="stylesheet" href="{{asset('assets-back/css/font-awesome.min.css')}}">
-
-		<!-- Main CSS -->
-        <link rel="stylesheet" href="{{asset('assets-back/css/style.css')}}">
-
-    </head>
-    <body class="account-page">
-		<!-- Main Wrapper -->
-        <div class="main-wrapper">
-			<div class="account-content">
-				<div class="container">
-					<!-- Account Logo -->
-					<div class="account-logo">
-						<a href="index.html"><img src="{{asset('assets-back/img/logo-mangeonsafro.png')}}" alt="Dreamguy's Technologies"></a>
-					</div>
-					<!-- /Account Logo -->
-					<div class="account-box">
-						<div class="account-wrapper">
-							<h3 class="account-title">Se connecter</h3>
-							<!-- Account Form -->
-							<form action="index.html">
-								<div class="form-group">
-									<label>adresse de messagerie</label>
-									<input class="form-control" type="text">
-								</div>
-								<div class="form-group">
-									<div class="row">
-										<div class="col">
-											<label>Password</label>
-										</div>
-										<div class="col-auto">
-											<a class="text-muted" href="forgot-password.html">
-												Mot de passe perdu?
-											</a>
-										</div>
-									</div>
-									<input class="form-control" type="password">
-								</div>
-								<div class="form-group text-center">
-									<button class="btn btn-primary account-btn" type="submit">Login</button>
-								</div>
-								<div class="account-footer">
-									<p>Vous n’avez pas encore de compte ? <a href="register.html">S'inscrire</a></p>
-								</div>
-							</form>
-							<!-- /Account Form -->
-						</div>
-					</div>
-				</div>
-			</div>
+@include('stevie.layouts.app-front-head')
+        <div id="preloder">
+            <div class="loader"></div>
         </div>
+		<!-- Main Wrapper -->
+        <section class="commerce" >
+            <!-- Add background slide Begin -->
+            @include('stevie.layouts.banner-front')
+            <!-- Add background slide End -->
+            <div class="loginForm">
+                <div class="header__logo text-center">
+                    <a href="{{route('home')}}"><img src="assets-front/img/logo.png" style="height: 90px; width:90px " alt=""></a>
+                </div>
+                <div class="signupTitle text-center">
+                    <h2>Connexion</h2>
+                </div>
+                <div class="signupDetails">
+                    <form action="#">
+                        @csrf
+                        <div class="row">
+                            <div class="col-lg-12 inputBox">
+                                <span>Email</span>
+                                <div>
+                                    <input type="email" name="email" id="email" placeholder="Entrez votre mail" required autofocus>
+                                </div>
+                            </div>
+                            <div class="col-lg-12 inputBox">
+                                <span>Password</span>
+                                <div class="pwd">
+                                    <input type="password" name="password" id="password" placeholder="Entrez un mot de passe" required>
+                                    <i class="fa fa-2x fa-eye"></i>
+                                </div>
+                                <div class="condition text-right">
+                                    <p><a href="#">Mot de passe oublié?</a></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="signup-Validate">
+                            <button type="submit" class="site-btn">Se connecter</button>
+                        </div>
+                        <div class="condition text-center" style="margin-top: 20px; margin-bottom: 20px; font-size:26px">
+                            <p>Pas encore inscrit?<a href="{{route('inscription')}}">S'inscrire</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
 		<!-- /Main Wrapper -->
-		<!-- jQuery -->
-        <script src="{{asset('assets-back/js/jquery-3.5.1.min.js')}}"></script>
 
-		<!-- Bootstrap Core JS -->
-        <script src="{{asset('assets-back/js/popper.min.js')}}"></script>
-        <script src="{{asset('assets-back/js/bootstrap.min.js')}}"></script>
-
-		<!-- Custom JS -->
-		<script src="{{asset('assets-back/js/app.js')}}"></script>
-
-    </body>
-</html>
+@include('stevie.layouts.app-front-foot')

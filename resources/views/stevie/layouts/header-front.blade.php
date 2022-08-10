@@ -7,12 +7,12 @@
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
-            <a href="{{route('stevie-index')}}"><img src="assets-front/img/logo.png" style="height: 50px; width:50px " alt=""></a>
+            <a href="{{route('home')}}"><img src="assets-front/img/logo.png" style="height: 50px; width:50px " alt=""></a>
         </div>
         <div class="humberger__menu__cart">
             <ul>
-                <li><a href="{{route('stevie-favoris')}}"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href="{{route('stevie-shopping-cart')}}"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                <li><a href="{{route('favoris')}}"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                <li><a href="{{route('shopping-cart')}}"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
             </ul>
             <!-- <div class="header__cart__price"> <span>$150.00</span></div> -->
         </div>
@@ -39,21 +39,21 @@
                 </nav >
             @else
                 <div class="header__top__right__auth">
-                    <a href="#"><i class="fa fa-sign-in"></i>Connexion</a>
+                    <a href="{{route('connexion')}}"><i class="fa fa-sign-in"></i>Connexion</a>
                 </div>
                 <div class="header__top__right__auth">
-                    <a href="signup.html"><i class="fa fa-user-plus"></i>S'inscrire</a>
+                    <a href="{{route('inscription')}}"><i class="fa fa-user-plus"></i>S'inscrire</a>
                 </div>
             @endauth
 
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
-                <li class="active"><a href="{{route('stevie-index')}}">Accueil</a></li>
-                <li><a href="{{route('stevie-commerce')}}">Commerces</a></li>
-                <li><a href="{{route('stevie-shop-grid')}}">Produits</a></li>
-                <li><a href="{{route('stevie-a-propos-de-nous')}}">A propos de nous</a></li>
-                <li><a href="{{route('stevie-conctact')}}">Contact</a></li>
+                <li class="active"><a href="{{route('home')}}">Accueil</a></li>
+                <li><a href="{{route('commerce-list')}}">Commerces</a></li>
+                <li><a href="{{route('shop-grid')}}">Produits</a></li>
+                <li><a href="{{route('a-propos-de-nous')}}">A propos de nous</a></li>
+                <li><a href="{{route('conctact')}}">Contact</a></li>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -113,10 +113,10 @@
                                 </div>
                             @else
                                 <div class="header__top__right__auth">
-                                    <a href="{{route('login')}}"><i class="fa fa-sign-in"></i> Connexion</a>
+                                    <a href="{{route('connexion')}}"><i class="fa fa-sign-in"></i> Connexion</a>
                                 </div>
                                 <div class="header__top__right__auth">
-                                    <a href="{{route('register')}}"><i class="fa fa-user-plus"></i> S'inscrire</a>
+                                    <a href="{{route('inscription')}}"><i class="fa fa-user-plus"></i> S'inscrire</a>
                                 </div>
                             @endauth
 
@@ -129,25 +129,25 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="{{route('stevie-index')}}"><img src="assets-front/img/logo.png"  style="height: 90px; width:90px "alt=""></a>
+                        <a href="{{route('home')}}"><img src="assets-front/img/logo.png"  style="height: 90px; width:90px "alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-7">
                     <nav class="header__menu">
                         <ul>
-                            <li @if (Route::is('stevie-index')) class="active" @endif ><a href="{{route('stevie-index')}}">Accueil</a></li>
-                            <li @if (Route::is('stevie-commerce')) class="active" @endif ><a href="{{route('stevie-commerce')}}">Commerces</a></li>
-                            <li @if (Route::is('stevie-shop-grid')) class="active" @endif ><a href="{{route('stevie-shop-grid')}}">Produits</a></li>
-                            <li @if (Route::is('stevie-a-propos-de-nous')) class="active" @endif ><a href="{{route('stevie-a-propos-de-nous')}}">A propos de nous</a></li>
-                            <li @if (Route::is('stevie-contact')) class="active" @endif ><a href="{{route('stevie-conctact')}}">Contact</a></li>
+                            <li @if (Route::is('home')) class="active" @endif ><a href="{{route('home')}}">Accueil</a></li>
+                            <li @if (Route::is('commerce-list')) class="active" @endif ><a href="{{route('commerce-list')}}">Commerces</a></li>
+                            <li @if (Route::is('shop-grid')) class="active" @endif ><a href="{{route('shop-grid')}}">Produits</a></li>
+                            <li @if (Route::is('a-propos-de-nous')) class="active" @endif ><a href="{{route('a-propos-de-nous')}}">A propos de nous</a></li>
+                            <li @if (Route::is('contact')) class="active" @endif ><a href="{{route('conctact')}}">Contact</a></li>
                         </ul>
                     </nav>
                 </div>
                 <div class="col-lg-2">
                     <div class="header__cart">
                         <ul>
-                            <li><a href="{{route('stevie-favoris')}}"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="{{route('stevie-shopping-cart')}}"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                            <li><a href="{{route('favoris')}}"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                            <li><a href="{{route('shopping-cart')}}"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
                         </ul>
                         <!-- <div class="header__cart__price">item: <span>$150.00</span></div> -->
                     </div>

@@ -671,7 +671,7 @@ ol {
 .hero__search__form form input {
 	width: 70%;
 	border: none;
-	height: 48px;
+	height: 42px;
 	font-size: 16px;
 	color: #b2b2b2;
 	padding-left: 20px;
@@ -1996,7 +1996,16 @@ ol {
 	width: 100%;
 	display: flex;
 	justify-content: center;
+    height: 100% ;
 }
+
+.loginForm {
+    max-width: 720px;
+    margin: 35px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 0 20px;
+  }
 
 .Bg{
 	max-width: 1350px;
@@ -2039,7 +2048,7 @@ ol {
 	width: 100%;
 	background: rgba(255, 255, 255, 0.8);
 	padding: 20px;
-	border-radius: 10px;
+	/* border-radius: 10px; */
 }
 
 
@@ -2079,7 +2088,16 @@ ol {
 	border-bottom: 4px solid #d6001d86;
 }
 
-.pwd i{
+.loginForm .pwd i{
+	position: absolute;
+	right: 30px;
+	top: 45%;
+	transform: translateY(-50%);
+    cursor: pointer;
+    color: #ccc;
+}
+
+.signupForm .pwd i{
 	position: absolute;
 	right: 30px;
 	top: 65%;
@@ -2134,6 +2152,7 @@ ol {
 	display: flex;
 	justify-content: center;
 }
+
 
 /*---------------------
   Shop List

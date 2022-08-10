@@ -18,6 +18,6 @@ class HomeController extends Controller
             Role::create(['name' => 'responsable-commerce']);
             Role::create(['name' => 'vendeur']);
         }
-        return view('frontend.home.home');
+        return view('stevie.frontend.home.home');
     }
 }

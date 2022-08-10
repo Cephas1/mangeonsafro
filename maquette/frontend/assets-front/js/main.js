@@ -186,4 +186,44 @@
         $button.parent().find('input').val(newVal);
     });
 
+    
+
+    //script for background slide
+    let bg_slide = document.getElementsByClassName('Bg_slide');
+    let bg_step = 0;
+    let nbr_bg = bg_slide.length;
+    function removeActiveBg(){
+        for (let i = 0 ; i < nbr_bg ; i++) {
+            bg_slide[i].classList.remove('active');
+        }
+    }
+    
+    setInterval(function(){
+        bg_step++;
+        if(bg_step>=nbr_bg){
+            bg_step=0;
+        }
+        removeActiveBg();
+        bg_slide[bg_step].classList.add('active');
+    },5000);
+
+    //Script for password show or hide
+    try{
+        let pwd = document.querySelector(".pwd input[type='password']");
+    let toggleBtn = document.querySelector(".pwd i");
+    
+    toggleBtn.onclick = ()=>{
+        if(pwd.type=="password"){
+            pwd.type="text";
+            toggleBtn.classList.add("active");
+        }else{
+            pwd.type="password";
+            toggleBtn.classList.remove("active");
+        }
+    }
+    } catch{
+        return;
+    }
+    
+
 })(jQuery);

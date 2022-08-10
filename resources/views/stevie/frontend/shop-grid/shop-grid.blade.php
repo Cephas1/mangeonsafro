@@ -17,6 +17,7 @@
             <div class="container com-d">
                 <div class="row">
                     <div class="col-lg-12">
+                        <!-- Listes des meilleurs produits debut -->
                         <div class="product__discount">
                             <div class="section-title product__discount__title text-center">
                                 <h2>Meilleurs Produits</h2>
@@ -36,7 +37,7 @@
                                             </div>
                                             <div class="product__discount__item__text">
                                                 <span>Fruits Secs</span>
-                                                <h5><a href="#">Raisins & nuts</a></h5>
+                                                <h5><a href="{{route('product-details')}}">Raisins & nuts</a></h5>
                                                 <div class="product__item__price">30.00€<span>€36.00</span></div>
                                             </div>
                                         </div>
@@ -54,7 +55,7 @@
                                             </div>
                                             <div class="product__discount__item__text">
                                                 <span>Légumes</span>
-                                                <h5><a href="#">Paquet de Legume</a></h5>
+                                                <h5><a href="{{route('product-details')}}">Paquet de Legume</a></h5>
                                                 <div class="product__item__price">30.00€<span>€36.00</span></div>
                                             </div>
                                         </div>
@@ -72,7 +73,7 @@
                                             </div>
                                             <div class="product__discount__item__text">
                                                 <span>Fruits Secs</span>
-                                                <h5><a href="#">Fruits mélangés</a></h5>
+                                                <h5><a href="{{route('product-details')}}">Fruits mélangés</a></h5>
                                                 <div class="product__item__price">30.00€<span>€36.00</span></div>
                                             </div>
                                         </div>
@@ -90,7 +91,7 @@
                                             </div>
                                             <div class="product__discount__item__text">
                                                 <span>Fruits Secs</span>
-                                                <h5><a href="#">Raisins & noix</a></h5>
+                                                <h5><a href="{{route('product-details')}}">Raisins & noix</a></h5>
                                                 <div class="product__item__price">30.00€<span>€36.00</span></div>
                                             </div>
                                         </div>
@@ -108,7 +109,7 @@
                                             </div>
                                             <div class="product__discount__item__text">
                                                 <span>Fruits Secs</span>
-                                                <h5><a href="#">Raisin & noix</a></h5>
+                                                <h5><a href="{{route('product-details')}}">Raisin & noix</a></h5>
                                                 <div class="product__item__price">30.00€ <span>€36.00</span></div>
                                             </div>
                                         </div>
@@ -126,7 +127,7 @@
                                             </div>
                                             <div class="product__discount__item__text">
                                                 <span>Fruits Secs</span>
-                                                <h5><a href="#">Raisin & noix</a></h5>
+                                                <h5><a href="{{route('product-details')}}">Raisin & noix</a></h5>
                                                 <div class="product__item__price">30.00€ <span>€36.00</span></div>
                                             </div>
                                         </div>
@@ -134,6 +135,8 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- Listes des meilleurs produits fin -->
+                        <!-- Listes des produits debut -->
                         <div class="filter__item">
                             <div class="row">
                                 <div class="col-lg-12">
@@ -154,7 +157,7 @@
                                         </ul>
                                     </div>
                                     <div class="product__item__text">
-                                        <h6><a href="#">Viande Fraiche</a></h6>
+                                        <h6><a href="{{route('product-details')}}">Viande Fraiche</a></h6>
                                         <h5>30.00€</h5>
                                     </div>
                                 </div>
@@ -169,7 +172,7 @@
                                         </ul>
                                     </div>
                                     <div class="product__item__text">
-                                        <h6><a href="#">Banane</a></h6>
+                                        <h6><a href="{{route('product-details')}}">Banane</a></h6>
                                         <h5>30.00€</h5>
                                     </div>
                                 </div>
@@ -184,7 +187,7 @@
                                         </ul>
                                     </div>
                                     <div class="product__item__text">
-                                        <h6><a href="#">Fruits</a></h6>
+                                        <h6><a href="{{route('product-details')}}">Fruits</a></h6>
                                         <h5>30.00€</h5>
                                     </div>
                                 </div>
@@ -199,7 +202,7 @@
                                         </ul>
                                     </div>
                                     <div class="product__item__text">
-                                        <h6><a href="#">Raisins</a></h6>
+                                        <h6><a href="{{route('product-details')}}">Raisins</a></h6>
                                         <h5>30.00€</h5>
                                     </div>
                                 </div>
@@ -214,7 +217,7 @@
                                         </ul>
                                     </div>
                                     <div class="product__item__text">
-                                        <h6><a href="#">Hamburger</a></h6>
+                                        <h6><a href="{{route('product-details')}}">Hamburger</a></h6>
                                         <h5>30.00€</h5>
                                     </div>
                                 </div>
@@ -229,7 +232,7 @@
                                         </ul>
                                     </div>
                                     <div class="product__item__text">
-                                        <h6><a href="#">Mangue</a></h6>
+                                        <h6><a href="{{route('product-details')}}">Mangue</a></h6>
                                         <h5>30.00€</h5>
                                     </div>
                                 </div>
@@ -244,7 +247,7 @@
                                         </ul>
                                     </div>
                                     <div class="product__item__text">
-                                        <h6><a href="#">Pastèque</a></h6>
+                                        <h6><a href="{{route('product-details')}}">Pastèque</a></h6>
                                         <h5>30.00€</h5>
                                     </div>
                                 </div>
@@ -259,7 +262,7 @@
                                         </ul>
                                     </div>
                                     <div class="product__item__text">
-                                        <h6><a href="#">Pomme</a></h6>
+                                        <h6><a href="{{route('product-details')}}">Pomme</a></h6>
                                         <h5>30.00€</h5>
                                     </div>
                                 </div>
@@ -274,7 +277,7 @@
                                         </ul>
                                     </div>
                                     <div class="product__item__text">
-                                        <h6><a href="#">Jus</a></h6>
+                                        <h6><a href="{{route('product-details')}}">Jus</a></h6>
                                         <h5>30.00€</h5>
                                     </div>
                                 </div>
@@ -289,7 +292,7 @@
                                         </ul>
                                     </div>
                                     <div class="product__item__text">
-                                        <h6><a href="#">Poulet</a></h6>
+                                        <h6><a href="{{route('product-details')}}">Poulet</a></h6>
                                         <h5>30.00€</h5>
                                     </div>
                                 </div>
@@ -304,7 +307,7 @@
                                         </ul>
                                     </div>
                                     <div class="product__item__text">
-                                        <h6><a href="#">Jus de Fruits</a></h6>
+                                        <h6><a href="{{route('product-details')}}">Jus de Fruits</a></h6>
                                         <h5>30.00€</h5>
                                     </div>
                                 </div>
@@ -319,12 +322,13 @@
                                         </ul>
                                     </div>
                                     <div class="product__item__text">
-                                        <h6><a href="#">Mélange de Fruits</a></h6>
+                                        <h6><a href="{{route('product-details')}}">Mélange de Fruits</a></h6>
                                         <h5>30.00€</h5>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <!-- Listes des produits fin -->
                         <div class="product__pagination text-center">
                             <a href="#">1</a>
                             <a href="#">2</a>
