@@ -17,7 +17,7 @@
             <!-- <div class="header__cart__price"> <span>$150.00</span></div> -->
         </div>
         <div class="humberger__menu__widget">
-            <div class="header__top__right__language">
+            {{-- <div class="header__top__right__language">
                 <img src="assets-front/img/fr.jpeg" alt="">
                 <div>Français</div>
                 <span class="arrow_carrot-down"></span>
@@ -25,7 +25,7 @@
                     <li><a href="#">Français</a></li>
                     <li><a href="#">Anglais</a></li>
                 </ul>
-            </div>
+            </div> --}}
             @auth
                 <nav  class="humberger__menu__nav mobile-menu">
                     <ul>
@@ -93,7 +93,7 @@
                                 <a href="#"><i class="fa fa-linkedin"></i></a>
                                 <!-- <a href="#"><i class="fa fa-pinterest-p"></i></a> -->
                             </div>
-                            <div class="header__top__right__language">
+                            {{-- <div class="header__top__right__language">
                                 <img src="assets-front/img/fr.jpeg" alt="">
                                 <div>Français</div>
                                 <span class="arrow_carrot-down"></span>
@@ -101,7 +101,7 @@
                                     <li><a href="#">French</a></li>
                                     <li><a href="#">English</a></li>
                                 </ul>
-                            </div>
+                            </div> --}}
                             @auth
                                 <div class="header__top__right__auth com-a">
                                     <div><span><i class="fa fa-user"></i>Mon compte</span>

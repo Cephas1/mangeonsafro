@@ -158,6 +158,8 @@ Route::post('save', [ImageCategoriesController::class, 'save']);
 |--------------------------------------------------------------------------
 */
 
+
+
 Route::prefix('backend')->middleware(['auth'])->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('/categorie-shop', CategorieShopController::class);
@@ -374,5 +376,126 @@ Route::prefix('backend')->middleware(['auth'])->group(function () {
     // Route::post('save', 'ImageController@save');
     // Route::resource('image', ImageController::class);
 });
+
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes - Backend - Admin
+| Debut
+|--------------------------------------------------------------------------
+*/
+Route::get('admin-all-users', function () {
+    return view('stevie.backend.admin.admin-all-users.admin-all-users');
+})->name('admin-all-users');
+
+Route::get('admin-categories-commerces', function () {
+    return view('stevie.backend.admin.admin-categories-commerces.admin-categories-commerces');
+})->name('admin-categories-commerces');
+
+Route::get('admin-categories-users', function () {
+    return view('stevie.backend.admin.admin-categories-users.admin-categories-users');
+})->name('admin-categories-users');
+
+Route::get('admin-evaluations', function () {
+    return view('stevie.backend.admin.admin-evaluations.admin-evaluations');
+})->name('admin-evaluations');
+
+Route::get('admin-gestion-des-commandes', function () {
+    return view('stevie.backend.admin.admin-gestion-des-commandes.admin-gestion-des-commandes');
+})->name('admin-gestion-des-commandes');
+
+Route::get('admin-home', function () {
+    return view('stevie.backend.admin.admin-home.admin-home');
+})->name('admin-home');
+
+Route::get('admin-list-commerces', function () {
+    return view('stevie.backend.admin.admin-list-commerces.admin-list-commerces');
+})->name('admin-list-commerces');
+
+Route::get('admin-profile', function () {
+    return view('stevie.backend.admin.admin-profile.admin-profile');
+})->name('admin-profile');
+ /*
+|--------------------------------------------------------------------------
+| Web Routes - Backend - Admin
+| Fin
+|--------------------------------------------------------------------------
+*/
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes - Backend - client
+| Debut
+|--------------------------------------------------------------------------
+*/
+Route::get('client-home', function () {
+    return view('stevie.backend.client.client-home.client-home');
+})->name('client-home');
+
+Route::get('client-mes-commandes', function () {
+    return view('stevie.backend.client.client-mes-commandes.client-mes-commandes');
+})->name('client-mes-commandes');
+
+Route::get('client-mes-produits-preferes', function () {
+    return view('stevie.backend.client.client-mes-produits-preferes.client-mes-produits-preferes');
+})->name('client-mes-produits-preferes');
+
+Route::get('client-profile', function () {
+    return view('stevie.backend.client.client-profile.client-profile');
+})->name('client-profile');
+ /*
+|--------------------------------------------------------------------------
+| Web Routes - Backend - client
+| Fin
+|--------------------------------------------------------------------------
+*/
+
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes - Backend - Vendeur
+| Debut
+|--------------------------------------------------------------------------
+*/
+Route::get('vendeur-categories-produits', function () {
+    return view('stevie.backend.vendeur.vendeur-categories-produits.vendeur-categories-produits');
+})->name('vendeur-categories-produits');
+
+Route::get('vendeur-home', function () {
+    return view('stevie.backend.vendeur.vendeur-home.vendeur-home');
+})->name('vendeur-home');
+
+Route::get('vendeur-mes-commandes', function () {
+    return view('stevie.backend.vendeur.vendeur-mes-commandes.vendeur-mes-commandes');
+})->name('vendeur-mes-commandes');
+
+Route::get('vendeur-mes-commentaires', function () {
+    return view('stevie.backend.vendeur.vendeur-mes-commentaires.vendeur-mes-commentaires');
+})->name('vendeur-mes-commentaires');
+
+Route::get('vendeur-mes-informations', function () {
+    return view('stevie.backend.vendeur.vendeur-mes-informations.vendeur-mes-informations');
+})->name('vendeur-mes-informations');
+
+Route::get('vendeur-mes-produits', function () {
+    return view('stevie.backend.vendeur.vendeur-mes-produits.vendeur-mes-produits');
+})->name('vendeur-mes-produits');
+
+Route::get('vendeur-mon-portefeuille', function () {
+    return view('stevie.backend.vendeur.vendeur-mon-portefeuille.vendeur-mon-portefeuille');
+})->name('vendeur-mon-portefeuille');
+
+Route::get('vendeur-profile', function () {
+    return view('stevie.backend.vendeur.vendeur-profile.vendeur-profile');
+})->name('vendeur-profile');
+ /*
+|--------------------------------------------------------------------------
+| Web Routes - Backend - Vendeur
+| Fin
+|--------------------------------------------------------------------------
+*/
+
+
+
 
 require __DIR__ . '/auth.php';
