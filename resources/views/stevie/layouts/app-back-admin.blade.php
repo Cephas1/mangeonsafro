@@ -60,7 +60,7 @@
                     <div class="noti-content">
                         <ul class="notification-list">
                             <li class="notification-message">
-                                <a href="activities.html">
+                                <a href="#">
                                     <div class="media">
                                         <span class="avatar">
                                             <img alt="" src="assets-back/img/profiles/avatar-02.jpg">
@@ -73,7 +73,7 @@
                                 </a>
                             </li>
                             <li class="notification-message">
-                                <a href="activities.html">
+                                <a href="#">
                                     <div class="media">
                                         <span class="avatar">
                                             <img alt="" src="assets-back/img/profiles/avatar-03.jpg">
@@ -86,7 +86,7 @@
                                 </a>
                             </li>
                             <li class="notification-message">
-                                <a href="activities.html">
+                                <a href="#">
                                     <div class="media">
                                         <span class="avatar">
                                             <img alt="" src="assets-back/img/profiles/avatar-06.jpg">
@@ -99,7 +99,7 @@
                                 </a>
                             </li>
                             <li class="notification-message">
-                                <a href="activities.html">
+                                <a href="#">
                                     <div class="media">
                                         <span class="avatar">
                                             <img alt="" src="assets-back/img/profiles/avatar-17.jpg">
@@ -112,7 +112,7 @@
                                 </a>
                             </li>
                             <li class="notification-message">
-                                <a href="activities.html">
+                                <a href="#">
                                     <div class="media">
                                         <span class="avatar">
                                             <img alt="" src="assets-back/img/profiles/avatar-13.jpg">
@@ -127,7 +127,7 @@
                         </ul>
                     </div>
                     <div class="topnav-dropdown-footer">
-                        <a href="activities.html">View all Notifications</a>
+                        <a href="#">View all Notifications</a>
                     </div>
                 </div>
             </li>
