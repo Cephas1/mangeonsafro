@@ -37,101 +37,112 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile/{slug?}', [SiteProfileController::class, 'index'])->name('frontend.profile.profile');
 });
 
+Route::get('commerce-a-propos-de-nous', function () {
+    return view('stevie.frontend.a-propos-de-nous.a-propos-de-nous');
+})->name('a-propos-de-nous');
+
 Route::get('blog', function () {
-    return view('frontend.blog.blog');
+    return view('stevie.frontend.blog.blog');
 })->name('blog');
 
-Route::get('blog-details', function () {
-    return view('frontend.blog-details.blog-details');
-})->name('blog-details');
-
 Route::get('checkout', function () {
-    return view('frontend.checkout.checkout');
+    return view('stevie.frontend.checkout.checkout');
 })->name('checkout');
 
-Route::get('coming-soon', function () {
-    return view('frontend.coming-soon.coming-soon');
-})->name('coming-soon');
-
 Route::get('comment-ca-marche', function () {
-    return view('frontend.comment-ca-marche.comment-ca-marche');
+    return view('stevie.frontend.comment-ca-marche.comment-ca-marche');
 })->name('comment-ca-marche');
 
-Route::get('comment-ca-marche-liv', function () {
-    return view('frontend.comment-ca-marche-liv.comment-ca-marche-liv');
-})->name('comment-ca-marche-liv');
+Route::get('commerce-list', function () {
+    return view('stevie.frontend.commerce.commerce');
+})->name('commerce-list');
 
-Route::get('comment-ca-marche-pro', function () {
-    return view('frontend.comment-ca-marche.comment-ca-marche-pro');
-})->name('comment-ca-marche-pro');
+Route::get('commerce-map', function () {
+    return view('stevie.frontend.commerce-map.commerce-map');
+})->name('commerce-map');
+
+Route::get('commerce-page', function () {
+    return view('stevie.frontend.commerce-page.commerce-page');
+})->name('commerce-page');
+
+Route::get('comming-soon', function () {
+    return view('stevie.frontend.comming-soon.comming-soon');
+})->name('comming-soon');
+
+Route::get('conditions-generales-utilisation', function () {
+    return view('stevie.frontend.conditions-generales-d-utilisation.conditions-generales-d-utilisation');
+})->name('conditions-generales-utilisation');
+
+Route::get('conditions-generales-utilisation-pro', function () {
+    return view('stevie.frontend.conditions-generales-d-utilisation-pro.conditions-generales-d-utilisation-pro');
+})->name('conditions-generales-utilisation-pro');
 
 Route::get('conditions-generales-de-vente', function () {
-    return view('frontend.conditions-generales-de-vente.conditions-generales-de-vente');
+    return view('stevie.frontend.conditions-generales-de-vente.conditions-generales-de-vente');
 })->name('conditions-generales-de-vente');
 
-Route::get('conditions-generales-de-vente-liv', function () {
-    return view('frontend.conditions-generales-de-vente-liv.conditions-generales-de-vente-liv');
-})->name('conditions-generales-de-vente-liv');
-
 Route::get('conditions-generales-de-vente-pro', function () {
-    return view('frontend.conditions-generales-de-vente-pro.conditions-generales-de-vente-pro');
+    return view('stevie.frontend.conditions-generales-de-vente-pro.conditions-generales-de-vente-pro');
 })->name('conditions-generales-de-vente-pro');
 
-Route::get('conditions-generales-dutilisation', function () {
-    return view('frontend.conditions-generales-dutilisation.conditions-generales-dutilisation');
-})->name('conditions-generales-dutilisation');
-
-Route::get('conditions-generales-dutilisation-liv', function () {
-    return view('frontend.conditions-generales-dutilisation-liv.conditions-generales-dutilisation-liv');
-})->name('conditions-generales-dutilisation-liv');
-
-Route::get('conditions-generales-dutilisation-pro', function () {
-    return view('frontend.conditions-generales-dutilisation-pro.conditions-generales-dutilisation-pro');
-})->name('conditions-generales-dutilisation-pro');
-
-Route::get('contact', function () {
-    return view('frontend.contact.contact');
-})->name('contact');
+Route::get('conctact', function () {
+    return view('stevie.frontend.contact.contact');
+})->name('conctact');
 
 Route::get('faq', function () {
-    return view('frontend.faq.faq');
+    return view('stevie.frontend.faq.faq');
 })->name('faq');
 
+Route::get('faq-pro', function () {
+    return view('stevie.frontend.faq-pro.faq-pro');
+})->name('faq-pro');
+
+Route::get('favoris', function () {
+    return view('stevie.frontend.favoris.favoris');
+})->name('favoris');
+
+Route::get('home', function () {
+    return view('stevie.frontend.home.home');
+})->name('home');
+
 Route::get('politique-de-confidentialite', function () {
-    return view('frontend.politique-de-confidentialite.politique-de-confidentialite');
+    return view('stevie.frontend.politique-de-confidentialite.politique-de-confidentialite');
 })->name('politique-de-confidentialite');
 
-Route::get('product', function () {
-    return view('frontend.product.product');
-})->name('product');
-
 Route::get('product-details', function () {
-    return view('frontend.product-details.product-details');
+    return view('stevie.frontend.product-details.product-details');
 })->name('product-details');
+
+Route::get('services-et-prestations', function () {
+    return view('stevie.frontend.services-et-prestations.services-et-prestations');
+})->name('services-et-prestations');
+
+Route::get('shop-grid', function () {
+    return view('stevie.frontend.shop-grid.shop-grid');
+})->name('shop-grid');
+
+Route::get('shopping-cart', function () {
+    return view('stevie.frontend.shopping-cart.shopping-cart');
+})->name('shopping-cart');
 
 Route::get('profile', function () {
     return view('frontend.profile.profile');
 })->name('profile');
 
-Route::get('quoi-de-9', function () {
-    return view('frontend.quoi-de-9.quoi-de-9');
-})->name('quoi-de-9');
 
-Route::get('shop', function () {
-    return view('frontend.shop.shop');
-})->name('shop');
+/*
+|--------------------------------------------------------------------------
+| Web Routes - Authentification Page
+|--------------------------------------------------------------------------
+*/
 
-Route::get('shop-details', function () {
-    return view('frontend.shop-details.shop-details');
-})->name('shop-details');
+Route::get('connexion', function () {
+    return view('stevie.auth.login');
+})->name('connexion');
 
-Route::get('shop-grid', function () {
-    return view('frontend.shop-grid.shop-grid');
-})->name('shop-grid');
-
-Route::get('shoping-cart', function () {
-    return view('frontend.shoping-cart.shoping-cart');
-})->name('shoping-cart');
+Route::get('inscription', function () {
+    return view('stevie.auth.register');
+})->name('inscription');
 
 /*
 |--------------------------------------------------------------------------

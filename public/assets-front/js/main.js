@@ -4,16 +4,11 @@
 
 (function ($) {
 
-    /*------------------
-        Preloader
-    --------------------*/
+
     $(window).on('load', function () {
         $(".loader").fadeOut();
         $("#preloder").delay(200).fadeOut("slow");
 
-        /*------------------
-            Gallery filter
-        --------------------*/
         $('.featured__controls li').on('click', function () {
             $('.featured__controls li').removeClass('active');
             $(this).addClass('active');
@@ -24,9 +19,6 @@
         }
     });
 
-    /*------------------
-        Background Set
-    --------------------*/
     $('.set-bg').each(function () {
         var bg = $(this).data('setbg');
         $(this).css('background-image', 'url(' + bg + ')');
@@ -45,17 +37,12 @@
         $("body").removeClass("over_hid");
     });
 
-    /*------------------
-		Navigation
-	--------------------*/
+
     $(".mobile-menu").slicknav({
         prependTo: '#mobile-menu-wrap',
         allowParentLinks: true
     });
 
-    /*-----------------------
-        Categories Slider
-    ------------------------*/
     $(".categories__slider").owlCarousel({
         loop: true,
         margin: 0,
@@ -93,9 +80,7 @@
         $('.hero__categories ul').slideToggle(400);
     });
 
-    /*--------------------------
-        Latest Product Slider
-    ----------------------------*/
+
     $(".latest-product__slider").owlCarousel({
         loop: true,
         margin: 0,
@@ -108,9 +93,7 @@
         autoplay: true
     });
 
-    /*-----------------------------
-        Product Discount Slider
-    -------------------------------*/
+
     $(".product__discount__slider").owlCarousel({
         loop: true,
         margin: 0,
@@ -139,9 +122,7 @@
         }
     });
 
-    /*---------------------------------
-        Product Details Pic Slider
-    ----------------------------------*/
+
     $(".product__details__pic__slider").owlCarousel({
         loop: true,
         margin: 20,
@@ -152,9 +133,7 @@
         autoplay: true
     });
 
-    /*-----------------------
-		Price Range Slider
-	------------------------ */
+
     var rangeSlider = $(".price-range"),
         minamount = $("#minamount"),
         maxamount = $("#maxamount"),
@@ -166,21 +145,17 @@
         max: maxPrice,
         values: [minPrice, maxPrice],
         slide: function (event, ui) {
-            minamount.val('$' + ui.values[0]);
-            maxamount.val('$' + ui.values[1]);
+            minamount.val('€' + ui.values[0]);
+            maxamount.val('€' + ui.values[1]);
         }
     });
     minamount.val('€' + rangeSlider.slider("values", 0));
     maxamount.val('€' + rangeSlider.slider("values", 1));
 
-    /*--------------------------
-        Select
-    ----------------------------*/
+
     $("select").niceSelect();
 
-    /*------------------
-		Single Product
-	--------------------*/
+
     $('.product__details__pic__slider img').on('click', function () {
 
         var imgurl = $(this).data('imgbigurl');
@@ -192,9 +167,6 @@
         }
     });
 
-    /*-------------------
-		Quantity change
-	--------------------- */
     var proQty = $('.pro-qty');
     proQty.prepend('<span class="dec qtybtn">-</span>');
     proQty.append('<span class="inc qtybtn">+</span>');
@@ -213,5 +185,45 @@
         }
         $button.parent().find('input').val(newVal);
     });
+
+    
+
+    //script for background slide
+    let bg_slide = document.getElementsByClassName('Bg_slide');
+    let bg_step = 0;
+    let nbr_bg = bg_slide.length;
+    function removeActiveBg(){
+        for (let i = 0 ; i < nbr_bg ; i++) {
+            bg_slide[i].classList.remove('active');
+        }
+    }
+    
+    setInterval(function(){
+        bg_step++;
+        if(bg_step>=nbr_bg){
+            bg_step=0;
+        }
+        removeActiveBg();
+        bg_slide[bg_step].classList.add('active');
+    },5000);
+
+    //Script for password show or hide
+    try{
+        let pwd = document.querySelector(".pwd input[type='password']");
+    let toggleBtn = document.querySelector(".pwd i");
+    
+    toggleBtn.onclick = ()=>{
+        if(pwd.type=="password"){
+            pwd.type="text";
+            toggleBtn.classList.add("active");
+        }else{
+            pwd.type="password";
+            toggleBtn.classList.remove("active");
+        }
+    }
+    } catch{
+        return;
+    }
+    
 
 })(jQuery);
