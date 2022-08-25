@@ -1774,6 +1774,8 @@ table.dataTable thead > tr > td.sorting {
 	border: 1px solid #ededed;
 	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
 	margin-bottom: 30px;
+	max-width: 515px;
+	max-height: 430px;
 }
 .card-title {
     color: #1f1f1f;
@@ -6074,7 +6076,7 @@ table.table-inbox tbody tr.checked {
 }
 .error-box h1 {
     color: #f43b48;
-    font-size: 5em;
+    font-size: 10em;
 }
 .error-box p {
     margin-bottom: 30px;
@@ -8497,4 +8499,9 @@ ul.comment-list li ul.children {
 	align-items: center;
 	justify-content: center;
 	font-size: 11px;
+}
+
+
+.ps1{
+	color: #f43b48
 }
