@@ -13,29 +13,31 @@
                     </div>
                 </div>
                 <!-- List Commerce Begin -->
-                <div class="col-lg-6 col-md-12 col-sm-12">
-                    <a href="{{route('commerce-page')}}">
+                @foreach($shops as $shop)
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                    <a href="{{route('commerce-page', $shop->id)}}">
                         <div class="shop">
                             <div class="Picture-Shop">
                                 <img src="{{asset('assets-front/img/shop/business-plan-epicerie.jpg')}}" alt="">
                             </div>
                             <div class="Shop-Details">
                                 <div class="Shop-legend">
-                                    <span class="title-shop">Nom Du Commerce</span>
+                                    <span class="title-shop">{{ $shop->name }}</span>
                                     <div class="shop-description">
-                                        <span class="Shop-legend-detail">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt quis nisi ab quas, esse optio tempora accusantium recusandae sed in?</span>
+                                        <span class="Shop-legend-detail">{{ $shop->description }}</span>
                                     </div>
                                     <div class="shop-contact">
-                                        <span class="Shop-legend-detail"><i class="icon_phone"></i> +33 6 95 88 19 19</span>
-                                        <span class="Shop-legend-detail"><i class="icon_mail_alt"></i> contact@mangeonsafro.com</span>
-                                        <span class="Shop-legend-detail"><i class="icon_pin_alt"></i> Adresse commerce</span>
+                                        <span class="Shop-legend-detail"><i class="icon_phone"></i>{{ $shop->phone }}</span>
+                                        <span class="Shop-legend-detail"><i class="icon_mail_alt"></i>{{ $shop->email }}</span>
+                                        <span class="Shop-legend-detail"><i class="icon_pin_alt"></i>{{ $shop->web_site }}</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-6 col-md-12 col-sm-12">
+                @endforeach
+                {{--<div class="col-lg-6 col-md-12 col-sm-12">
                     <a href="{{route('commerce-page')}}">
                         <div class="shop">
                             <div class="Picture-Shop">
@@ -144,17 +146,18 @@
                             </div>
                         </div>
                     </a>
-                </div>
+                </div>--}}
                 <!-- List Commerce End -->
                 <!-- Previous or Next Begin -->
-                <div class="col-lg-12 text-center">
-                    <div class="product__pagination banniereHeader">
-                        <a href="#">1</a>
+                {{--<div class="pagination">
+                    <div class="product__pagination banniereHeader ">
+                        --}}{{--<a href="#">1</a>
                         <a href="#">2</a>
                         <a href="#">3</a>
-                        <a href="#"><i class="fa fa-long-arrow-right"></i></a>
+                        <a href="#"><i class="fa fa-long-arrow-right"></i></a>--}}{{--
+                        {{ $shops->links() }}
                     </div>
-                </div>
+                </div>--}}
                 <!-- Previous or Next End -->
             </div>
         </div>

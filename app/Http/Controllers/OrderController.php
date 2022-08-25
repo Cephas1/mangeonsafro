@@ -1,13 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\Categorie_product;
-use App\Models\Product;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,16 +13,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return response()->json(['data', Product::all()->load('Categories_has_products.Categorie_product')]);
-    }
-
-    public function find($word)
-    {
-       return response()->json(['data', Product::where('name', '%'.$word.'%')->orWhere('description', 'LIKE', '%'.$word.'%')->get()]);
-    }
-
-    public function getCaregoriesProduct(){
-        return response()->json(['data', Categorie_product::all()]);
+        //
     }
 
     /**
@@ -57,8 +45,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //return response()->json(['data', Product::where('id', $id))];
-        return response()->json(['product', Product::where('id', $id)->get()]);
+        //
     }
 
     /**

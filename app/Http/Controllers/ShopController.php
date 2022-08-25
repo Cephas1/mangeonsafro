@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use App\Models\Categorie_product;
 use App\Models\Product;
+use App\Models\Shop;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class ShopController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,16 +15,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return response()->json(['data', Product::all()->load('Categories_has_products.Categorie_product')]);
-    }
+        //$shops = Shop::paginate(4);
+        $shops = Shop::all();
+        $shopCount = Shop::count();
 
-    public function find($word)
-    {
-       return response()->json(['data', Product::where('name', '%'.$word.'%')->orWhere('description', 'LIKE', '%'.$word.'%')->get()]);
-    }
-
-    public function getCaregoriesProduct(){
-        return response()->json(['data', Categorie_product::all()]);
+        return view('stevie.frontend.commerce.commerce', compact('shops', 'shopCount'));
     }
 
     /**
@@ -57,8 +51,11 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //return response()->json(['data', Product::where('id', $id))];
-        return response()->json(['product', Product::where('id', $id)->get()]);
+        $shop = Shop::where('id', $id)->first()->load('categorieShop');
+        $shopProducts = Product::where('shop_id', $id)->get();
+        $shopCount = count($shopProducts);
+        //dd($shop->categorieshop->name);
+        return view('stevie.frontend.commerce-page.commerce-page', compact('shop', 'shopProducts', 'shopCount'));
     }
 
     /**

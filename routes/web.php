@@ -53,17 +53,13 @@ Route::get('comment-ca-marche', function () {
     return view('stevie.frontend.comment-ca-marche.comment-ca-marche');
 })->name('comment-ca-marche');
 
-Route::get('commerce-list', function () {
-    return view('stevie.frontend.commerce.commerce');
-})->name('commerce-list');
+Route::get('commerce-list', [\App\Http\Controllers\ShopController::class, 'index'])->name('commerce-list');
 
 Route::get('commerce-map', function () {
     return view('stevie.frontend.commerce-map.commerce-map');
 })->name('commerce-map');
 
-Route::get('commerce-page', function () {
-    return view('stevie.frontend.commerce-page.commerce-page');
-})->name('commerce-page');
+Route::get('commerce-page/{id}', [\App\Http\Controllers\ShopController::class, 'show'])->name('commerce-page');
 
 Route::get('comming-soon', function () {
     return view('stevie.frontend.comming-soon.comming-soon');
