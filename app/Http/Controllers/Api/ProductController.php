@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Categorie_product;
+use App\Models\Comment;
 use App\Models\Product;
+use App\Models\Vote;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -16,7 +18,28 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return response()->json(['data', Product::all()->load('Categories_has_products.Categorie_product')]);
+        //return response()->json(['data', Product::all()->load('Categories_has_products.Categorie_product')]);
+        $brut = Product::all();
+        $list = [];
+
+        foreach($brut as $value){
+            $comments = Comment::where('commentable_id',$value->id)->all();
+            $votes = Vote::where('votesable_id', $value->id)->all();
+
+            if($comments){
+                $list[] = ['product' => $value,
+                           'comments' => $comments,
+                           'votes' => $votes? $votes : 'No votes for this product'];
+            }else{
+                $list[] = ['product' => $value,
+                           'comments' => "No comments for this product",
+                           'votes' => $votes? $votes : 'No votes for this product'];
+            }
+        }
+        dd($list);
+        //dd(Comment::all());
+
+        return response()->json(['data', Product::all()]);
     }
 
     public function find($word)

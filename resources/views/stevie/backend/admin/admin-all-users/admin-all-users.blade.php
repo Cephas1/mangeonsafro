@@ -7,6 +7,13 @@
         <div class="content container-fluid">
 
             <!-- Page Header -->
+            <div class="content container-fluid">
+                @if (session('success'))
+                    <h6 class="alert alert-success">{{ session('success') }}</h6>
+                @elseif (session('error'))
+                    <h6 class="alert alert-danger">{{ session('error') }}</h6>
+                @endif
+            </div>
             <!-- Page Header -->
             <div class="page-header">
                 <div class="row align-items-center">
@@ -55,36 +62,86 @@
                                 <tr>
                                     <th>Nom</th>
                                     <th>Types d'utilisateur</th>
-                                    <th>Téléphones</th>
-                                    <th>Adresse</th>
+                                    <!--<th>Téléphones</th>-->
+                                    <th>Email</th>
                                     <th>Statut</th>
                                     <th class="text-right">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>
-                                        <h2 class="table-avatar">
-                                            <a href="profile.html" class="avatar"><img src="assets-back/img/profiles/avatar-19.jpg" alt=""></a>
-                                            <a href="profile.html">Admin-01</a>
-                                        </h2>
-                                    </td>
-                                    <td>Admin</td>
-                                    <td>+33 6 95 88 19 19</td>
-                                    <td class="text-center">14, Rue Chanoinesse, Paris 75004</td>
-                                    <td><span class="badge bg-inverse-success">Actif</span></td>
-                                    <td class="text-right">
-                                        <div class="dropdown dropdown-action">
-                                            <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#lock_user"><i class="fa fa-lock m-r-5"></i>Bloquer</a>
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#unlock_user"><i class="fa fa-unlock m-r-5"></i>Débloquer</a>
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_user"><i class="fa fa-trash-o m-r-5"></i>Supprimer</a>
+                                @foreach ($users as $user)
+                                    <tr>
+                                        <td>
+                                            <h2 class="table-avatar">
+                                                <a href="" class="avatar"><img src="assets-back/img/profiles/avatar-19.jpg" alt=""></a>
+                                                <a href="">{{ $user->name }}</a>
+                                            </h2>
+                                        </td>
+                                        <td>{{ $user->role->name }}</td>
+                                        <!--<td>+33 6 95 88 19 19</td>-->
+                                        <td class="text-center">{{ $user->email }}</td>
+                                        <td><span class="badge bg-inverse-success">{{ $user->isActive==1? "Actif" : "Inactif" }}</span></td>
+                                        <td class="text-right">
+                                            <div class="dropdown dropdown-action">
+                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#lock_user_{{ $user->id }}"><i class="fa fa-lock m-r-5"></i>{{ $user->isActive==0? "Activer" : "Désactiver" }}</a>
+                                                    <!--<a class="dropdown-item" href="#" data-toggle="modal" data-target="#unlock_user_{{-- $user->id --}}"><i class="fa fa-unlock m-r-5"></i>Activer</a>-->
+                                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_user_{{ $user->id }}"><i class="fa fa-trash-o m-r-5"></i>Supprimer</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- Lock user Modal -->
+                                    <div class="modal custom-modal fade" id="lock_user_{{ $user->id }}" role="dialog">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-body">
+                                                    <div class="form-header">
+                                                        <h3>Bloquer l'utilisateur</h3>
+                                                        <p>Voulez-vous vraiment {{ $user->isActive==0? "Activer" : "Désactiver" }} cet utilisateur? </p>
+                                                    </div>
+                                                    <div class="modal-btn delete-action">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <a href="{{ route('admin-active-user', $user->id) }}" class="btn btn-primary continue-btn">Bloquer</a>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <a href="javascript:void(0);" data-dismiss="modal" class="btn btn-primary cancel-btn">Annuler</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </td>
-                                </tr>
-                                <tr>
+                                    </div>
+                                    <!-- Lock user Modal -->
+                                    <!-- Delete Leave Modal -->
+                                    <div class="modal custom-modal fade" id="delete_user_{{ $user->id }}" role="dialog">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-body">
+                                                    <div class="form-header">
+                                                        <h3>Supprimer le produit</h3>
+                                                        <p>Voulez-vous vraiment supprimer cet utilisateur?</p>
+                                                    </div>
+                                                    <div class="modal-btn delete-action">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <a href="{{ route('admin-detroy-user', $user->id) }}" class="btn btn-primary continue-btn">Supprimer</a>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <a href="javascript:void(0);" data-dismiss="modal" class="btn btn-primary cancel-btn">Annuler</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /Delete Leave Modal -->
+                                @endforeach
+                                <!--<tr>
                                     <td>
                                         <h2 class="table-avatar">
                                             <a href="profile.html" class="avatar"><img src="assets-back/img/profiles/avatar-19.jpg" alt=""></a>
@@ -171,7 +228,7 @@
                                             </div>
                                         </div>
                                     </td>
-                                </tr>
+                                </tr>-->
                             </tbody>
                         </table>
                     </div>
@@ -187,7 +244,7 @@
                     <div class="modal-body">
                         <div class="form-header">
                             <h3>Bloquer l'utilisateur</h3>
-                            <p>Voulez-vous bloquer cet utilisateur? </p>
+                            <p>Voulez-vous vraiment bloquer cet utilisateur? </p>
                         </div>
                         <div class="modal-btn delete-action">
                             <div class="row">
@@ -212,7 +269,7 @@
                     <div class="modal-body">
                         <div class="form-header">
                             <h3>Débloquer l'utilisateur</h3>
-                            <p>Voulez-vous débloquer cet utilisateur? </p>
+                            <p>Voulez-vous vraiment débloquer cet utilisateur? </p>
                         </div>
                         <div class="modal-btn delete-action">
                             <div class="row">
@@ -237,7 +294,7 @@
                     <div class="modal-body">
                         <div class="form-header">
                             <h3>Supprimer le produit</h3>
-                            <p>Voulez-vous vraiment supprimer ce produit?</p>
+                            <p>Voulez-vous vraiment supprimer cet utilisateur?</p>
                         </div>
                         <div class="modal-btn delete-action">
                             <div class="row">

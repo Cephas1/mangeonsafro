@@ -27,7 +27,7 @@
                         <div class="card-body">
                             <span class="dash-widget-icon"><i class="fas fa-shopping-cart"></i></span>
                             <div class="dash-widget-info">
-                                <h3>112</h3>
+                                <h3>{{ $ordersCount }}</h3>
                                 <span>Nombres de commandes</span>
                             </div>
                         </div>
@@ -38,8 +38,8 @@
                         <div class="card-body">
                             <span class="dash-widget-icon"><i class="fas fa-check-circle"></i></span>
                             <div class="dash-widget-info">
-                                <h3>44</h3>
-                                <span>Commandes valider</span>
+                                <h3>{{ $terminated }}</h3>
+                                <span>Commandes validées</span>
                             </div>
                         </div>
                     </div>
@@ -49,7 +49,7 @@
                         <div class="card-body">
                             <span class="dash-widget-icon"><i class="fas fa-clock-o"></i></i></span>
                             <div class="dash-widget-info">
-                                <h3>68</h3>
+                                <h3>{{ $waitingOrders }}</h3>
                                 <span>Commandes en attente</span>
                             </div>
                         </div>
@@ -63,10 +63,10 @@
                 <div class="col-sm-6 col-md-4">
                     <div class="form-group form-focus">
                         <input type="text" class="form-control floating">
-                        <label class="focus-label">Nom commerce</label>
+                        <label class="focus-label">Nom du commerce</label>
                     </div>
                 </div>
-                <div class="col-sm-6 col-md-4">
+                <!--<div class="col-sm-6 col-md-4">
                     <div class="form-group form-focus select-focus">
                         <select class="select floating">
                             <option>En cour de livraison</option>
@@ -74,7 +74,7 @@
                         </select>
                         <label class="focus-label">Statut livraison</label>
                     </div>
-                </div>
+                </div>-->
                 <div class="col-sm-6 col-md-4">
                     <a href="#" class="btn btn-success btn-block">Recherche </a>
                 </div>
@@ -87,27 +87,29 @@
                         <table class="table table-striped custom-table datatable">
                             <thead>
                                 <tr>
-                                    <th>Commerce</th>
-                                    <th>Nombres de commande</th>
+                                    <th>Commerces</th>
+                                    <th>Nombre de commandes</th>
                                     <th>Commandes traitées</th>
-                                    <th>Commandes non traitées(attente)</th>
-                                    <th>Statut de livraison</th>
+                                    <th>Commandes en attente</th>
+                                    <!--<th>Statut de livraison</th>-->
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>
-                                        <h2 class="table-avatar">
-                                            <a href="#" class="avatar" data-toggle="modal" data-target="#list_commande"><img src="assets-back/img/products/image-7.png" alt=""></a>
-                                            <a href="#" data-toggle="modal" data-target="#list_commande">Restaurant-01<span>+33 6 95 88 19 19</span></a>
-                                        </h2>
-                                    </td>
-                                    <td>150</td>
-                                    <td>100</td>
-                                    <td>50</td>
-                                    <td><span class="badge bg-inverse-warning">En cours de livraison</span></td>
-                                </tr>
-                                <tr>
+                                @foreach($data as $key => $value)
+                                    <tr>
+                                        <td>
+                                            <h2 class="table-avatar">
+                                                <a href="#" class="avatar" data-toggle="modal" data-target="#list_commande"><img src="assets-back/img/products/image-7.png" alt=""></a>
+                                                <a href="#" data-toggle="modal" data-target="#list_commande">{{ $value['shop'] }}<span>{{ $value['shopNumber'] }}</span></a>
+                                            </h2>
+                                        </td>
+                                        <td>{{ $value['ordersCount'] }}</td>
+                                        <td>{{ $value['orders1'] }}</td>
+                                        <td>{{ $value['orders0'] }}</td>
+                                        <!--<td><span class="badge bg-inverse-warning">En cours de livraison</span></td>-->
+                                    </tr>
+                                @endforeach
+                                <!--<tr>
                                     <td>
                                         <h2 class="table-avatar">
                                             <a href="#" class="avatar" data-toggle="modal" data-target="#list_commande"><img src="assets-back/img/products/image-8.png" alt=""></a>
@@ -130,7 +132,7 @@
                                     <td>100</td>
                                     <td>150</td>
                                     <td><span class="badge bg-inverse-warning">En cours de livraison</span></td>
-                                </tr>
+                                </tr>-->
                             </tbody>
                         </table>
                     </div>

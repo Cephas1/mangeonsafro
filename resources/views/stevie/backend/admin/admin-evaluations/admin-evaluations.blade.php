@@ -20,6 +20,7 @@
                 </div>
             </div>
             <!-- /Page Header -->
+
             <!-- /Page Header -->
 
             <!-- Search Filter -->
@@ -54,25 +55,29 @@
                         <table class="table table-striped custom-table datatable">
                             <thead>
                                 <tr>
+                                    <th>produit</th>
                                     <th>Commerce</th>
                                     <th>Type de commerce</th>
-                                    <th>Notes</th>
+                                    <th>Note moyenne</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>
-                                        <h2 class="table-avatar">
-                                            <a href="#" class="avatar" data-toggle="modal" data-target="#shop_commentaire"><img src="assets-back/img/products/image-7.png" alt=""></a>
-                                            <a href="#" data-toggle="modal" data-target="#shop_commentaire">Restaurant-01<span>+33 6 95 88 19 19</span></a>
-                                        </h2>
-                                    </td>
-                                    <td>Restaurants</td>
-                                    <td>
-                                    <span class="badge bg-inverse-success">5.0</span>
-                                    </td>
-                                </tr>
-                                <tr>
+                                @foreach ($data as $datum)
+                                    <tr>
+                                        <td>
+                                            <h2 class="table-avatar">
+                                                <a href="#" class="avatar" data-toggle="modal" data-target="#shop_commentaire"><img src="assets-back/img/products/image-7.png" alt=""></a>
+                                                <a href="#" data-toggle="modal" data-target="#shop_commentaire">{{ $datum['product'] }}</a>
+                                            </h2>
+                                        </td>
+                                        <td>{{ $datum['shop'] }}</td>
+                                        <td>{{ $datum['shopCategorie'] }}</td>
+                                        <td>
+                                        <span class="badge bg-inverse-success">{{ $datum['moyenne'] }}</span>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                <!--<tr>
                                     <td>
                                         <h2 class="table-avatar">
                                             <a href="#" class="avatar" data-toggle="modal" data-target="#shop_commentaire"><img src="assets-back/img/products/image-8.png" alt=""></a>
@@ -95,7 +100,7 @@
                                     <td>
                                     <span class="badge bg-inverse-danger">2.0</span>
                                     </td>
-                                </tr>
+                                </tr>-->
                             </tbody>
                         </table>
                     </div>

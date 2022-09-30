@@ -20,6 +20,14 @@
             </div>
             <!-- /Page Header -->
 
+            <div class="content container-fluid">
+                @if (session('success'))
+                    <h6 class="alert alert-success">{{ session('success') }}</h6>
+                @elseif (session('error'))
+                    <h6 class="alert alert-danger">{{ session('error') }}</h6>
+                @endif
+            </div>
+
             <!-- Search Filter -->
             <div class="row filter-row">
                 <div class="col-sm-6 col-md-6">
@@ -42,42 +50,101 @@
                                 <tr>
                                     <th>Commerce</th>
                                     <th>Adresse</th>
-                                    <th>Chiffre d'affaires</th>
-                                    <th>Chiffre réaliser</th>
+                                    <th>Télephone</th>
+                                    <th>E-mail</th>
+                                    <!--<th>Chiffre réaliser</th>
                                     <th>Chiffre perçu</th>
                                     <th>Chiffre en attente</th>
-                                    <th>Statut</th>
+                                    <th>Statut</th>-->
                                     <th class="text-right">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>
-                                        <h2 class="table-avatar">
-                                            <a href="#" class="avatar" data-toggle="modal" data-target="#info_shop"><img src="assets-back/img/products/image-7.png" alt=""></a>
-                                            <a href="#" data-toggle="modal" data-target="#info_shop">Restaurant-01<span>+33 6 95 88 19 19</span></a>
-                                        </h2>
-                                    </td>
-                                    <td class="text-center">14, Rue Chanoinesse, Paris 75004</td>
-                                    <td>10000 €</td>
-                                    <td>8500 €</td>
-                                    <td>7000 €</td>
-                                    <td>1000 €</td>
-                                    <td>
-                                    <span class="badge bg-inverse-success">Ouvert</span>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="dropdown dropdown-action">
-                                            <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#lock_shop"><i class="fa fa-lock m-r-5"></i>Bloquer</a>
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#unlock_shop"><i class="fa fa-unlock m-r-5"></i>Débloquer</a>
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_shop"><i class="fa fa-trash-o m-r-5"></i>Supprimer</a>
+                                @foreach($shops as $key => $value)
+                                    <tr>
+                                        <td>
+                                            <h2 class="table-avatar">
+                                                <a href="#" class="avatar" data-toggle="modal" data-target="#info_shop_{{ $value->id }}"><img src="assets-back/img/products/image-7.png" alt=""></a>
+                                                <a href="#" data-toggle="modal" data-target="#info_shop_{{ $value->id }}">{{ $value->name }}<span>{{ $value->categorieShop->name }}</span></a>
+                                            </h2>
+                                        </td>
+                                        <td class="text-center">{{ $value->address }}</td>
+                                        <td>{{ $value->phone }}</td>
+                                        <td>{{ $value->email }}</td>
+                                        <!--<td>8500 €</td>
+                                        <td>7000 €</td>
+                                        <td>1000 €</td>
+                                        <td>
+                                        <span class="badge bg-inverse-success">Ouvert</span>
+                                        </td>-->
+                                        <td class="text-right">
+                                            <div class="dropdown dropdown-action">
+                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <!--<a class="dropdown-item" href="#" data-toggle="modal" data-target="#lock_shop"><i class="fa fa-lock m-r-5"></i>Bloquer</a>-->
+                                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#info_shop_{{ $value->id }}"><i class="fa fa-eye m-r-5"></i>Détails</a>
+                                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_shop_{{ $value->id }}"><i class="fa fa-trash-o m-r-5"></i>Supprimer</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- Delete User Modal -->
+                                        <div class="modal custom-modal fade" id="delete_shop_{{ $value->id }}" role="dialog">
+                                            <div class="modal-dialog modal-dialog-centered">
+                                                <div class="modal-content" >
+                                                    <div class="modal-body">
+                                                        <div class="form-header">
+                                                            <h3>Supprimer le shop</h3>
+                                                            <p>Voulez-vous vraiment supprimer ce shop ?</p>
+                                                        </div>
+                                                        <div class="modal-btn delete-action">
+                                                            <div class="row">
+                                                                <div class="col-6">
+                                                                    <a href={{ route('shop.destroy', $value->id) }} class="btn btn-primary continue-btn">Supprimer</a>
+                                                                </div>
+                                                                <div class="col-6">
+                                                                    <a href="javascript:void(0);" data-dismiss="modal" class="btn btn-primary cancel-btn">Annuler</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </td>
-                                </tr>
-                                <tr>
+                                    <!-- /Delete User Modal -->
+                                    <!-- Info shop Modal -->
+                                    <div class="modal custom-modal fade" id="info_shop_{{ $value->id }}" role="dialog">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-body">
+                                                    <div class="form-header">
+                                                        <h2>Informations sur le shop</h2>
+                                                        <h3 class="user-name m-t-0 mb-0">Nom: <span class="ps1">{{ $value->name }}</span></h3>
+                                                        <h6 class="text-muted">Catégorie: {{ $value->categorieShop->name }}</h6>
+                                                        <div class="staff-id">Description : <span class="ps1">{{ $value->description }}</span></div>
+                                                        <div class="staff-id">Site web : <span class="ps1">{{ $value->web_site }}</span></div>
+                                                        <div class="staff-id">Email : <span class="ps1">{{ $value->email }}</span></div>
+                                                        <div class="staff-id">Téléphone : <span class="ps1">{{ $value->phone }}</a></div>
+                                                        <div class="staff-id">Pays : <span class="ps1">{{ $value->country }}</span></div>
+                                                        <div class="staff-id">Ville : <span class="ps1">{{ $value->city }}</span></div>
+                                                        <div class="staff-id">Adresse : <span class="ps1">{{ $value->address }}</span></div>
+                                                        <div class="staff-id">Responsable commerce : <a href="profile.html">{{ $value->user->name }}</a></div>
+                                                    </div>
+
+                                                    <div class="modal-btn delete-action">
+                                                        <div class="row">
+                                                            <div class="col-12">
+                                                                <a href="javascript:void(0);" data-dismiss="modal" class="btn btn-primary cancel-btn">Fermer</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Info shop Modal -->
+                                @endforeach
+                                <!--<tr>
                                     <td>
                                         <h2 class="table-avatar">
                                             <a href="#" class="avatar" data-toggle="modal" data-target="#info_shop"><img src="assets-back/img/products/image-8.png" alt=""></a>
@@ -128,7 +195,7 @@
                                             </div>
                                         </div>
                                     </td>
-                                </tr>
+                                </tr>-->
                             </tbody>
                         </table>
                     </div>

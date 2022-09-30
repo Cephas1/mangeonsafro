@@ -18,6 +18,84 @@ class UserController extends Controller
             'users' => $users
         ]);
     }
+
+
+
+    public function index()
+    {
+        $users = User::all()->load('role');
+
+        //dd($users);
+        return view('stevie.backend.admin.admin-all-users.admin-all-users', [
+            'users' => $users
+        ]);
+    }
+
+    public function indexRoles()
+    {
+        $users = Role::all();
+
+        //dd($users);
+        return view('stevie.backend.admin.admin-categories-users.admin-categories-users', [
+            'roles' => $users
+        ]);
+    }
+
+    public function isActivated(int $id){
+        $user = User::find($id);
+
+        if ($user->active == 1){
+            $prod = $user->update(['isActive' => 0]);
+            return redirect()->back()->with('success', 'Utilisateur désactivé avec succès !');
+        }else{
+            $prod = $user->update(['isActive' => 1]);
+            return redirect()->back()->with('success', 'Utilisateur activé avec succès !');
+        }
+        return redirect()->back()->with('error', 'Echec !!! Prière de bien vouloir réessayer !');
+    }
+
+    public function addRoles(Request $request){
+        $role = new Role();
+
+        if($role->create(['name' => $request->input('name')]))
+            return redirect()->back()->with('success', 'Catégorie d\'utilisateur créée avec succès !');
+        else
+            return redirect()->back()->with('error', 'Echec !!! Prière de bien vouloir réessayer !');
+    }
+
+    public function editRoles(int $id, Request $request){
+        $role = Role::find($id);
+
+        if($role->update(['name' => $request->input('name')]))
+            return redirect()->back()->with('success', 'Catégorie d\'utilisateur modifiéée avec succès !');
+        else
+            return redirect()->back()->with('error', 'Echec !!! Prière de bien vouloir réessayer !');
+        //return redirect()->back()->with('error', 'Echec !!! Prière de bien vouloir réessayer !');
+    }
+
+    public function destroy(int $id){
+        $user = User::find($id);
+
+        if($user->delete()){
+            return redirect()->back()->with('success', 'User deleted successfully')->withInput();
+        }else{
+            return redirect()->back()->with('Error', 'Impossible to delete this user, please retry !')->withInput();
+        }
+    }
+
+    public function destroyRoles(int $id){
+        $user = Role::find($id);
+
+        if($user->delete()){
+            return redirect()->back()->with('success', 'User level deleted successfully')->withInput();
+        }else{
+            return redirect()->back()->with('Error', 'Impossible to delete this user level, please retry !')->withInput();
+        }
+    }
+
+
+
+
     public function superAdmin()
     {
         $users =  User::role('super-admin')->get();

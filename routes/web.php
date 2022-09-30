@@ -3,11 +3,13 @@
 use App\Http\Controllers\Admin\CategorieShopController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ClientController;
+use App\Http\Controllers\Admin\EvaluationsController;
 use App\Http\Controllers\Admin\ImageCategoriesController;
 use App\Http\Controllers\Admin\ShopController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Site\ProfileController as SiteProfileController;
 use App\Models\User;
@@ -263,8 +265,7 @@ Route::prefix('backend')->middleware(['auth'])->group(function () {
     // Route::get('categories-commerce', function () {
     //     return view('backend.categories.index');
     // })->name('categories-commerce');
-    Route::get('categories-commerce', [CategorieShopController::class, 'index'
-    ])->name('categories-commerce');
+    Route::get('categories-commerce', [CategorieShopController::class, 'index'])->name('categories-commerce');
 
     Route::get('daily-sales', function () {
         return view('backend.daily-sales.index');
@@ -371,6 +372,8 @@ Route::prefix('backend')->middleware(['auth'])->group(function () {
     // Route::get('image', 'ImageController@index');
     // Route::post('save', 'ImageController@save');
     // Route::resource('image', ImageController::class);
+
+    //Route::get('admin-home', [DashboardController::class, 'index'])->name('admin-home');
 });
 
 
@@ -380,33 +383,29 @@ Route::prefix('backend')->middleware(['auth'])->group(function () {
 | Debut
 |--------------------------------------------------------------------------
 */
-Route::get('admin-all-users', function () {
-    return view('stevie.backend.admin.admin-all-users.admin-all-users');
-})->name('admin-all-users');
+Route::get('admin-all-users', [UserController::class, 'index'])->name('admin-all-users');
+Route::get('admin-active-user/{id}', [UserController::class, 'isActivated'])->name('admin-active-user');
+Route::get('admin-destroy-user/{id}', [UserController::class, 'destroy'])->name('admin-detroy-user');
 
-Route::get('admin-categories-commerces', function () {
-    return view('stevie.backend.admin.admin-categories-commerces.admin-categories-commerces');
-})->name('admin-categories-commerces');
+Route::get('admin-categories-commerces', [ShopController::class, 'indexCategoriesShops'])->name('admin-categories-commerces');
+Route::get('/categories-shop/active/{id}', [ShopController::class, 'isActivated'])->name('categories-shop.active');
+Route::post('/categories-shop/edit/{id}', [ShopController::class, 'updateCategoriesShop'])->name('categories-shop.edit');
+Route::post('/categories-shop/add', [ShopController::class, 'storeCategoriesShop'])->name('categories-shop.add');
+Route::get('/categories-shop/destroy/{id}', [ShopController::class, 'destroyCategoriesShop'])->name('categories-shop.destroy');
 
-Route::get('admin-categories-users', function () {
-    return view('stevie.backend.admin.admin-categories-users.admin-categories-users');
-})->name('admin-categories-users');
+Route::get('admin-categories-users', [UserController::class, 'indexRoles'])->name('admin-categories-users');
+Route::post('admin-categories-users/add', [UserController::class, 'addRoles'])->name('admin-categories-users.add');
+Route::post('admin-categories-users/edit/{id}', [UserController::class, 'editRoles'])->name('admin-categories-users.edit');
+Route::get('admin-categories-users/destroy/{id}', [UserController::class, 'destroyRoles'])->name('admin-categories-users.destroy');
 
-Route::get('admin-evaluations', function () {
-    return view('stevie.backend.admin.admin-evaluations.admin-evaluations');
-})->name('admin-evaluations');
+Route::get('admin-evaluations', [EvaluationsController::class, 'indexAdmin'])->name('admin-evaluations');
 
-Route::get('admin-gestion-des-commandes', function () {
-    return view('stevie.backend.admin.admin-gestion-des-commandes.admin-gestion-des-commandes');
-})->name('admin-gestion-des-commandes');
+Route::get('admin-gestion-des-commandes', [OrderController::class, 'index'])->name('admin-gestion-des-commandes');
 
-Route::get('admin-home', function () {
-    return view('stevie.backend.admin.admin-home.admin-home');
-})->name('admin-home');
+Route::get('admin-home', [DashboardController::class, 'index'])->name('admin-home');
 
-Route::get('admin-list-commerces', function () {
-    return view('stevie.backend.admin.admin-list-commerces.admin-list-commerces');
-})->name('admin-list-commerces');
+Route::get('admin-list-commerces', [ShopController::class, 'index'])->name('admin-list-commerces');
+Route::get('/shop/destroy/{id}', [ShopController::class, 'destroy'])->name('shop.destroy');
 
 Route::get('admin-profile', function () {
     return view('stevie.backend.admin.admin-profile.admin-profile');

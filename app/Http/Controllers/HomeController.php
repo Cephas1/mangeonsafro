@@ -14,8 +14,8 @@ class HomeController extends Controller
             Role::create(['name' => 'super-admin']);
             Role::create(['name' => 'admin']);
             Role::create(['name' => 'client']);
-            Role::create(['name' => 'livreur']);
-            Role::create(['name' => 'responsable-commerce']);
+            //Role::create(['name' => 'livreur']);
+            //Role::create(['name' => 'responsable-commerce']);
             Role::create(['name' => 'vendeur']);
         }
         return view('stevie.frontend.home.home');

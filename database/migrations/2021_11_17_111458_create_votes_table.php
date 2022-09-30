@@ -16,6 +16,7 @@ class CreateVotesTable extends Migration
         Schema::create('votes', function (Blueprint $table) {
             $table->id();
             $table->double('vote');
+            $table->text('comment')->nullable();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->integer('votesable_id');
             $table->string('votesable_type');

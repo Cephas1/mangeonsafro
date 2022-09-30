@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Models\Role;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
@@ -20,7 +21,7 @@ class User extends Authenticatable
      *
      * @var string[]
      */
-    // protected $fillable = [
+     //protected $fillable = [
     //     'name',
     //     'email',
     //     'password',
@@ -58,6 +59,10 @@ class User extends Authenticatable
     public function userHasShop()
     {
         return Auth::user()->shops->first() ? Auth::user()->shops->first()->name : null;
+    }
+
+    public function role(){
+        return $this->belongsTo(Role::class);
     }
 
 

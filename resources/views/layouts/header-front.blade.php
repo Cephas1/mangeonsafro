@@ -12,7 +12,7 @@
     <div class="humberger__menu__cart">
         <ul>
             <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-            <li><a href="{{ route('shoping-cart') }}"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+            <li><a href="{{ route('shopping-cart') }}"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
         </ul>
         <!-- <div class="header__cart__price"> <span>$150.00</span></div> -->
     </div>
@@ -43,14 +43,14 @@
             <li class="{{ (request()->routeIs('home')) ? 'active' : '' }}"><a href="{{ route('home') }}">Accueil</a></li>
             <li><a href="shop">Commerce</a>
                 <ul class="header__menu__dropdown">
-                    <li><a class="{{ (request()->routeIs('shop-grid')) ? 'active' : '' }}" href="{{ route('shop-grid') }}">Commerces</a></li>
+                    {{-- <li><a class="{{ (request()->routeIs('shop-grid')) ? 'active' : '' }}" href="{{ route('shop-grid') }}">Commerces</a></li>
                     <li><a class="{{ (request()->routeIs('shop-details')) ? 'active' : '' }}" href="{{ route('shop-details') }}">Détails Commerce</a></li>
                     <li><a class="{{ (request()->routeIs('shoping-cart')) ? 'active' : '' }}" href="{{ route('shoping-cart') }}">Panier</a></li>
-                    <li><a class="{{ (request()->routeIs('checkout')) ? 'active' : '' }}" href="{{ route('checkout') }}">Check Out</a></li>
+                    <li><a class="{{ (request()->routeIs('checkout')) ? 'active' : '' }}" href="{{ route('checkout') }}">Check Out</a></li>--}}
                 </ul>
             </li>
-            <li><a class="{{ (request()->routeIs('product')) ? 'active' : '' }}"
-                    href="{{ route('product') }}">Produits</a>
+            <li><a class="{{-- (request()->routeIs('product'))?'active':'' --}}"
+                    href="{{-- route('product') --}}">Produits</a>
                 {{-- <ul class="header__menu__dropdown">
                     <li><a class="{{ (request()->routeIs('product')) ? 'active' : '' }}" href="{{ route('product') }}">Produits</a></li>
                     <li><a class="{{ (request()->routeIs('product-details')) ? 'active' : '' }}" href="{{ route('product-details') }}">Détails produit</a></li>
@@ -58,10 +58,10 @@
             </li>
             <li><a href="blog">Blog</a>
                 <ul class="header__menu__dropdown">
-                    <li><a class="{{ (request()->routeIs('blog-details')) ? 'active' : '' }}" href="{{ route('blog-details') }}">Article</a></li>
+                    <li><a class="{{-- (request()->routeIs('blog-details'))?'active':'' --}}" href="{{-- route('blog-details') --}}">Article</a></li>
                 </ul>
             </li>
-            <li><a class="{{ (request()->routeIs('contact')) ? 'active' : '' }}" href="{{ route('contact') }}">Contact</a></li>
+            <li><a class="{{-- (request()->routeIs('contact'))?'active':'' --}}" href="{{-- route('contact') --}}">Contact</a></li>
         </ul>
     </nav>
     <div id="mobile-menu-wrap"></div>
@@ -148,27 +148,27 @@
                     <ul>
                         <li class="{{ (request()->routeIs('home')) ? 'active' : '' }}"><a href="{{ route('home') }}">Accueil</a></li>
                         <li><a href="shop">Commerce</a>
-                            <ul class="header__menu__dropdown">
+                            {{--<ul class="header__menu__dropdown">
                                 <li><a class="{{ (request()->routeIs('shop-grid')) ? 'active' : '' }}" href="{{ route('shop-grid') }}">Commerces</a></li>
                                 <li><a class="{{ (request()->routeIs('shop-details')) ? 'active' : '' }}" href="{{ route('shop-details') }}">Détails Commerce</a></li>
                                 <li><a class="{{ (request()->routeIs('shoping-cart')) ? 'active' : '' }}" href="{{ route('shoping-cart') }}">Panier</a></li>
                                 <li><a class="{{ (request()->routeIs('checkout')) ? 'active' : '' }}" href="{{ route('checkout') }}">Check Out</a></li>
-                            </ul>
+                            </ul>--}}
                         </li>
                         <li><a class="{{ (request()->routeIs('product')) ? 'active' : '' }}"
-                                href="{{ route('product') }}">Produits</a>
+                                href="{{-- route('product') --}}">Produits</a>
                             {{-- <ul class="header__menu__dropdown">
                                 <li><a class="{{ (request()->routeIs('product')) ? 'active' : '' }}" href="{{ route('product') }}">Produits</a></li>
                                 <li><a class="{{ (request()->routeIs('product-details')) ? 'active' : '' }}" href="{{ route('product-details') }}">Détails produit</a></li>
                             </ul> --}}
                         </li>
-                        <li><a class="{{ request()->routeIs('quoi-de-9') ? 'active' : '' }}"
-                                href="{{ route('quoi-de-9') }}">Quoi de 9?</a>
+                        <li><a class="{{-- request()->routeIs('quoi-de-9')?'active':'' --}}"
+                                href="{{-- route('quoi-de-9') --}}">Quoi de 9?</a>
                             {{-- <ul class="header__menu__dropdown">
                                 <li><a class="{{ (request()->routeIs('quoi-de-9')) ? 'active' : '' }}" href="{{ route('quoi-de-9') }}">Article</a></li>
                             </ul> --}}
                         </li>
-                        <li><a class="{{ (request()->routeIs('contact')) ? 'active' : '' }}" href="{{ route('contact') }}">Contact</a></li>
+                        <li><a class="{{-- (request()->routeIs('contact'))?'active':'' --}}" href="{{-- route('contact') --}}">Contact</a></li>
                     </ul>
                 </nav>
             </div>
@@ -176,7 +176,7 @@
                 <div class="header__cart">
                     <ul>
                         <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                        <li><a href="{{ route('shoping-cart') }}"><i class="fa fa-shopping-bag"></i>
+                        <li><a href="{{-- route('shoping-cart') --}}"><i class="fa fa-shopping-bag"></i>
                                 <span>3</span></a></li>
                         <li>
                             @auth

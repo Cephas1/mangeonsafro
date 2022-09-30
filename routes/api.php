@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\ShopController;
 use App\Http\Controllers\Api\OrderController;
+use App\Http\Controllers\Api\UsersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -39,4 +40,12 @@ Route::prefix('v1')->group(function () {
 
     Route::get('/orders/{id}', [OrderController::class, 'index']);
     Route::post('/order', [OrderController::class, 'store']);
+
+    //Route recuperation pays et villes
+    Route::get('country-cities', [UsersController::class, 'getCountriesAndCities']);
+
+    //Routes addresses de livraison
+    Route::get('user-delivery-adress/add/{id}/{name}', [UsersController::class, 'addDeliveryAdress']);
+    Route::get('user-delivery-adress/edit/{id}/{name}', [UsersController::class, 'editDeliveryAdress']);
+    Route::get('user-delivery-adress/delete/{id}', [UsersController::class, 'deleteDeliveryAdress']);
 });

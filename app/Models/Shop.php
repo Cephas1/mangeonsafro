@@ -16,9 +16,9 @@ class Shop extends Model
     {
         return $this->morphOne(Phone::class, 'phoneable');
     }
-    public function users()
+    public function user()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsTo(User::class, 'id');
     }
     public function categorieShop()
     {
