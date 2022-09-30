@@ -23,7 +23,7 @@
                         <div class="card-body">
                             <span class="dash-widget-icon"><i class="fas fa-shopping-cart"></i></span>
                             <div class="dash-widget-info">
-                                <h3>112</h3>
+                                <h3>{{$NbrOrder}}</h3>
                                 <span>Nombres de commandes</span>
                             </div>
                         </div>
@@ -34,7 +34,7 @@
                         <div class="card-body">
                             <span class="dash-widget-icon"><i class="fas fa-check-circle"></i></span>
                             <div class="dash-widget-info">
-                                <h3>44</h3>
+                                <h3>{{$validOrder}}</h3>
                                 <span>Commandes valider</span>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
                         <div class="card-body">
                             <span class="dash-widget-icon"><i class="fas fa-clock-o"></i></i></span>
                             <div class="dash-widget-info">
-                                <h3>68</h3>
+                                <h3>{{$waitOrder}}</h3>
                                 <span>Commandes en attente</span>
                             </div>
                         </div>

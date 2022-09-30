@@ -7,7 +7,7 @@
 
         <!-- Logo -->
         <div class="header-left">
-            <a href="{{route('vendeur-home')}}" class="logo">
+            <a href="{{route('vendeur-home',$vendeur->id)}}" class="logo">
 
                 <img src="{{asset('assets-back/img/logo-mangeonsafro.png')}}" width="60" height="60" alt="">
 
@@ -140,8 +140,8 @@
                     <span>Vendeur</span>
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="{{route('vendeur-profile')}}">Mon profile</a>
-                    <a class="dropdown-item" href="vendeur-login.html">Déconnexion</a>
+                    <a class="dropdown-item" href="{{route('vendeur-profile',$vendeur->id)}}">Mon profile</a>
+                    <a class="dropdown-item" href="{{route('logout')}}">Déconnexion</a>
                 </div>
             </li>
         </ul>
@@ -151,8 +151,8 @@
         <div class="dropdown mobile-user-menu">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
             <div class="dropdown-menu dropdown-menu-right">
-                <a class="dropdown-item" href="{{route('vendeur-profile')}}">Mon profil</a>
-                <a class="dropdown-item" href="#">Déconnexion</a>
+                <a class="dropdown-item" href="{{route('vendeur-profile',$vendeur->id)}}">Mon profil</a>
+                <a class="dropdown-item" href="{{route('logout')}}">Déconnexion</a>
             </div>
         </div>
         <!-- /Mobile Menu -->
@@ -168,14 +168,14 @@
                     <li class="menu-title">
 
                         <h2 class="table-avatar">
-                            <a href="{{route('vendeur-profile')}}" class="avatar"><img src="{{asset('assets-back/img/profiles/avatar-19.jpg')}}" alt=""></a>
-                            <a href="{{route('vendeur-profile')}}" style="color: #fff;">Vendeur-01</a>
+                            <a href="{{route('vendeur-profile',$vendeur->id)}}" class="avatar"><img src="{{asset('assets-back/img/profiles/avatar-19.jpg')}}" alt=""></a>
+                            <a href="{{route('vendeur-profile',$vendeur->id)}}" style="color: #fff;">{{$vendeur->name}}</a>
                         </h2>
 
                     </li>
                     <!-- Dashboard  -->
                     <li class="menu">
-                        <a href="{{route('vendeur-home')}}"><i class="la la-dashboard"></i> <span> Dashboard</span></a>
+                        <a href="{{route('vendeur-home',$vendeur->id)}}"><i class="la la-dashboard"></i> <span> Dashboard</span></a>
                     </li>
                     <!-- End/Dashboard -->
 
@@ -186,9 +186,9 @@
                     <li class="submenu">
                         <a href="#" ><i class="las la-store-alt"></i> <span>Ma boutique</span> <span class="menu-arrow"></span></a>
                         <ul style="display: none;">
-                            <li><a class="" href="{{route('vendeur-mes-produits')}}">Mes produits</a></li>
-                            <li><a class="" href="{{route('vendeur-categories-produits')}}">Catégories produits</a></li>
-                            <li><a class="" href="{{route('vendeur-mes-informations')}}">Mes informations</a></li>
+                            <li><a class="" href="{{route('vendeur-mes-produits',$vendeur->id)}}">Mes produits</a></li>
+                            <li><a class="" href="{{route('vendeur-categories-produits',$vendeur->id)}}">Catégories produits</a></li>
+                            <li><a class="" href="{{route('vendeur-mes-informations',$vendeur->id)}}">Mes informations</a></li>
                         </ul>
                     </li>
                     <!-- End Ma boutique -->
@@ -199,7 +199,7 @@
                         <span></span>
                     </li>
                     <li>
-                        <a href="{{route('vendeur-mes-commandes')}}" ><i class="la la-list"></i> <span>Mes commandes</span></a>
+                        <a href="{{route('vendeur-mes-commandes',$vendeur->id)}}" ><i class="la la-list"></i> <span>Mes commandes</span></a>
                     </li>
                     <!-- End Mes commandes -->
 
@@ -208,7 +208,7 @@
                         <span></span>
                     </li>
                     <li class="menu">
-                        <a href="{{route('vendeur-mon-portefeuille')}}" ><i class="la la-money"></i> <span>Mon portefeuille</span></a>
+                        <a href="{{route('vendeur-mon-portefeuille',$vendeur->id)}}" ><i class="la la-money"></i> <span>Mon portefeuille</span></a>
                     </li>
                     <!-- End Mon portefeuille -->
 
@@ -217,7 +217,7 @@
                         <span></span>
                     </li>
                     <li class="menu">
-                        <a href="{{route('vendeur-mes-commentaires')}}" ><i class="la la-comment"></i> <span>Mes commentaires</span></a>
+                        <a href="{{route('vendeur-mes-commentaires',$vendeur->id)}}" ><i class="la la-comment"></i> <span>Mes commentaires</span></a>
                     </li>
                     <!-- End Mes commentaires -->
 

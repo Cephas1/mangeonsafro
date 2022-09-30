@@ -554,11 +554,11 @@ ol {
 -----------------------*/
 
 .hero {
-	padding-bottom: 50px;
+	padding-bottom: 10px;
 }
 
 .hero.hero-normal {
-	padding-bottom: 30px;
+	padding-bottom: 10px;
 }
 
 .hero.hero-normal .hero__categories {
@@ -1988,6 +1988,74 @@ ol {
 	color: #D62D2D;
 }
 
+
+/*---------------------
+  Etoile eval
+-----------------------*/
+
+.rating-wrap{
+	max-width: 480px;
+	margin: auto;
+	padding: 15px;
+	background-color: #fff;
+	box-shadow: 0 0 3px 0 rgba(0,0,0,.2);
+	text-align: center;
+}
+
+
+.center{
+	width: 300px;
+	margin: auto;
+}
+
+.rating{
+	border: none;
+	float: left;
+	margin: 0 68px;
+}
+
+.rating > input{
+	display: none;
+}
+
+.rating > label:before{
+	content: '\f005';
+	font-family: FontAwesome;
+	margin: 5px;
+	font-size: 1.5rem;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.rating > .half:before{
+	content: '\f089';
+	position: absolute;
+	cursor: pointer;
+}
+
+
+.rating > label{
+	color: #ddd;
+	float: right;
+	cursor: pointer;
+}
+
+.rating > input:checked ~ label,
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label{
+	color: #2ce679;
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label,
+.rating > input:checked ~ label:hover ~ label{
+	color: #2ddc76;
+}
+
+
+
+
 /*---------------------
   Shop List
 -----------------------*/
@@ -2153,6 +2221,30 @@ ol {
 	justify-content: center;
 }
 
+.com-m{
+	display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.com-m .nav-pills .nav-link.active, .nav-pills .show > .nav-link{
+    color: #fff;
+    background-color: #D6001B;
+	border-radius: 0;
+}
+
+.com-m .nav-link:hover, .nav-link:focus{
+    color: #D6001B;
+}
+
+.com-m .nav-link{
+    color: #ccc;
+}
+
+.com-m .center {
+	justify-content: center;
+	position: relative;
+}
 
 /*---------------------
   Shop List
@@ -2162,7 +2254,23 @@ ol {
 	margin: auto;
 	width: 100%;
 	padding: 20px;
+    overflow-y: hidden;
 }
+
+.air{
+	margin-left: 0;
+	margin-bottom: 10px;
+	padding: 10px;
+	width: 100%;
+	background-color: #fff;
+}
+
+.air-img{
+	height: 300px;
+	width: 100%;
+	border-radius: 5px;
+}
+
 
 .listShop .shop {
 	max-width: 650px;

@@ -70,9 +70,9 @@
                             <div class="form-group text-center">
                                 <button class="btn btn-primary account-btn" type="submit">{{ __('Login') }}</button>
                             </div>
-                            <!-- <div class="account-footer">
-         <p>Don't have an account yet? <a href="register.html">Register</a></p>
-        </div> -->
+                            <div class="account-footer">
+                            <p>Pas de compte? <a href="{{route('register')}}">Register</a></p>
+                            </div>
                         </form>
                         <!-- /Account Form -->
 

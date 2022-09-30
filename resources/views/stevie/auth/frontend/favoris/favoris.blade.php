@@ -31,7 +31,7 @@
                                 <div class="product__item__pic set-bg" data-setbg="assets-front/img/product/product-1.jpg">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-o"></i></a></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#evalModal"><i class="fa fa-star-o"></i></a></li>
                                         <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
@@ -46,7 +46,7 @@
                                 <div class="product__item__pic set-bg" data-setbg="assets-front/img/product/product-2.jpg">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-o"></i></a></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#evalModal"><i class="fa fa-star-o"></i></a></li>
                                         <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
@@ -61,7 +61,7 @@
                                 <div class="product__item__pic set-bg" data-setbg="assets-front/img/product/product-3.jpg">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-o"></i></a></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#evalModal"><i class="fa fa-star-o"></i></a></li>
                                         <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
@@ -76,7 +76,7 @@
                                 <div class="product__item__pic set-bg" data-setbg="assets-front/img/product/product-4.jpg">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-o"></i></a></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#evalModal"><i class="fa fa-star-o"></i></a></li>
                                         <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
@@ -91,7 +91,7 @@
                                 <div class="product__item__pic set-bg" data-setbg="assets-front/img/product/product-5.jpg">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-o"></i></a></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#evalModal"><i class="fa fa-star-o"></i></a></li>
                                         <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
@@ -106,7 +106,7 @@
                                 <div class="product__item__pic set-bg" data-setbg="assets-front/img/product/product-6.jpg">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-o"></i></a></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#evalModal"><i class="fa fa-star-o"></i></a></li>
                                         <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
@@ -121,7 +121,7 @@
                                 <div class="product__item__pic set-bg" data-setbg="assets-front/img/product/product-7.jpg">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-o"></i></a></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#evalModal"><i class="fa fa-star-o"></i></a></li>
                                         <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
@@ -136,7 +136,7 @@
                                 <div class="product__item__pic set-bg" data-setbg="assets-front/img/product/product-8.jpg">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-o"></i></a></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#evalModal"><i class="fa fa-star-o"></i></a></li>
                                         <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
@@ -151,7 +151,7 @@
                                 <div class="product__item__pic set-bg" data-setbg="assets-front/img/product/product-9.jpg">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-o"></i></a></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#evalModal"><i class="fa fa-star-o"></i></a></li>
                                         <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
@@ -166,7 +166,7 @@
                                 <div class="product__item__pic set-bg" data-setbg="assets-front/img/product/product-10.jpg">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-o"></i></a></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#evalModal"><i class="fa fa-star-o"></i></a></li>
                                         <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
@@ -181,7 +181,7 @@
                                 <div class="product__item__pic set-bg" data-setbg="assets-front/img/product/product-11.jpg">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-o"></i></a></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#evalModal"><i class="fa fa-star-o"></i></a></li>
                                         <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
@@ -196,7 +196,7 @@
                                 <div class="product__item__pic set-bg" data-setbg="assets-front/img/product/product-12.jpg">
                                     <ul class="product__item__pic__hover">
                                         <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-star-o"></i></a></li>
+                                        <li><a href="#" data-toggle="modal" data-target="#evalModal"><i class="fa fa-star-o"></i></a></li>
                                         <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
@@ -217,5 +217,49 @@
             </div>
         </div>
     </div>
+    <!-- Modal evaluation -->
+    <div class="modal fade" id="evalModal" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+                <div class="rating-wrap">
+                    <form action="">
+                        <h2>Evaluer!</h2>
+                        <div class="center">
+                            <div class="rating">
+                                <input type="radio" id="star5" name="rating" value="5" /><label for="star5" class="full"
+                                    title="Awesome"></label>
+                                <input type="radio" id="star4.5" name="rating" value="4.5" /><label for="star4.5"
+                                    class="half"></label>
+                                <input type="radio" id="star4" name="rating" value="4" /><label for="star4"
+                                    class="full"></label>
+                                <input type="radio" id="star3.5" name="rating" value="3.5" /><label for="star3.5"
+                                    class="half"></label>
+                                <input type="radio" id="star3" name="rating" value="3" /><label for="star3"
+                                    class="full"></label>
+                                <input type="radio" id="star2.5" name="rating" value="2.5" /><label for="star2.5"
+                                    class="half"></label>
+                                <input type="radio" id="star2" name="rating" value="2" /><label for="star2"
+                                    class="full"></label>
+                                <input type="radio" id="star1.5" name="rating" value="1.5" /><label for="star1.5"
+                                    class="half"></label>
+                                <input type="radio" id="star1" name="rating" value="1" /><label for="star1"
+                                    class="full"></label>
+                                <input type="radio" id="star0.5" name="rating" value="0.5" /><label for="star0.5"
+                                    class="half"></label>
+                            </div>
+                            <div class="text-center">
+                                <textarea class="form-control mb-2" placeholder="Votre commentaire" style="resize:none;" rows="5" cols="30"
+                                 maxlength="250"></textarea>
+                                <button type="submit" class="site-btn">Envoyer</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- Modal evaluation -->
 </section>
 @endsection

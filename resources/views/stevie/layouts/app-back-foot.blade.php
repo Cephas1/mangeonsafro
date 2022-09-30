@@ -1,6 +1,38 @@
     <!-- jQuery -->
     <script src="{{asset('assets-back/js/jquery-3.5.1.min.js')}}"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('body').on('click', '#listProduit', function(){
 
+                var listOrders = $(this).data('url');
+                var total = $(this).data('total');
+                $.get(listOrders, function (data) {
+                    $('#listProduitModal').modal('show');
+                    $('#showDetailsOrder').html(data);
+                    $('#list-order').DataTable({searching: false});
+                    $('#totalOrder').text(total);
+                })
+            })
+            $('body').on('click', '#livrer',function(){
+                var state = $(this).data('url');
+                $.get(state, function(data){
+                    $('#livrerModal').modal('show');
+                    $('#changeState').html(data);
+                })
+            })
+
+        })
+        /*$(document).ready(function(){
+            $('body').on('click','#deleteProduit', function(){
+                var favDelete = $(this).data('url');
+                console.log(favDelete);
+                $.get(favDelete,function(data){
+                    $('#deleteProduitModal').modal('show');
+                    $('#deleteFav').html(data);
+                })
+            })
+        })*/
+    </script>
     <!-- Bootstrap Core JS -->
     <script src="{{asset('assets-back/js/popper.min.js')}}"></script>
     <script src="{{asset('assets-back/js/bootstrap.min.js')}}"></script>

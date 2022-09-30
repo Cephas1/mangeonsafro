@@ -423,21 +423,25 @@ Route::get('admin-profile', function () {
 | Debut
 |--------------------------------------------------------------------------
 */
-Route::get('client-home', function () {
-    return view('stevie.backend.client.client-home.client-home');
-})->name('client-home');
 
-Route::get('client-mes-commandes', function () {
-    return view('stevie.backend.client.client-mes-commandes.client-mes-commandes');
-})->name('client-mes-commandes');
+Route::middleware(['auth'])->group(function(){
+    Route::get('client-home/{id}', [App\http\Controllers\stevie\clientController::class, 'index'])->name('client-home');
 
-Route::get('client-mes-produits-preferes', function () {
-    return view('stevie.backend.client.client-mes-produits-preferes.client-mes-produits-preferes');
-})->name('client-mes-produits-preferes');
+    Route::get('client-mes-commandes/{id}', [App\http\Controllers\stevie\clientController::class, 'commande'])->name('client-mes-commandes');
 
-Route::get('client-profile', function () {
-    return view('stevie.backend.client.client-profile.client-profile');
-})->name('client-profile');
+    Route::get('client-details-orders/{code}',[App\http\Controllers\stevie\clientController::class, 'detailOrder'])->name('client-details-orders');
+
+    Route::get('client-mes-produits-preferes/{id}', [App\http\Controllers\stevie\clientController::class, 'favoris'])->name('client-mes-produits-preferes');
+
+    Route::get('client-show-modal-favoris/{id}',[App\http\Controllers\stevie\clientController::class, 'showDeleteFavoris'])->name('show-modal-favoris');
+
+    Route::get('client-delete-favoris/{id}',[App\http\Controllers\stevie\clientController::class, 'deleteFavoris'])->name('client-delete-favoris');
+
+    Route::get('client-profile/{id}', [App\http\Controllers\stevie\clientController::class, 'profile'])->name('client-profile');
+
+    Route::put('client-edit-profile/{id}', [App\http\Controllers\stevie\clientController::class, 'editProfile'])->name('client-edit-profile');
+});
+
  /*
 |--------------------------------------------------------------------------
 | Web Routes - Backend - client
@@ -456,13 +460,17 @@ Route::get('vendeur-categories-produits', function () {
     return view('stevie.backend.vendeur.vendeur-categories-produits.vendeur-categories-produits');
 })->name('vendeur-categories-produits');
 
-Route::get('vendeur-home', function () {
-    return view('stevie.backend.vendeur.vendeur-home.vendeur-home');
-})->name('vendeur-home');
 
-Route::get('vendeur-mes-commandes', function () {
-    return view('stevie.backend.vendeur.vendeur-mes-commandes.vendeur-mes-commandes');
-})->name('vendeur-mes-commandes');
+Route::get('vendeur-home/{id}', [App\http\controllers\stevie\vendeurController::class, 'index'])->name('vendeur-home');
+
+Route::get('vendeur-mes-commandes/{id}', [App\http\controllers\stevie\vendeurController::class, 'commande'])->name('vendeur-mes-commandes');
+
+Route::get('show-modal-livred/{code}',[App\http\controllers\stevie\vendeurController::class, 'showChangeState'])->name('show-modal-livred');
+
+Route::put('orderLivred/{code}',[App\http\controllers\stevie\vendeurController::class, 'orderLivred'])->name('orderLivred');
+
+
+Route::get('vendeur-details-commande/{code}', [App\http\controllers\stevie\vendeurController::class, 'detailsCommande'])->name('vendeur-details-commande');
 
 Route::get('vendeur-mes-commentaires', function () {
     return view('stevie.backend.vendeur.vendeur-mes-commentaires.vendeur-mes-commentaires');
