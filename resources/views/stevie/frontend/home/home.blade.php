@@ -4,6 +4,315 @@
     <section class="categories com-c">
         <div class="container">
             <div class="row">
+                <div class="col-lg-12 text-center ">
+                    <div class="section-title product__discount__title text-center">
+                        <h2>Notre selection</h2>
+                    </div>
+                </div>
+                <div class="col-lg-12 mb-3">
+                    <div class="row">
+                        <div class="col-lg-4 col-sm-12">
+                            <div class="row">
+                                <a href="#">
+                                    <div class="row air">
+                                        <div class="col-md-12 col-sm-12">
+                                            <div class="Air-Picture-Shop">
+                                                <img src="assets-front/img/shop/business-plan-epicerie.jpg" alt="" class="air-img">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12">
+                                            <div class="Shop-Details">
+                                                <div class="Shop-legend">
+                                                    <span class="title-shop">Nom Du Commerce</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 col-sm-12 py-3">
+                            <div class="product__discount__slider owl-carousel">
+                                <div class="col-lg-4">
+                                    <div class="product__discount__item">
+                                        <div class="product__discount__item__pic set-bg"
+                                            data-setbg="assets-front/img/product/discount/pd-1.jpg">
+                                            <!-- <div class="product__discount__percent">-20%</div> -->
+                                            <ul class="product__item__pic__hover">
+                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-star-o"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="product__discount__item__text">
+                                            <span>Fruits Secs</span>
+                                            <h5><a href="#">Raisins & nuts</a></h5>
+                                            <div class="product__item__price">30.00€<span>€36.00</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="product__discount__item">
+                                        <div class="product__discount__item__pic set-bg"
+                                            data-setbg="assets-front/img/product/discount/pd-2.jpg">
+                                            <!-- <div class="product__discount__percent">-20%</div> -->
+                                            <ul class="product__item__pic__hover">
+                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-star-o"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="product__discount__item__text">
+                                            <span>Légumes</span>
+                                            <h5><a href="#">Paquet de Legume</a></h5>
+                                            <div class="product__item__price">30.00€<span>€36.00</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="product__discount__item">
+                                        <div class="product__discount__item__pic set-bg"
+                                            data-setbg="assets-front/img/product/discount/pd-3.jpg">
+                                            <!-- <div class="product__discount__percent">-20%</div> -->
+                                            <ul class="product__item__pic__hover">
+                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-star-o"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="product__discount__item__text">
+                                            <span>Fruits Secs</span>
+                                            <h5><a href="#">Fruits mélangés</a></h5>
+                                            <div class="product__item__price">30.00€<span>€36.00</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="product__discount__item">
+                                        <div class="product__discount__item__pic set-bg"
+                                            data-setbg="assets-front/img/product/discount/pd-4.jpg">
+                                            <!-- <div class="product__discount__percent">-20%</div> -->
+                                            <ul class="product__item__pic__hover">
+                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-star-o"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="product__discount__item__text">
+                                            <span>Fruits Secs</span>
+                                            <h5><a href="#">Raisins & noix</a></h5>
+                                            <div class="product__item__price">30.00€<span>€36.00</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 mb-3">
+                    <div class="row">
+                        <div class="col-lg-4 col-sm-12">
+                            <div class="row">
+                                <a href="#">
+                                    <div class="row air">
+                                        <div class="col-md-12 col-sm-12">
+                                            <div class="Air-Picture-Shop">
+                                                <img src="assets-front/img/shop/business-plan-epicerie.jpg" alt="" class="air-img">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12">
+                                            <div class="Shop-Details">
+                                                <div class="Shop-legend">
+                                                    <span class="title-shop">Nom Du Commerce</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 col-sm-12 py-3">
+                            <div class="product__discount__slider owl-carousel">
+                                <div class="col-lg-4">
+                                    <div class="product__discount__item">
+                                        <div class="product__discount__item__pic set-bg"
+                                            data-setbg="assets-front/img/product/discount/pd-1.jpg">
+                                            <!-- <div class="product__discount__percent">-20%</div> -->
+                                            <ul class="product__item__pic__hover">
+                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-star-o"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="product__discount__item__text">
+                                            <span>Fruits Secs</span>
+                                            <h5><a href="#">Raisins & nuts</a></h5>
+                                            <div class="product__item__price">30.00€<span>€36.00</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="product__discount__item">
+                                        <div class="product__discount__item__pic set-bg"
+                                            data-setbg="assets-front/img/product/discount/pd-2.jpg">
+                                            <!-- <div class="product__discount__percent">-20%</div> -->
+                                            <ul class="product__item__pic__hover">
+                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-star-o"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="product__discount__item__text">
+                                            <span>Légumes</span>
+                                            <h5><a href="#">Paquet de Legume</a></h5>
+                                            <div class="product__item__price">30.00€<span>€36.00</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="product__discount__item">
+                                        <div class="product__discount__item__pic set-bg"
+                                            data-setbg="assets-front/img/product/discount/pd-3.jpg">
+                                            <!-- <div class="product__discount__percent">-20%</div> -->
+                                            <ul class="product__item__pic__hover">
+                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-star-o"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="product__discount__item__text">
+                                            <span>Fruits Secs</span>
+                                            <h5><a href="#">Fruits mélangés</a></h5>
+                                            <div class="product__item__price">30.00€<span>€36.00</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="product__discount__item">
+                                        <div class="product__discount__item__pic set-bg"
+                                            data-setbg="assets-front/img/product/discount/pd-4.jpg">
+                                            <!-- <div class="product__discount__percent">-20%</div> -->
+                                            <ul class="product__item__pic__hover">
+                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-star-o"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="product__discount__item__text">
+                                            <span>Fruits Secs</span>
+                                            <h5><a href="#">Raisins & noix</a></h5>
+                                            <div class="product__item__price">30.00€<span>€36.00</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 mb-3">
+                    <div class="row">
+                        <div class="col-lg-4 col-sm-12">
+                            <div class="row">
+                                <a href="#">
+                                    <div class="row air">
+                                        <div class="col-md-12 col-sm-12">
+                                            <div class="Air-Picture-Shop">
+                                                <img src="assets-front/img/shop/business-plan-epicerie.jpg" alt="" class="air-img">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 col-sm-12">
+                                            <div class="Shop-Details">
+                                                <div class="Shop-legend">
+                                                    <span class="title-shop">Nom Du Commerce</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 col-sm-12 py-3">
+                            <div class="product__discount__slider owl-carousel">
+                                <div class="col-lg-4">
+                                    <div class="product__discount__item">
+                                        <div class="product__discount__item__pic set-bg"
+                                            data-setbg="assets-front/img/product/discount/pd-1.jpg">
+                                            <!-- <div class="product__discount__percent">-20%</div> -->
+                                            <ul class="product__item__pic__hover">
+                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-star-o"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="product__discount__item__text">
+                                            <span>Fruits Secs</span>
+                                            <h5><a href="#">Raisins & nuts</a></h5>
+                                            <div class="product__item__price">30.00€<span>€36.00</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="product__discount__item">
+                                        <div class="product__discount__item__pic set-bg"
+                                            data-setbg="assets-front/img/product/discount/pd-2.jpg">
+                                            <!-- <div class="product__discount__percent">-20%</div> -->
+                                            <ul class="product__item__pic__hover">
+                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-star-o"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="product__discount__item__text">
+                                            <span>Légumes</span>
+                                            <h5><a href="#">Paquet de Legume</a></h5>
+                                            <div class="product__item__price">30.00€<span>€36.00</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="product__discount__item">
+                                        <div class="product__discount__item__pic set-bg"
+                                            data-setbg="assets-front/img/product/discount/pd-3.jpg">
+                                            <!-- <div class="product__discount__percent">-20%</div> -->
+                                            <ul class="product__item__pic__hover">
+                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-star-o"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="product__discount__item__text">
+                                            <span>Fruits Secs</span>
+                                            <h5><a href="#">Fruits mélangés</a></h5>
+                                            <div class="product__item__price">30.00€<span>€36.00</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="product__discount__item">
+                                        <div class="product__discount__item__pic set-bg"
+                                            data-setbg="assets-front/img/product/discount/pd-4.jpg">
+                                            <!-- <div class="product__discount__percent">-20%</div> -->
+                                            <ul class="product__item__pic__hover">
+                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-star-o"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="product__discount__item__text">
+                                            <span>Fruits Secs</span>
+                                            <h5><a href="#">Raisins & noix</a></h5>
+                                            <div class="product__item__price">30.00€<span>€36.00</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
                 <div class="categories__slider owl-carousel">
                     <div class="col-lg-3">
                         <div class="categories__item set-bg" data-setbg="assets-front/img/categories/cat-1.jpg">

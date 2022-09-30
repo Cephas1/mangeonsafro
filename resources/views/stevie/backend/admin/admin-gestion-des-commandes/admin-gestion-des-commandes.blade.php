@@ -141,8 +141,9 @@
 
         <!-- Liste commande par commerce Modal -->
         <div class="modal custom-modal fade" id="list_commande" role="dialog">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content" style="width: 700px;">
+            <div class="modal-dialog modal-dialog-centered row" style="max-width: 960px;">
+                <div class="col-lg-2"></div>
+                <div class="modal-content col-lg-10">
                     <div class="modal-body">
                         <div class="form-header">
                             <h3>Liste des commandes</h3>

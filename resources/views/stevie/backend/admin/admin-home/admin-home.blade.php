@@ -82,8 +82,8 @@
                                 <tr>
                                     <td>
                                         <h2 class="table-avatar">
-                                            <a href="profile.html" class="avatar"><img src="assets-back/img/products/image-7.png" alt=""></a>
-                                            <a href="profile.html">Restaurant-01<span>+33 6 95 88 19 19</span></a>
+                                            <a href="profile.html" class="avatar" data-toggle="modal" data-target="#info_shop"><img src="assets-back/img/products/image-7.png" alt=""></a>
+                                            <a href="profile.html" data-toggle="modal" data-target="#info_shop">Restaurant-01<span>+33 6 95 88 19 19</span></a>
                                         </h2>
                                     </td>
                                     <td class="text-center">75004</td>
@@ -95,8 +95,8 @@
                                 <tr>
                                     <td>
                                         <h2 class="table-avatar">
-                                            <a href="profile.html" class="avatar"><img src="assets-back/img/products/image-8.png" alt=""></a>
-                                            <a href="profile.html">Restaurant-02<span>+33 6 95 88 19 19</span></a>
+                                            <a href="profile.html" class="avatar" data-toggle="modal" data-target="#info_shop"><img src="assets-back/img/products/image-8.png" alt=""></a>
+                                            <a href="profile.html" data-toggle="modal" data-target="#info_shop">Restaurant-02<span>+33 6 95 88 19 19</span></a>
                                         </h2>
                                     </td>
                                     <td class="text-center">45200</td>
@@ -108,8 +108,8 @@
                                 <tr>
                                     <td>
                                         <h2 class="table-avatar">
-                                            <a href="profile.html" class="avatar"><img src="assets-back/img/products/image-9.png" alt=""></a>
-                                            <a href="profile.html">Restaurant-03<span>+33 6 95 88 19 19</span></a>
+                                            <a href="profile.html" class="avatar" data-toggle="modal" data-target="#info_shop"><img src="assets-back/img/products/image-9.png" alt=""></a>
+                                            <a href="profile.html" data-toggle="modal" data-target="#info_shop">Restaurant-03<span>+33 6 95 88 19 19</span></a>
                                         </h2>
                                     </td>
                                     <td class="text-center">5200</td>
@@ -152,6 +152,37 @@
         </div>
         <!-- /Page Content -->
 
+
+        <!-- Info shop Modal -->
+        <div class="modal custom-modal fade" id="info_shop" role="dialog">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <div class="form-header">
+                            <h2>Information sur le shop</h2>
+                            <h3 class="user-name m-t-0 mb-0">Nom: <span class="ps1">Restaurant-01</span></h3>
+                            <h6 class="text-muted">Statut: Actif</h6>
+                            <div class="staff-id">ID Boutique : <span class="ps1">FT-0001</span></div>
+                            <div class="staff-id">Date de création: <span class="ps1">1st Jan 2022</span></div>
+                            <div class="staff-id">Genre : <span class="ps1">Restaurants</span></div>
+                            <div class="staff-id">Téléphone: <span class="ps1">9876543210</a></div>
+                            <div class="staff-id">Email: <span class="ps1">johndoe@example.com</span></div>
+                            <div class="staff-id">Adresse: <span class="ps1">1861 Bayonne Ave, Manchester Township, NJ, 08759</span></div>
+                            <div class="staff-id">Responsable commerce: <a href="profile.html">Jeffery Lalor</a></div>
+                        </div>
+
+                        <div class="modal-btn delete-action">
+                            <div class="row">
+                                <div class="col-12">
+                                    <a href="javascript:void(0);" data-dismiss="modal" class="btn btn-primary cancel-btn">Fermer</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Info shop Modal -->
     </div>
     <!-- /Page Wrapper -->
 @endsection

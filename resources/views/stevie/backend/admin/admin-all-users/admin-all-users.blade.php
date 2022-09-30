@@ -17,8 +17,13 @@
                             <li class="breadcrumb-item active">Liste des utilisateurs</li>
                         </ul>
                     </div>
+                    <div class="col-auto float-right ml-auto">
+                        <a href="#" class="btn add-btn" data-toggle="modal" data-target="#add_user"><i class="fa fa-plus"></i> Ajouter un utilisateur</a>
+                    </div>
                 </div>
             </div>
+
+
             <!-- /Page Header -->
             <!-- /Page Header -->
 
@@ -179,6 +184,78 @@
             </div>
         </div>
         <!-- /Page Content -->
+
+
+        <!-- Add User Modal -->
+        <div id="add_user" class="modal custom-modal fade" role="dialog">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Ajouter un utilisateur</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Nom <span class="text-danger">*</span></label>
+                                        <input class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Prénom <span class="text-danger">*</span></label>
+                                        <input class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Email <span class="text-danger">*</span></label>
+                                        <input class="form-control" type="email">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Téléphone </label>
+                                        <input class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Mot de passe <span class="text-danger">*</span></label>
+                                        <input class="form-control" type="password">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Confirme mot de passe <span class="text-danger">*</span></label>
+                                        <input class="form-control" type="password">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label>Role</label>
+                                        <select class="select">
+                                            <option>Admin</option>
+                                            <option>Client</option>
+                                            <option>Vendeur</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="submit-section">
+                                <button class="btn btn-primary submit-btn">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Add User Modal -->
+
 
         <!-- Lock user Modal -->
         <div class="modal custom-modal fade" id="lock_user" role="dialog">

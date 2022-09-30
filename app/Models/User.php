@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use App\Models\Order;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Support\Facades\Auth;
-use Laravel\Sanctum\HasApiTokens;
-use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
@@ -60,6 +61,10 @@ class User extends Authenticatable
         return Auth::user()->shops->first() ? Auth::user()->shops->first()->name : null;
     }
 
-
-
+    /* Relation client et commande*/
+    public function clientOrder()
+    {
+        return $this->hasMany(Order::class);
+    }
+    /* Relation client et commande*/
 }

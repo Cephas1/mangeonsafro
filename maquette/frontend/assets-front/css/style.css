@@ -2115,7 +2115,22 @@ ol {
 	margin: auto;
 	width: 100%;
 	padding: 20px;
+    overflow-y: hidden;
 }
+.air{
+	margin-left: 0;
+	margin-bottom: 10px;
+	padding: 10px;
+	width: 100%;
+	background-color: #fff;
+}
+
+.air-img{
+	height: 300px;
+	width: 100%;
+	border-radius: 5px;
+}
+
 
 .listShop .shop {
 	max-width: 650px;
@@ -2221,7 +2236,7 @@ ol {
 	max-width: 1170px;
 	padding-top: 40px;
 	padding-bottom: 80px;
-	
+
 }
 
 .shop-d{

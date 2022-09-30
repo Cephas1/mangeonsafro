@@ -32,6 +32,7 @@ class ProductController extends Controller
         //$data = [];
 
         return view('backend.products.index', compact('products', 'productCount', 'productsCategories', 'shops', 'categoryProducts'));
+        //return view('stevie.frontend.commerce.commerce', compact('products', 'productCount'));
     }
 
 

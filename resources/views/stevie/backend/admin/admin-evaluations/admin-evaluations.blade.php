@@ -109,8 +109,9 @@
 
         <!-- Send commentaire Modal -->
         <div class="modal custom-modal fade" id="shop_commentaire" role="dialog">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content" style="width: 900px; right: 100px;">
+            <div class="modal-dialog modal-dialog-centered row" style="max-width: 960px;">
+                <div class="col-lg-2"></div>
+                <div class="modal-content col-lg-10">
                     <div class="modal-body">
                         <div class="form-header">
                             <h3>Liste des commentaires</h3>

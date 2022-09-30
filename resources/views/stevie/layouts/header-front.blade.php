@@ -1,13 +1,13 @@
     <!-- Page Preloder -->
+    {{-- {{dd(Auth::user()->role_id)}} --}}
     <div id="preloder">
         <div class="loader"></div>
     </div>
-
     <!-- Humberger Begin -->
     <div class="humberger__menu__overlay"></div>
     <div class="humberger__menu__wrapper">
         <div class="humberger__menu__logo">
-            <a href="{{route('home')}}"><img src="assets-front/img/logo.png" style="height: 50px; width:50px " alt=""></a>
+            <a href="{{route('home')}}"><img src="{{asset('assets-front/img/logo.png')}}" style="height: 50px; width:50px " alt=""></a>
         </div>
         <div class="humberger__menu__cart">
             <ul>
@@ -26,23 +26,26 @@
                     <li><a href="#">Anglais</a></li>
                 </ul>
             </div> --}}
+
             @auth
                 <nav  class="humberger__menu__nav mobile-menu">
                     <ul>
                         <li><span><i class="fa fa-user"></i> Mon compte</span>
                             <ul class="header__menu__dropdown">
-                                <li><a href="#"><i class="fa fa-tachometer"></i> Mon tableau de bord</a></li>
-                                <li><a href="#"><i class="fa fa-sign-out"></i> Déconnexion</a></li>
+                                @if (Auth::user()->role_id == 3)
+                                    <li><a href="{{route('client-home',Auth::user()->id)}}"><i class="fa fa-tachometer"></i>Mon tableau de bord</a></li>
+                                @endif
+                                <li><a href="{{route('logout')}}"><i class="fa fa-sign-out"></i> Déconnexion</a></li>
                             </ul>
                         </li>
                     </ul>
                 </nav >
             @else
                 <div class="header__top__right__auth">
-                    <a href="{{route('connexion')}}"><i class="fa fa-sign-in"></i>Connexion</a>
+                    <a href="{{route('login')}}"><i class="fa fa-sign-in"></i>Connexion</a>
                 </div>
                 <div class="header__top__right__auth">
-                    <a href="{{route('inscription')}}"><i class="fa fa-user-plus"></i>S'inscrire</a>
+                    <a href="{{route('register')}}"><i class="fa fa-user-plus"></i>S'inscrire</a>
                 </div>
             @endauth
 
@@ -106,20 +109,21 @@
                                 <div class="header__top__right__auth com-a">
                                     <div><span><i class="fa fa-user"></i>Mon compte</span>
                                         <ul>
-                                            <li><a href="#"><i class="fa fa-tachometer"></i>Mon tableau de bord</a></li>
-                                            <li><a href="#"><i class="fa fa-sign-out"></i>Déconnexion</a></li>
+                                            @if (Auth::user()->role_id == 3)
+                                            <li><a href="{{route('client-home',Auth::user()->id)}}"><i class="fa fa-tachometer"></i>Mon tableau de bord</a></li>
+                                            @endif
+                                            <li><a href="{{route('logout')}}"><i class="fa fa-sign-out"></i>Déconnexion</a></li>
                                         </ul>
                                     </div>
                                 </div>
                             @else
                                 <div class="header__top__right__auth">
-                                    <a href="{{route('connexion')}}"><i class="fa fa-sign-in"></i> Connexion</a>
+                                    <a href="{{route('login')}}"><i class="fa fa-sign-in"></i> Connexion</a>
                                 </div>
                                 <div class="header__top__right__auth">
-                                    <a href="{{route('inscription')}}"><i class="fa fa-user-plus"></i> S'inscrire</a>
+                                    <a href="{{route('register')}}"><i class="fa fa-user-plus"></i> S'inscrire</a>
                                 </div>
                             @endauth
-
                         </div>
                     </div>
                 </div>
@@ -129,7 +133,7 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="header__logo">
-                        <a href="{{route('home')}}"><img src="assets-front/img/logo.png"  style="height: 90px; width:90px "alt=""></a>
+                        <a href="{{route('home')}}"><img src="{{asset('assets-front/img/logo.png')}}"  style="height: 90px; width:90px "alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-7">
