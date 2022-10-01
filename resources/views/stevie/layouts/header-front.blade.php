@@ -33,7 +33,7 @@
                         <li><span><i class="fa fa-user"></i> Mon compte</span>
                             <ul class="header__menu__dropdown">
                                 @if (Auth::user()->role_id == 3)
-                                    <li><a href="{{route('client-home',Auth::user()->id)}}"><i class="fa fa-tachometer"></i>Mon tableau de bord</a></li>
+                                    <li><a href="{{route('client-home')}}"><i class="fa fa-tachometer"></i>Mon tableau de bord</a></li>
                                 @endif
                                 <li><a href="{{route('logout')}}"><i class="fa fa-sign-out"></i> Déconnexion</a></li>
                             </ul>
@@ -110,7 +110,7 @@
                                     <div><span><i class="fa fa-user"></i>Mon compte</span>
                                         <ul>
                                             @if (Auth::user()->role_id == 3)
-                                            <li><a href="{{route('client-home',Auth::user()->id)}}"><i class="fa fa-tachometer"></i>Mon tableau de bord</a></li>
+                                            <li><a href="{{route('client-home')}}"><i class="fa fa-tachometer"></i>Mon tableau de bord</a></li>
                                             @endif
                                             <li><a href="{{route('logout')}}"><i class="fa fa-sign-out"></i>Déconnexion</a></li>
                                         </ul>

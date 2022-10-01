@@ -12,7 +12,7 @@
                     <div class="col">
                         <h3 class="page-title">Favoris</h3>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{route('client-home',['id'=>$client->id])}}">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('client-home')}}">Dashboard</a></li>
                             <li class="breadcrumb-item active">Mes produits préférés</li>
                         </ul>
                     </div>

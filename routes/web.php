@@ -426,21 +426,21 @@ Route::get('admin-profile', function () {
 */
 
 Route::middleware(['auth'])->group(function(){
-    Route::get('client-home/{id}', [App\http\Controllers\stevie\clientController::class, 'index'])->name('client-home');
+    Route::get('client-home', [App\http\Controllers\stevie\clientController::class, 'index'])->name('client-home');
 
-    Route::get('client-mes-commandes/{id}', [App\http\Controllers\stevie\clientController::class, 'commande'])->name('client-mes-commandes');
+    Route::get('client-mes-commandes', [App\http\Controllers\stevie\clientController::class, 'commande'])->name('client-mes-commandes');
 
     Route::get('client-details-orders/{code}',[App\http\Controllers\stevie\clientController::class, 'detailOrder'])->name('client-details-orders');
 
-    Route::get('client-mes-produits-preferes/{id}', [App\http\Controllers\stevie\clientController::class, 'favoris'])->name('client-mes-produits-preferes');
+    Route::get('client-mes-produits-preferes', [App\http\Controllers\stevie\clientController::class, 'favoris'])->name('client-mes-produits-preferes');
 
     Route::get('client-show-modal-favoris/{id}',[App\http\Controllers\stevie\clientController::class, 'showDeleteFavoris'])->name('show-modal-favoris');
 
     Route::get('client-delete-favoris/{id}',[App\http\Controllers\stevie\clientController::class, 'deleteFavoris'])->name('client-delete-favoris');
 
-    Route::get('client-profile/{id}', [App\http\Controllers\stevie\clientController::class, 'profile'])->name('client-profile');
+    Route::get('client-profile', [App\http\Controllers\stevie\clientController::class, 'profile'])->name('client-profile');
 
-    Route::put('client-edit-profile/{id}', [App\http\Controllers\stevie\clientController::class, 'editProfile'])->name('client-edit-profile');
+    Route::put('client-edit-profile', [App\http\Controllers\stevie\clientController::class, 'editProfile'])->name('client-edit-profile');
 });
 
  /*
@@ -468,22 +468,33 @@ Route::get('vendeur-mes-commandes/{id}', [App\http\controllers\stevie\vendeurCon
 
 Route::get('show-modal-livred/{code}',[App\http\controllers\stevie\vendeurController::class, 'showChangeState'])->name('show-modal-livred');
 
-Route::put('orderLivred/{code}',[App\http\controllers\stevie\vendeurController::class, 'orderLivred'])->name('orderLivred');
-
+Route::get('orderLivred/{code}',[App\http\controllers\stevie\vendeurController::class, 'orderLivred'])->name('orderLivred');
 
 Route::get('vendeur-details-commande/{code}', [App\http\controllers\stevie\vendeurController::class, 'detailsCommande'])->name('vendeur-details-commande');
+
+Route::get('vendeur-mes-produits/{id}',[App\http\controllers\stevie\vendeurController::class, 'showProduct'] )->name('vendeur-mes-produits');
+
+Route::post('vendeur-add-product',[App\http\controllers\stevie\vendeurController::class, 'addProduct'])->name('vendeur-add-product');
+
+Route::get('vendeur-show-edit-product/{id}',[App\http\controllers\stevie\vendeurController::class, 'showEditProduct'])->name('vendeur-show-edit-product');
+
+Route::put('vendeur-edit-product',[App\http\controllers\stevie\vendeurController::class, 'editProduct'])->name('vendeur-edit-product');
+
+Route::get('vendeur-isActivated-product/{id}',[App\http\controllers\stevie\vendeurController::class, 'isActivated'])->name('vendeur-isActivated-product');
+
+Route::get('deleteProductModa/{id}',[App\http\controllers\stevie\vendeurController::class, 'deleteProductModal'])->name('vendeur-deleteProductModal');
+
+Route::get('deleteProduct/{id}',[App\http\controllers\stevie\vendeurController::class, 'deleteProduct'])->name('vendeur-deleteProduct');
+
+Route::get('vendeur-mes-informations/{id}',[App\http\controllers\stevie\vendeurController::class, 'shopInfos'])->name('vendeur-mes-informations');
 
 Route::get('vendeur-mes-commentaires', function () {
     return view('stevie.backend.vendeur.vendeur-mes-commentaires.vendeur-mes-commentaires');
 })->name('vendeur-mes-commentaires');
 
-Route::get('vendeur-mes-informations', function () {
-    return view('stevie.backend.vendeur.vendeur-mes-informations.vendeur-mes-informations');
-})->name('vendeur-mes-informations');
 
-Route::get('vendeur-mes-produits', function () {
-    return view('stevie.backend.vendeur.vendeur-mes-produits.vendeur-mes-produits');
-})->name('vendeur-mes-produits');
+
+
 
 Route::get('vendeur-mon-portefeuille', function () {
     return view('stevie.backend.vendeur.vendeur-mon-portefeuille.vendeur-mon-portefeuille');

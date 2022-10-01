@@ -232,21 +232,10 @@
                         </div>
                         @csrf
                         @method('PUT')
-                        <div class="modal-btn delete-action">
-                           <span id="changeState"></span>
-                           <form action="" method="POST">
-                                @csrf
-                                @method('PUT')
-                                <div class="row">
-                                    <div class="col-6">
-                                        <input type="text" name="livred" value="1" class="d-none">
-                                        <button class="btn btn-primary continue-btn btn-block">Oui</button>
-                                    </div>
-                                    <div class="col-6">
-                                        <a href="javascript:void(0);" data-dismiss="modal" class="btn btn-primary cancel-btn">Non</a>
-                                    </div>
-                                </div>
-                            </form>
+                        <div class="modal-btn delete-action" >
+                            <div class="row" id="changeState">
+
+                            </div>
                         </div>
                     </div>
                 </div>

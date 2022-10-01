@@ -20,7 +20,20 @@
                     $('#changeState').html(data);
                 })
             })
-
+            $('body').on('click', '#edit_produit',function(){
+                var product = $(this).data('url');
+                $.get(product, function(data){
+                    $('#editproduitModal').modal('show');
+                    $('#edit-Product').html(data);
+                })
+            })
+            $('body').on('click', '#delete_produit',function(){
+                var product = $(this).data('url');
+                $.get(product, function(data){
+                    $('#deleteProduitModal').modal('show');
+                    $('#deleteProduct').html(data);
+                })
+            })
         })
         /*$(document).ready(function(){
             $('body').on('click','#deleteProduit', function(){

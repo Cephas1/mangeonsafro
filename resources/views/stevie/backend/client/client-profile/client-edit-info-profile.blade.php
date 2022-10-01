@@ -9,7 +9,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{route('client-edit-profile',$client->id)}}" method="POST">
+                    <form action="{{route('client-edit-profile')}}" method="POST">
                         @csrf
                         @method('PUT')
                         <div class="row">
@@ -84,13 +84,13 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>ville</label>
-                                    <input type="text" class="form-control" name="ville" value="{{$client->ville}}">
+                                    <input type="text" class="form-control" name="city" value="{{$client->city}}">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Pays</label>
-                                    <input type="text" class="form-control" name="pays" value="{{$client->pays}}">
+                                    <input type="text" class="form-control" name="country" value="{{$client->country}}">
                                 </div>
                             </div>
                         </div>

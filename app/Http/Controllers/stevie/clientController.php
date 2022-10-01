@@ -9,11 +9,14 @@ use App\Models\Favori;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class clientController extends Controller
 {
-    public function index($id)
+    public function index()
     {
+        $id= Auth::user()->id;
+        //dd($test);
         $clients = User::all();
         $client = $clients->find($id);
         $showOrders = DB::table('Orders')->join('users', 'orders.user_id', '=', 'users.id')->where('users.id', $client->id)->get();
@@ -31,8 +34,9 @@ class clientController extends Controller
         ]);
     }
 
-    public function profile($id)
+    public function profile()
     {
+        $id= Auth::user()->id;
         $clients = User::all();
         $client = $clients->find($id);
         return view('stevie.backend.client.client-profile.client-profile', [
@@ -40,7 +44,8 @@ class clientController extends Controller
         ]);
     }
 
-    public function editProfile($id, Request $request) {
+    public function editProfile(Request $request) {
+        $id= Auth::user()->id;
         $client = User::find($id);
         $client->name = $request->input('name');
         $client->first_name = $request->input('first_name');
@@ -52,15 +57,16 @@ class clientController extends Controller
         $client->birthday = $date;
         $client->phone = $request->input('phone');
         $client->address = $request->input('address');
-        $client->ville = $request->input('ville');
-        $client->pays = $request->input('pays');
+        $client->city = $request->input('city');
+        $client->country = $request->input('contry');
         $client->update();
         return redirect()->back();
     }
 
     //Liste des favoris
-    public function favoris($id, Request $request)
+    public function favoris(Request $request)
     {
+        $id= Auth::user()->id;
         $clients = User::all();
         $client = $clients->find($id);
 
@@ -91,27 +97,25 @@ class clientController extends Controller
     //Supprimer un produit favoris
 
     public function showDeleteFavoris($id){
-        $output='<form action="'.route('client-delete-favoris',$id).'" class="row" method="post">
-        '. method_field('delete').
-         csrf_field() .'
+        $output='
         <div class="col-6" >
-            <button class="btn btn-primary continue-btn" style="width: 212px">Oui</button>
+            <a href="'.route('client-delete-favoris',$id).'" class="btn btn-primary continue-btn btn-block">Supprimer</a>
         </div>
         <div class="col-6">
             <a href="javascript:void(0);" data-dismiss="modal" class="btn btn-primary cancel-btn">Non</a>
-        </div>
-    </form>';
+        </div>';
         return response()->json($output);
     }
 
     public function deleteFavoris ($id){
-
+        //$id_user= Auth::user()->id;
         db::delete('delete from favoris where id = ?',[$id]);
         return redirect()->back();
     }
 
-    public function commande($id)
+    public function commande()
     {
+        $id= Auth::user()->id;
         $clients = User::all();
         $client = $clients->find($id);
         $listOrders = DB::table('orders')->select(db::raw('code, user_id ,sum(price * quantity) total, order_state, created_at'))->where('user_id', $client->id)->groupBy(['code', 'order_state', 'created_at', 'user_id'])->orderBy('code')->get();

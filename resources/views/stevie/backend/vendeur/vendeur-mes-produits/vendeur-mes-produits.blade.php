@@ -12,7 +12,7 @@
                     <div class="col">
                         <h3 class="page-title">Mes produits</h3>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{route('vendeur-home')}}">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('vendeur-home',$vendeur->id)}}">Dashboard</a></li>
                             <li class="breadcrumb-item active">Ma boutique</li>
                         </ul>
                     </div>
@@ -24,43 +24,28 @@
             <!-- /Page Header -->
 
             <!-- Search Filter -->
-            <div class="row filter-row">
-                <div class="col-sm-6 col-md-3">
-                    <div class="form-group form-focus">
-                        <input type="text" class="form-control floating">
-                        <label class="focus-label">Produit ID</label>
+            <form action="">
+                <div class="row filter-row">
+                    <div class="col-sm-6 col-md-6">
+                        <div class="form-group form-focus">
+                            <input type="text" name="search" class="form-control floating">
+                            <label class="focus-label">Nom produit</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                        <button class="btn btn-success btn-block">Recherche</button>
                     </div>
                 </div>
-                <div class="col-sm-6 col-md-3">
-                    <div class="form-group form-focus">
-                        <input type="text" class="form-control floating">
-                        <label class="focus-label">Nom</label>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-3">
-                    <div class="form-group form-focus select-focus">
-                        <select class="select floating">
-                            <option>Select status</option>
-                            <option>Active</option>
-                            <option>Inactive</option>
-                        </select>
-                        <label class="focus-label">Statut</label>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-3">
-                    <a href="#" class="btn btn-success btn-block"> Recherche... </a>
-                </div>
-            </div>
+            </form>
             <!-- Search Filter -->
 
             <div class="row">
                 <div class="col-md-12">
-                    <div class="table-responsive">
+                    <div class="table-responsive" style="overflow-x: hidden;">
                         <table class="table table-striped custom-table datatable">
                             <thead>
                                 <tr>
                                     <th>Nom</th>
-                                    <th>Produit ID</th>
                                     <th>description</th>
                                     <th>Prix</th>
                                     <th>Statut</th>
@@ -68,238 +53,46 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($products as $product)
                                 <tr>
                                     <td>
                                         <h2 class="table-avatar">
-                                            <img src="assets-back/img/profiles/avatar-13.jpg" alt="" class="avatar">
-                                            Viandes
+                                            <img src="{{asset('assets-back/img/profiles/avatar-13.jpg')}}" alt="" class="avatar">
+                                            {{$product->name}}
                                         </h2>
                                     </td>
-                                    <td>ART-0001</td>
-                                    <td>lorem ipsum</td>
-                                    <td>5 €</td>
+                                    <td>{{$product->description}}</td>
+                                    <td>{{$product->price}} €</td>
                                     <td>
-                                        <div class="dropdown action-label">
+                                        @if ($product->active == 1)
+                                            <span class="badge bg-inverse-success">Activer</span>
+                                        @else
+                                            <span class="badge bg-inverse-danger">Désactiver</span>
+                                        @endif
+                                        {{-- <div class="dropdown action-label">
                                             <a href="#" class="btn btn-white btn-sm btn-rounded dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-dot-circle-o text-success"></i> Active </a>
                                             <div class="dropdown-menu">
                                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#active_produit"><i class="fa fa-dot-circle-o text-success"></i> Active</a>
                                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#desactive_produit"><i class="fa fa-dot-circle-o text-danger"></i> Inactive</a>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </td>
                                     <td class="text-right">
                                         <div class="dropdown dropdown-action">
                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
                                             <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_produit"><i class="fa fa-pencil m-r-5"></i> Modifier</a>
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_produit"><i class="fa fa-trash-o m-r-5"></i> Supprimer</a>
+                                                @if ($product->active == 1)
+                                                    <a class="dropdown-item" href="{{route('vendeur-isActivated-product',$product->id)}}" ><i class="fa fa-dot-circle-o text-danger"></i> Désactiver</a>
+                                                @else
+                                                    <a class="dropdown-item" href="{{route('vendeur-isActivated-product',$product->id)}}" ><i class="fa fa-dot-circle-o text-success"></i> Activer</a>
+                                                @endif
+                                                <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" id="edit_produit" data-url="{{route('vendeur-show-edit-product',$product->id)}}"><i class="fa fa-pencil m-r-5 text-danger"></i> Modifier</a>
+                                                <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" id="delete_produit" data-url="{{route('vendeur-deleteProductModal',$product->id)}}"><i class="fa fa-trash-o m-r-5 text-danger"></i> Supprimer</a>
                                             </div>
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <h2 class="table-avatar">
-                                            <img src="assets-back/img/profiles/avatar-13.jpg" alt="" class="avatar">
-                                            Viandes
-                                        </h2>
-                                    </td>
-                                    <td>ART-0001</td>
-                                    <td>lorem ipsum</td>
-                                    <td>5 €</td>
-                                    <td>
-                                        <div class="dropdown action-label">
-                                            <a href="#" class="btn btn-white btn-sm btn-rounded dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-dot-circle-o text-success"></i> Active </a>
-                                            <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#active_produit"><i class="fa fa-dot-circle-o text-success"></i> Active</a>
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#desactive_produit"><i class="fa fa-dot-circle-o text-danger"></i> Inactive</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="dropdown dropdown-action">
-                                            <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_produit"><i class="fa fa-pencil m-r-5"></i> Modifier</a>
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_produit"><i class="fa fa-trash-o m-r-5"></i> Supprimer</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h2 class="table-avatar">
-                                            <img src="assets-back/img/profiles/avatar-13.jpg" alt="" class="avatar">
-                                            Viandes
-                                        </h2>
-                                    </td>
-                                    <td>ART-0001</td>
-                                    <td>lorem ipsum</td>
-                                    <td>5 €</td>
-                                    <td>
-                                        <div class="dropdown action-label">
-                                            <a href="#" class="btn btn-white btn-sm btn-rounded dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-dot-circle-o text-success"></i> Active </a>
-                                            <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#active_produit"><i class="fa fa-dot-circle-o text-success"></i> Active</a>
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#desactive_produit"><i class="fa fa-dot-circle-o text-danger"></i> Inactive</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="dropdown dropdown-action">
-                                            <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_produit"><i class="fa fa-pencil m-r-5"></i> Modifier</a>
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_produit"><i class="fa fa-trash-o m-r-5"></i> Supprimer</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h2 class="table-avatar">
-                                            <img src="assets-back/img/profiles/avatar-13.jpg" alt="" class="avatar">
-                                            Viandes
-                                        </h2>
-                                    </td>
-                                    <td>ART-0001</td>
-                                    <td>lorem ipsum</td>
-                                    <td>5 €</td>
-                                    <td>
-                                        <div class="dropdown action-label">
-                                            <a href="#" class="btn btn-white btn-sm btn-rounded dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-dot-circle-o text-success"></i> Active </a>
-                                            <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#active_produit"><i class="fa fa-dot-circle-o text-success"></i> Active</a>
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#desactive_produit"><i class="fa fa-dot-circle-o text-danger"></i> Inactive</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="dropdown dropdown-action">
-                                            <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_produit"><i class="fa fa-pencil m-r-5"></i> Modifier</a>
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_produit"><i class="fa fa-trash-o m-r-5"></i> Supprimer</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h2 class="table-avatar">
-                                            <img src="assets-back/img/profiles/avatar-13.jpg" alt="" class="avatar">
-                                            Viandes
-                                        </h2>
-                                    </td>
-                                    <td>ART-0001</td>
-                                    <td>lorem ipsum</td>
-                                    <td>5 €</td>
-                                    <td>
-                                        <div class="dropdown action-label">
-                                            <a href="#" class="btn btn-white btn-sm btn-rounded dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-dot-circle-o text-success"></i> Active </a>
-                                            <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#active_produit"><i class="fa fa-dot-circle-o text-success"></i> Active</a>
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#desactive_produit"><i class="fa fa-dot-circle-o text-danger"></i> Inactive</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="dropdown dropdown-action">
-                                            <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_produit"><i class="fa fa-pencil m-r-5"></i> Modifier</a>
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_produit"><i class="fa fa-trash-o m-r-5"></i> Supprimer</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h2 class="table-avatar">
-                                            <img src="assets-back/img/profiles/avatar-13.jpg" alt="" class="avatar">
-                                            Viandes
-                                        </h2>
-                                    </td>
-                                    <td>ART-0001</td>
-                                    <td>lorem ipsum</td>
-                                    <td>5 €</td>
-                                    <td>
-                                        <div class="dropdown action-label">
-                                            <a href="#" class="btn btn-white btn-sm btn-rounded dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-dot-circle-o text-success"></i> Active </a>
-                                            <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#active_produit"><i class="fa fa-dot-circle-o text-success"></i> Active</a>
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#desactive_produit"><i class="fa fa-dot-circle-o text-danger"></i> Inactive</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="dropdown dropdown-action">
-                                            <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_produit"><i class="fa fa-pencil m-r-5"></i> Modifier</a>
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_produit"><i class="fa fa-trash-o m-r-5"></i> Supprimer</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h2 class="table-avatar">
-                                            <img src="assets-back/img/profiles/avatar-13.jpg" alt="" class="avatar">
-                                            Viandes
-                                        </h2>
-                                    </td>
-                                    <td>ART-0001</td>
-                                    <td>lorem ipsum</td>
-                                    <td>5 €</td>
-                                    <td>
-                                        <div class="dropdown action-label">
-                                            <a href="#" class="btn btn-white btn-sm btn-rounded dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-dot-circle-o text-success"></i> Active </a>
-                                            <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#active_produit"><i class="fa fa-dot-circle-o text-success"></i> Active</a>
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#desactive_produit"><i class="fa fa-dot-circle-o text-danger"></i> Inactive</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="dropdown dropdown-action">
-                                            <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_produit"><i class="fa fa-pencil m-r-5"></i> Modifier</a>
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_produit"><i class="fa fa-trash-o m-r-5"></i> Supprimer</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h2 class="table-avatar">
-                                            <img src="assets-back/img/profiles/avatar-13.jpg" alt="" class="avatar">
-                                            Viandes
-                                        </h2>
-                                    </td>
-                                    <td>ART-0001</td>
-                                    <td>lorem ipsum</td>
-                                    <td>5 €</td>
-                                    <td>
-                                        <div class="dropdown action-label">
-                                            <a href="#" class="btn btn-white btn-sm btn-rounded dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-dot-circle-o text-success"></i> Active </a>
-                                            <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#active_produit"><i class="fa fa-dot-circle-o text-success"></i> Active</a>
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#desactive_produit"><i class="fa fa-dot-circle-o text-danger"></i> Inactive</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="dropdown dropdown-action">
-                                            <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_produit"><i class="fa fa-pencil m-r-5"></i> Modifier</a>
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_produit"><i class="fa fa-trash-o m-r-5"></i> Supprimer</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -319,30 +112,32 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <form action="{{route('vendeur-add-product')}}" method="POST">
+                            @csrf
                             <div class="form-group">
                                 <label>Nom produit <span class="text-danger">*</span></label>
                                 <div >
-                                    <input class="form-control" type="text">
+                                    <input class="form-control" name="name" type="text" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label>Prix produit <span class="text-danger">*</span></label>
                                 <div >
-                                    <input class="form-control" type="text">
+                                    <input class="form-control" name="price" type="text" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label>Image <span class="text-danger">*</span></label>
                                 <div class="">
-                                    <input class="form-control" type="file">
+                                    <input class="form-control" name="image" type="file">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label>Description<span class="text-danger">*</span></label>
-                                <textarea rows="4" class="form-control"></textarea>
+                                <textarea rows="4" class="form-control" name="description" required></textarea>
                             </div>
                             <div class="submit-section">
+                                <input type="text" name="shop_id" class="d-none" value="{{$product->shop_id}}">
                                 <button class="btn btn-primary submit-btn">Enregistrer</button>
                             </div>
                         </form>
@@ -353,7 +148,7 @@
         <!-- /Add product Modal -->
 
         <!-- Edit product Modal -->
-        <div id="edit_produit" class="modal custom-modal fade" role="dialog">
+        <div id="editproduitModal" class="modal custom-modal fade" role="dialog">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -363,31 +158,35 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <label>Nom produit <span class="text-danger">*</span></label>
-                                <div >
-                                    <input class="form-control" type="text">
+                        <form action="{{route('vendeur-edit-product')}}" method="POST">
+                            @csrf
+                            @method('PUT')
+                            <div id="edit-Product">
+                                {{-- <div class="form-group">
+                                    <label>Nom produit <span class="text-danger">*</span></label>
+                                    <div >
+                                        <input class="form-control" name="name" type="text" required>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Prix produit <span class="text-danger">*</span></label>
-                                <div >
-                                    <input class="form-control" type="text">
+                                <div class="form-group">
+                                    <label>Prix produit <span class="text-danger">*</span></label>
+                                    <div >
+                                        <input class="form-control" name="price" type="text" required>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Image <span class="text-danger">*</span></label>
-                                <div class="">
-                                    <input class="form-control" type="file">
+                                <div class="form-group">
+                                    <label>Image <span class="text-danger">*</span></label>
+                                    <div class="">
+                                        <input class="form-control" name="image" type="file">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Description<span class="text-danger">*</span></label>
-                                <textarea rows="4" class="form-control"></textarea>
+                                <div class="form-group">
+                                    <label>Description<span class="text-danger">*</span></label>
+                                    <textarea rows="4" class="form-control" name="description" required></textarea>
+                                </div> --}}
                             </div>
                             <div class="submit-section">
-                                <button class="btn btn-primary submit-btn">Enregistrer</button>
+                                <button class="btn btn-primary submit-btn">Modifier</button>
                             </div>
                         </form>
                     </div>
@@ -396,7 +195,7 @@
         </div>
         <!-- /Edit product Modal -->
 
-        <!-- Desactive produit Modal -->
+        {{-- <!-- Desactive produit Modal -->
         <div class="modal custom-modal fade" id="desactive_produit" role="dialog">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
@@ -441,9 +240,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- Delete Leave Modal -->
-        <div class="modal custom-modal fade" id="delete_produit" role="dialog">
+        <div class="modal custom-modal fade" id="deleteProduitModal" role="dialog">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-body">
@@ -452,13 +251,13 @@
                             <p>Voulez-vous vraiment supprimer ce produit?</p>
                         </div>
                         <div class="modal-btn delete-action">
-                            <div class="row">
-                                <div class="col-6">
+                            <div class="row" id="deleteProduct">
+                                {{-- <div class="col-6">
                                     <a href="javascript:void(0);" class="btn btn-primary continue-btn">Supprimer</a>
                                 </div>
                                 <div class="col-6">
                                     <a href="javascript:void(0);" data-dismiss="modal" class="btn btn-primary cancel-btn">Annuler</a>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
