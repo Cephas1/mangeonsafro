@@ -34,6 +34,20 @@
                     $('#deleteProduct').html(data);
                 })
             })
+            $('body').on('click', '#edit_categorie',function(){
+                var categorie = $(this).data('url');
+                $.get(categorie, function(data){
+                    $('#editCategorieModal').modal('show');
+                    $('#editCategorie').html(data);
+                })
+            })
+            $('body').on('click', '#delete_categorie',function(){
+                var categorie = $(this).data('url');
+                $.get(categorie, function(data){
+                    $('#deleteCategorieModal').modal('show');
+                    $('#deleteCategorie').html(data);
+                })
+            })
         })
         /*$(document).ready(function(){
             $('body').on('click','#deleteProduit', function(){

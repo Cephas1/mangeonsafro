@@ -67,9 +67,9 @@
 
                         <div class="col-lg-4 col-md-6 col-sm-6">
                             <div class="product__item com-d">
-                                <div class="product__item__pic set-bg" data-setbg="assets-front/img/product/product-{{random_int(1,7)}}.jpg">
+                                <div class="product__item__pic set-bg" data-setbg="{{asset('assets-front/img/product/product-'.random_int(1,7).'.jpg')}}">
                                     <ul class="product__item__pic__hover">
-                                        <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                        <li><a href="{{route('isfavoris',$product->id)}}"><i class="fa fa-heart"></i></a></li>
                                         <li><a href="#" data-toggle="modal" data-target="#evalModal"><i class="fa fa-star-o"></i></a></li>
                                         <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
@@ -248,13 +248,12 @@
                         </div> --}}
                         <!-- Previous or Next Begin -->
                         <div class="col-lg-12 text-center">
+                            @if ($shopCount>=13)
                             <div class="product__pagination banniereHeader">
-                                <!-- <a href="#"><i class="fa fa-long-arrow-left"></i></a> -->
-                                {{-- <a href="#">1</a>
-                                <a href="#">2</a>
-                                <a href="#">3</a>
-                                <a href="#"><i class="fa fa-long-arrow-right"></i></a> --}}
+                                {{$shopProducts->links('stevie.layouts.paginate')}}
                             </div>
+                            @endif
+
                         </div>
                         <!-- Previous or Next End -->
                     </div>

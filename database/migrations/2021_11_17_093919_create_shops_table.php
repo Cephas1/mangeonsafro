@@ -20,7 +20,11 @@ class CreateShopsTable extends Migration
             $table->string('web_site')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
+            $table->string('country');
+            $table->string('city');
+            $table->string('address');
             $table->foreignId('categorie_shop_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

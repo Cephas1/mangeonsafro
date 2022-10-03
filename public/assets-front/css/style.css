@@ -526,7 +526,7 @@ ol {
 	display: inline-block;
 	border-radius: 50%;
 	position: absolute;
-	top: 0;
+	top: -7px;
 	right: -12px;
 }
 
@@ -1636,12 +1636,18 @@ ol {
 	-o-transition: all, 0.3s;
 	transition: all, 0.3s;
 }
-
+.product__pagination .active-page,
 .product__pagination a:hover,
 .blog__pagination a:hover {
 	background:  #D6001B;
 	border-color: #D6001B;
 	color: #ffffff;
+}
+
+.product__pagination .disable-page:hover{
+    border-color: #b2b2b2;
+    background:  none;
+    color: #b2b2b2;
 }
 
 .product__pagination a:last-child,
@@ -1988,7 +1994,13 @@ ol {
 	color: #D62D2D;
 }
 
+.com-z a{
+    color: #D62D2D;
+}
 
+.com-z a:hover{
+    color: #f44336;
+}
 /*---------------------
   Etoile eval
 -----------------------*/

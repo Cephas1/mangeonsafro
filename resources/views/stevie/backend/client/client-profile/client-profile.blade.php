@@ -49,23 +49,59 @@
                                         <ul class="personal-info">
                                             <li>
                                                 <div class="title">Téléphone:</div>
+                                                @if ($client->phone=="")
+                                                ...
+                                                @else
                                                 <div class="text"><a href="">{{$client->phone}}</a></div>
+                                                @endif
                                             </li>
                                             <li>
                                                 <div class="title">Email:</div>
+                                                @if ($client->email=="")
+                                                ...
+                                                @else
                                                 <div class="text"><a href="">{{$client->email}}</a></div>
+                                                @endif
                                             </li>
                                             <li>
                                                 <div class="title">Birthday:</div>
+                                                @if ($client->birthday=="")
+                                                ...
+                                                @else
                                                 <div class="text">{{$client->birthday}}</div>
+                                                @endif
                                             </li>
                                             <li>
                                                 <div class="title">Adresse:</div>
-                                                <div class="text">{{$client->address}}</div>
+                                                @if ($client->city=="")
+                                                ...
+                                                @else
+                                                <div class="text">{{$client->city}}</div>
+                                                @endif
                                             </li>
                                             <li>
                                                 <div class="title">Genre:</div>
+                                                @if ($client->gender=="")
+                                                ...
+                                                @else
                                                 <div class="text">{{$client->gender}}</div>
+                                                @endif
+                                            </li>
+                                            <li>
+                                                <div class="title">Ville:</div>
+                                                @if ($client->city=="")
+                                                ...
+                                                @else
+                                                <div class="text">{{$client->city}}</div>
+                                                @endif
+                                            </li>
+                                            <li>
+                                                <div class="title">Pays:</div>
+                                                @if ($client->country=="")
+                                                ...
+                                                @else
+                                                <div class="text">{{$client->country}}</div>
+                                                @endif
                                             </li>
                                             <li>
                                                 <div class="staff-msg"><a class="btn btn-custom" href="#" data-target="#edit_password" data-toggle="modal">Modifier le mot de passe</a></div>

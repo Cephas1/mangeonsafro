@@ -149,9 +149,9 @@ class clientController extends Controller
                             <a href="javascript:void(0);">' . $detailOrder->name . '<span></span></a>
                         </h2>
                     </td>
-                    <td>' . $detailOrder->price . ' €</td>
+                    <td>' . number_format($detailOrder->price,2) . ' €</td>
                     <td>' . $detailOrder->quantity . '</td>
-                    <td>' . ($detailOrder->price) * ($detailOrder->quantity) . ' €</td>
+                    <td>' . number_format ((($detailOrder->price) * ($detailOrder->quantity)),2) . ' €</td>
                 </tr>';
         };
 

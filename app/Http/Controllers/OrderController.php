@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -13,7 +14,36 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $terminated = count(Order::where('order_state', 1)->get());
+        $waitingOrders = count(Order::where('order_state', 0)->get());
+        $data = [];
+
+        $all = Order::all()->load('shop')->groupBy('shop_id');
+        //dd($all);
+        foreach ($all as $key => $value) {
+            $shopName = $value[0]->shop->name;
+            $shopNumber = $value[0]->shop->phone;
+            $order0 = 0;
+            $order1 = 0;
+            foreach ($value as $key1 => $value1) {
+                if($value1->order_state == 0){
+                    $order0 ++;
+                }elseif ($value1->order_state == 1) {
+                    $order1 ++;
+                }
+            }
+            $data[] = [
+                "shop" => $shopName,
+                "shopNumber" => $shopNumber,
+                "orders0" => $order0,
+                "orders1" => $order1,
+                "ordersCount" => count($value)
+            ];
+        }
+
+        //dd($data);
+        return view('stevie.backend.admin.admin-gestion-des-commandes.admin-gestion-des-commandes', [
+            'terminated' => $terminated, 'waitingOrders' => $waitingOrders, 'ordersCount' => count(Order::all()), 'data' => $data]);
     }
 
     /**

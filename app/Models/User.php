@@ -10,6 +10,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\Permission\Models\Role;
 
 class User extends Authenticatable
 {
@@ -21,7 +22,7 @@ class User extends Authenticatable
      *
      * @var string[]
      */
-    // protected $fillable = [
+     //protected $fillable = [
     //     'name',
     //     'email',
     //     'password',
@@ -51,6 +52,12 @@ class User extends Authenticatable
     {
         return $this->morphOne(Phone::class,'phoneable');
     }
+
+    public function image()
+    {
+        return $this->morphOne(Image::class,'imageable');
+    }
+
     public function shops()
     {
         return $this->belongsToMany(Shop::class,'shops_users','user_id','shop_id');
@@ -59,6 +66,10 @@ class User extends Authenticatable
     public function userHasShop()
     {
         return Auth::user()->shops->first() ? Auth::user()->shops->first()->name : null;
+    }
+
+    public function role(){
+        return $this->belongsTo(Role::class);
     }
 
     /* Relation client et commande*/

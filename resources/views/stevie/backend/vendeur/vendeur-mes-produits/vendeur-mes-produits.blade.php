@@ -12,7 +12,7 @@
                     <div class="col">
                         <h3 class="page-title">Mes produits</h3>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{route('vendeur-home',$vendeur->id)}}">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('vendeur-home')}}">Dashboard</a></li>
                             <li class="breadcrumb-item active">Ma boutique</li>
                         </ul>
                     </div>
@@ -48,6 +48,7 @@
                                     <th>Nom</th>
                                     <th>description</th>
                                     <th>Prix</th>
+                                    <th>Categorie</th>
                                     <th>Statut</th>
                                     <th class="text-right">Action</th>
                                 </tr>
@@ -61,8 +62,9 @@
                                             {{$product->name}}
                                         </h2>
                                     </td>
-                                    <td>{{$product->description}}</td>
+                                    <td>{{Str::limit($product->description, 30, '...') }}</td>
                                     <td>{{$product->price}} €</td>
+                                    <td>{{$product->categorie_name}}</td>
                                     <td>
                                         @if ($product->active == 1)
                                             <span class="badge bg-inverse-success">Activer</span>
@@ -127,6 +129,18 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label>Categorie</label>
+                                <select class="form-control" name="categorie">
+                                    @if (count($categories)>=1)
+                                        @foreach ($categories as $cat )
+                                            <option value="{{$cat->id}}">{{$cat->name}}</option>
+                                        @endforeach
+                                    @else
+                                        <option disabled>Veuillez créer une catégorie ...</option>
+                                    @endif
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label>Image <span class="text-danger">*</span></label>
                                 <div class="">
                                     <input class="form-control" name="image" type="file">
@@ -137,7 +151,7 @@
                                 <textarea rows="4" class="form-control" name="description" required></textarea>
                             </div>
                             <div class="submit-section">
-                                <input type="text" name="shop_id" class="d-none" value="{{$product->shop_id}}">
+                                {{-- <input type="text" name="shop_id" class="d-none" value="{{$product->shop_id}}"> --}}
                                 <button class="btn btn-primary submit-btn">Enregistrer</button>
                             </div>
                         </form>

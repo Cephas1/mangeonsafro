@@ -3,9 +3,11 @@
 use App\Http\Controllers\Admin\CategorieShopController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ClientController;
+use App\Http\Controllers\Admin\EvaluationsController;
 use App\Http\Controllers\Admin\ImageCategoriesController;
 use App\Http\Controllers\Admin\ShopController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
@@ -25,6 +27,7 @@ Route::get('demo', function () {
 });
 
 Route::get('/', HomeController::class)->name('home');
+Route::get('/home-search', HomeController::class)->name('home.search');
 Route::get('/profile', [ProfileController::class, 'index'])->middleware(['auth'])->name('frontend.profile.profile');
 
 /*
@@ -93,33 +96,35 @@ Route::get('faq-pro', function () {
     return view('stevie.frontend.faq-pro.faq-pro');
 })->name('faq-pro');
 
-Route::get('favoris', function () {
-    return view('stevie.frontend.favoris.favoris');
-})->name('favoris');
+Route::get('favoris',[App\http\controllers\stevie\productController::class, 'showFavoris'])->name('favoris');
 
-Route::get('home', function () {
-    return view('stevie.frontend.home.home');
-})->name('home');
+Route::get('isfavoris/{id_product}',[App\http\controllers\stevie\productController::class, 'isFavoris'])->name('isfavoris');
+
+//Route::get('home', function () {return view('stevie.frontend.home.home');})->name('home');
 
 Route::get('politique-de-confidentialite', function () {
     return view('stevie.frontend.politique-de-confidentialite.politique-de-confidentialite');
 })->name('politique-de-confidentialite');
 
-Route::get('product-details', function () {
-    return view('stevie.frontend.product-details.product-details');
-})->name('product-details');
+Route::get('product-details/{id_product}',[App\http\controllers\stevie\productController::class, 'detailProduct'])->name('product-details');
 
 Route::get('services-et-prestations', function () {
     return view('stevie.frontend.services-et-prestations.services-et-prestations');
 })->name('services-et-prestations');
 
-Route::get('shop-grid', function () {
-    return view('stevie.frontend.shop-grid.shop-grid');
-})->name('shop-grid');
+Route::get('shop-grid',[App\http\controllers\stevie\productController::class, 'allProduct'])->name('shop-grid');
 
-Route::get('shopping-cart', function () {
-    return view('stevie.frontend.shopping-cart.shopping-cart');
-})->name('shopping-cart');
+Route::get('shopping-cart',[App\http\controllers\stevie\basketController::class, 'showBasket'])->name('shopping-cart');
+
+Route::post('add-to-cart',[App\http\controllers\stevie\basketController::class, 'addBasket'])->name('add-to-cart');
+
+Route::get('del-item-cart/{id_item}',[App\http\controllers\stevie\basketController::class, 'delItemBasket'])->name('del-item-cart');
+
+Route::put('edit-item-cart',[App\http\controllers\stevie\basketController::class, 'editItemBasket'])->name('edit-item-cart');
+
+Route::get('refresh-item-cart',[App\http\controllers\stevie\basketController::class, 'refreshBasket'])->name('refresh-item-cart');
+
+Route::get('add-To-Order',[App\http\controllers\stevie\basketController::class, 'addToOrder'])->name('add-To-Order');
 
 Route::get('profile', function () {
     return view('frontend.profile.profile');
@@ -132,13 +137,9 @@ Route::get('profile', function () {
 |--------------------------------------------------------------------------
 */
 
-Route::get('connexion', function () {
-    return view('stevie.auth.login');
-})->name('connexion');
+//Route::get('connexion', function () {return view('stevie.auth.login');})->name('connexion');
 
-Route::get('inscription', function () {
-    return view('stevie.auth.register');
-})->name('inscription');
+//Route::get('inscription', function () {return view('stevie.auth.register');})->name('inscription');
 
 /*
 |--------------------------------------------------------------------------
@@ -380,37 +381,37 @@ Route::prefix('backend')->middleware(['auth'])->group(function () {
 | Debut
 |--------------------------------------------------------------------------
 */
-Route::get('admin-all-users', function () {
-    return view('stevie.backend.admin.admin-all-users.admin-all-users');
-})->name('admin-all-users');
+//Route::prefix('admin')->middleware(['auth'])->group(function(){
 
-Route::get('admin-categories-commerces', function () {
-    return view('stevie.backend.admin.admin-categories-commerces.admin-categories-commerces');
-})->name('admin-categories-commerces');
+    Route::get('/admin-all-users', [UserController::class, 'index'])->name('admin-all-users');
+    Route::get('/admin-active-user/{id}', [UserController::class, 'isActivated'])->name('admin-active-user');
+    Route::get('/admin-destroy-user/{id}', [UserController::class, 'destroy'])->name('admin-detroy-user');
 
-Route::get('admin-categories-users', function () {
-    return view('stevie.backend.admin.admin-categories-users.admin-categories-users');
-})->name('admin-categories-users');
+    Route::get('admin-categories-commerces', [ShopController::class, 'indexCategoriesShops'])->name('admin-categories-commerces');
+    Route::get('/categories-shop/active/{id}', [ShopController::class, 'isActivated'])->name('categories-shop.active');
+    Route::post('/categories-shop/edit/{id}', [ShopController::class, 'updateCategoriesShop'])->name('categories-shop.edit');
+    Route::post('/categories-shop/add', [ShopController::class, 'storeCategoriesShop'])->name('categories-shop.add');
+    Route::get('/categories-shop/destroy/{id}', [ShopController::class, 'destroyCategoriesShop'])->name('categories-shop.destroy');
 
-Route::get('admin-evaluations', function () {
-    return view('stevie.backend.admin.admin-evaluations.admin-evaluations');
-})->name('admin-evaluations');
+    Route::get('admin-categories-users', [UserController::class, 'indexRoles'])->name('admin-categories-users');
+    Route::post('admin-categories-users/add', [UserController::class, 'addRoles'])->name('admin-categories-users.add');
+    Route::post('admin-categories-users/edit/{id}', [UserController::class, 'editRoles'])->name('admin-categories-users.edit');
+    Route::get('admin-categories-users/destroy/{id}', [UserController::class, 'destroyRoles'])->name('admin-categories-users.destroy');
 
-Route::get('admin-gestion-des-commandes', function () {
-    return view('stevie.backend.admin.admin-gestion-des-commandes.admin-gestion-des-commandes');
-})->name('admin-gestion-des-commandes');
+    Route::get('admin-evaluations', [EvaluationsController::class, 'indexAdmin'])->name('admin-evaluations');
 
-Route::get('admin-home', function () {
-    return view('stevie.backend.admin.admin-home.admin-home');
-})->name('admin-home');
+    Route::get('admin-gestion-des-commandes', [OrderController::class, 'index'])->name('admin-gestion-des-commandes');
 
-Route::get('admin-list-commerces', function () {
-    return view('stevie.backend.admin.admin-list-commerces.admin-list-commerces');
-})->name('admin-list-commerces');
+    Route::get('/admin-home', [DashboardController::class, 'index'])->name('admin-home');
 
-Route::get('admin-profile', function () {
-    return view('stevie.backend.admin.admin-profile.admin-profile');
-})->name('admin-profile');
+    Route::get('admin-list-commerces', [ShopController::class, 'index'])->name('admin-list-commerces');
+    Route::get('/shop/destroy/{id}', [ShopController::class, 'destroy'])->name('shop.destroy');
+
+    Route::post('admin-edit-profile/{id}', [UserController::class, 'editProfil'])->name('admin-profile.edit');
+    Route::get('admin-profile', [UserController::class, 'profil'])->name('admin-profile');
+        //return view('stevie.backend.admin.admin-profile.admin-profile');
+    //})->name('admin-profile');
+//});
  /*
 |--------------------------------------------------------------------------
 | Web Routes - Backend - Admin
@@ -457,14 +458,10 @@ Route::middleware(['auth'])->group(function(){
 | Debut
 |--------------------------------------------------------------------------
 */
-Route::get('vendeur-categories-produits', function () {
-    return view('stevie.backend.vendeur.vendeur-categories-produits.vendeur-categories-produits');
-})->name('vendeur-categories-produits');
 
+Route::get('vendeur-home', [App\http\controllers\stevie\vendeurController::class, 'index'])->name('vendeur-home');
 
-Route::get('vendeur-home/{id}', [App\http\controllers\stevie\vendeurController::class, 'index'])->name('vendeur-home');
-
-Route::get('vendeur-mes-commandes/{id}', [App\http\controllers\stevie\vendeurController::class, 'commande'])->name('vendeur-mes-commandes');
+Route::get('vendeur-mes-commandes', [App\http\controllers\stevie\vendeurController::class, 'commande'])->name('vendeur-mes-commandes');
 
 Route::get('show-modal-livred/{code}',[App\http\controllers\stevie\vendeurController::class, 'showChangeState'])->name('show-modal-livred');
 
@@ -472,7 +469,7 @@ Route::get('orderLivred/{code}',[App\http\controllers\stevie\vendeurController::
 
 Route::get('vendeur-details-commande/{code}', [App\http\controllers\stevie\vendeurController::class, 'detailsCommande'])->name('vendeur-details-commande');
 
-Route::get('vendeur-mes-produits/{id}',[App\http\controllers\stevie\vendeurController::class, 'showProduct'] )->name('vendeur-mes-produits');
+Route::get('vendeur-mes-produits',[App\http\controllers\stevie\vendeurController::class, 'showProduct'] )->name('vendeur-mes-produits');
 
 Route::post('vendeur-add-product',[App\http\controllers\stevie\vendeurController::class, 'addProduct'])->name('vendeur-add-product');
 
@@ -482,27 +479,38 @@ Route::put('vendeur-edit-product',[App\http\controllers\stevie\vendeurController
 
 Route::get('vendeur-isActivated-product/{id}',[App\http\controllers\stevie\vendeurController::class, 'isActivated'])->name('vendeur-isActivated-product');
 
-Route::get('deleteProductModa/{id}',[App\http\controllers\stevie\vendeurController::class, 'deleteProductModal'])->name('vendeur-deleteProductModal');
+Route::get('deleteProductModal/{id}',[App\http\controllers\stevie\vendeurController::class, 'deleteProductModal'])->name('vendeur-deleteProductModal');
 
 Route::get('deleteProduct/{id}',[App\http\controllers\stevie\vendeurController::class, 'deleteProduct'])->name('vendeur-deleteProduct');
 
-Route::get('vendeur-mes-informations/{id}',[App\http\controllers\stevie\vendeurController::class, 'shopInfos'])->name('vendeur-mes-informations');
+Route::get('vendeur-mes-informations',[App\http\controllers\stevie\vendeurController::class, 'shopInfos'])->name('vendeur-mes-informations');
 
-Route::get('vendeur-mes-commentaires', function () {
-    return view('stevie.backend.vendeur.vendeur-mes-commentaires.vendeur-mes-commentaires');
-})->name('vendeur-mes-commentaires');
+Route::put('vendeur-edit-shop',[App\http\controllers\stevie\vendeurController::class, 'editShop'])->name('vendeur-edit-shop');
 
+Route::post('vendeur-create-shop',[App\http\controllers\stevie\vendeurController::class, 'createShop'])->name('vendeur-create-shop');
 
+Route::get('vendeur-categories-produits', [App\http\controllers\stevie\vendeurController::class, 'showCategorie'])->name('vendeur-categories-produits');
 
+Route::post('vendeur-add-categorie',[App\http\controllers\stevie\vendeurController::class, 'addCategorie'])->name('vendeur-add-categorie');
 
+Route::get('vendeur-show-edit-categorie/{id}',[App\http\controllers\stevie\vendeurController::class, 'showEditcategorie'])->name('vendeur-show-edit-categorie');
 
-Route::get('vendeur-mon-portefeuille', function () {
-    return view('stevie.backend.vendeur.vendeur-mon-portefeuille.vendeur-mon-portefeuille');
-})->name('vendeur-mon-portefeuille');
+Route::put('vendeur-edit-categorie',[App\http\controllers\stevie\vendeurController::class, 'editCategorie'])->name('vendeur-edit-categorie');
 
-Route::get('vendeur-profile', function () {
-    return view('stevie.backend.vendeur.vendeur-profile.vendeur-profile');
-})->name('vendeur-profile');
+Route::get('vendeur-isActivated-categorie/{id}',[App\http\controllers\stevie\vendeurController::class, 'isActivatedCategorie'])->name('vendeur-isActivated-categorie');
+
+Route::get('delete-categorie-modal/{id}',[App\http\controllers\stevie\vendeurController::class, 'deleteCategorieModal'])->name('vendeur-deleteCategorieModal');
+
+Route::get('delete-categorie/{id}',[App\http\controllers\stevie\vendeurController::class, 'deleteCategorie'])->name('vendeur-deleteCategorie');
+
+Route::get('vendeur-profile', [App\http\Controllers\stevie\vendeurController::class, 'profile'])->name('vendeur-profile');
+
+Route::put('vendeur-edit-profile', [App\http\Controllers\stevie\vendeurController::class, 'editProfile'])->name('vendeur-edit-profile');
+
+Route::get('vendeur-mes-commentaires',[App\http\Controllers\stevie\vendeurController::class, 'mesCommentaires'])->name('vendeur-mes-commentaires');
+
+Route::get('vendeur-mon-portefeuille',[App\http\Controllers\stevie\vendeurController::class, 'monPortefeuille'])->name('vendeur-mon-portefeuille');
+
  /*
 |--------------------------------------------------------------------------
 | Web Routes - Backend - Vendeur

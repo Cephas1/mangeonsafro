@@ -23,6 +23,14 @@
             </div>
             <!-- /Page Header -->
 
+            <div class="content container-fluid">
+                @if (session('success'))
+                    <h6 class="alert alert-success">{{ session('success') }}</h6>
+                @elseif (session('error'))
+                    <h6 class="alert alert-danger">{{ session('error') }}</h6>
+                @endif
+            </div>
+
             <!-- Search Filter -->
             <div class="row filter-row">
                 <div class="col-sm-6 col-md-6">
@@ -43,26 +51,87 @@
                         <table class="table table-striped custom-table datatable">
                             <thead>
                                 <tr>
-                                    <th>Catégories</th>
-                                    <th>description</th>
+                                    <th>#</th>
+                                    <th>Nom</th>
+                                    <th>Description</th>
                                     <th class="text-right">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Restaurants</td>
-                                    <td>lorem ipsum</td>
-                                    <td class="text-right">
-                                        <div class="dropdown dropdown-action">
-                                            <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_produit"><i class="fa fa-pencil m-r-5"></i> Modifier</a>
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_cat"><i class="fa fa-trash-o m-r-5"></i> Supprimer</a>
+                                @foreach ($categories as $key => $categorie)
+                                    <tr>
+                                        <td>{{ $key+1 }}</td>
+                                        <td>{{ $categorie->name }}</td>
+                                        <td>{{ $categorie->description }}</td>
+                                        <td class="text-right">
+                                            <div class="dropdown dropdown-action">
+                                                <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_produit_{{ $categorie->id }}"><i class="fa fa-pencil m-r-5"></i> Modifier </a>
+                                                    <a class="dropdown-item" href="{{ route('categories-shop.active', $categorie->id) }}" ><i class="fa fa-lock m-r-5"></i> {{ $categorie->isActive == 1? "Désactiver":"Activer" }} </a>
+                                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_cat_{{ $categorie->id }}"><i class="fa fa-trash-o m-r-5"></i> Supprimer </a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- Supprimer catégorie Modal -->
+                                    <div class="modal custom-modal fade" id="delete_cat_{{ $categorie->id }}" role="dialog">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-body">
+                                                    <div class="form-header">
+                                                        <h3>Supprimer la catégorie</h3>
+                                                        <p>Voulez-vous supprimer cette catégorie ?</p>
+                                                    </div>
+                                                    <div class="modal-btn delete-action">
+                                                        <div class="row">
+                                                            <div class="col-6">
+                                                                <a href={{ route('categories-shop.destroy', $categorie->id) }} class="btn btn-primary continue-btn">Supprimer</a>
+                                                            </div>
+                                                            <div class="col-6">
+                                                                <a href="javascript:void(0);" data-dismiss="modal" class="btn btn-primary cancel-btn">Annuler</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </td>
-                                </tr>
-                                <tr>
+                                    </div>
+                                    <!-- Supprimer catégorie Modal -->
+                                    <!-- Edit product Modal -->
+                                    <div id="edit_produit_{{ $categorie->id }}" class="modal custom-modal fade" role="dialog">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title">Modifier une catégorie</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form method="POST" action="{{ url('categories-shop/edit/'.$categorie->id) }}">
+                                                        @csrf
+                                                        <div class="form-group">
+                                                            <label>Nom catégories <span class="text-danger">*</span></label>
+                                                            <div >
+                                                                <input class="form-control" type="text" value="{{ $categorie->name }}" name="name">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label>Description<span class="text-danger">*</span></label>
+                                                            <textarea rows="5" class="form-control" name="description">{{ $categorie->description }}</textarea>
+                                                        </div>
+                                                        <div class="submit-section">
+                                                            <button class="btn btn-primary submit-btn">Enregistrer</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /Edit product Modal -->
+                                @endforeach
+                                <!--<tr>
                                     <td>Epiceries</td>
                                     <td>lorem ipsum</td>
                                     <td class="text-right">
@@ -100,7 +169,7 @@
                                             </div>
                                         </div>
                                     </td>
-                                </tr>
+                                </tr>-->
                             </tbody>
                         </table>
                     </div>
@@ -120,16 +189,17 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <form action="{{ route('categories-shop.add') }}" method="POST">
+                            @csrf
                             <div class="form-group">
-                                <label>Nom catégories <span class="text-danger">*</span></label>
+                                <label>Nom de catégorie <span class="text-danger">*</span></label>
                                 <div >
-                                    <input class="form-control" type="text">
+                                    <input class="form-control" type="text" name="name">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label>Description<span class="text-danger">*</span></label>
-                                <textarea rows="4" class="form-control"></textarea>
+                                <textarea rows="4" class="form-control" name="description"></textarea>
                             </div>
                             <div class="submit-section">
                                 <button class="btn btn-primary submit-btn">Enregistrer</button>

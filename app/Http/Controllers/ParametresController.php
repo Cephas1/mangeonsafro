@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
-use App\Models\Shop;
 use Illuminate\Http\Request;
 
-class ShopController extends Controller
+class ParametresController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +13,7 @@ class ShopController extends Controller
      */
     public function index()
     {
-        //$shops = Shop::paginate(4);
-        $shops = Shop::Paginate(12);
-        $shopCount = Shop::count();
-
-        return view('stevie.frontend.commerce.commerce', compact('shops', 'shopCount'));
+        //
     }
 
     /**
@@ -51,13 +45,7 @@ class ShopController extends Controller
      */
     public function show($id)
     {
-        $shop = Shop::where('id', $id)->first()->load('categorieShop');
-        $shopProducts = Product::where('shop_id', $id)->get();
-        $shopCount = count($shopProducts);
-        $shopProducts = Product::where('shop_id', $id)->Paginate(12);
-
-        //dd($shop->categorieshop->name);
-        return view('stevie.frontend.commerce-page.commerce-page', compact('shop', 'shopProducts', 'shopCount'));
+        //
     }
 
     /**

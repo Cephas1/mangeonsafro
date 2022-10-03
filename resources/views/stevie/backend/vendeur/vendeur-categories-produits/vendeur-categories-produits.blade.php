@@ -24,28 +24,20 @@
             <!-- /Page Header -->
 
             <!-- Search Filter -->
-            <div class="row filter-row">
-               <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 col-12">
-                    <div class="form-group form-focus">
-                        <input type="text" class="form-control floating">
-                        <label class="focus-label">Nom catégorie...</label>
+            <form action="">
+                <div class="row filter-row">
+                    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-12">
+                         <div class="form-group form-focus">
+                             <input type="text" class="form-control floating" name="search">
+                             <label class="focus-label">Nom catégorie</label>
+                         </div>
                     </div>
-               </div>
-               <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 col-12">
-                    <div class="form-group form-focus select-focus">
-                        <select class="select floating">
-                            <option> -- Select -- </option>
-                            <option> Active </option>
-                            <option> Desactive </option>
-                        </select>
-                        <label class="focus-label">Statut catégorie</label>
+                    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6 col-12">
+                        <button class="btn btn-success btn-block">Recherche</button>
                     </div>
-               </div>
+                 </div>
+            </form>
 
-               <div class="col-sm-6 col-md-4 col-lg-4 col-xl-4 col-12">
-                    <a href="#" class="btn btn-success btn-block"> Recherche </a>
-               </div>
-            </div>
             <div class="row">
                 <div class="col-md-12">
                     <div class="table-responsive">
@@ -53,163 +45,43 @@
                             <thead>
                                 <tr>
                                     <th>Catégorie</th>
-                                    <th>Designation</th>
                                     <th>Description</th>
                                     <th class="text-center">Statut</th>
                                     <th class="text-right">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach ($categorie as $cat )
                                 <tr>
                                     <td>
                                         <h2 class="table-avatar">
-                                            <a href="#" class="avatar"><img alt="" src="assets-back/img/products/image-1.png"></a>
-                                            <a href="#">Catégorie-01</a>
+                                            <a href="#">{{$cat->name}}</a>
                                         </h2>
                                     </td>
-                                    <td>Catégorie-01</td>
-                                    <td>Description 01</td>
+                                    <td>{{$cat->description}}</td>
                                     <td class="text-center">
-                                        <div class="dropdown action-label">
-                                            <a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
-                                                <i class="fa fa-dot-circle-o text-success"></i> Active
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#approve_leave"><i class="fa fa-dot-circle-o text-success"></i>Active</a>
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#desactive_status"><i class="fa fa-dot-circle-o text-danger"></i> Desactive</a>
-                                            </div>
-                                        </div>
+                                        @if ($cat->active == 1)
+                                            <span class="badge bg-inverse-success">Activer</span>
+                                        @else
+                                            <span class="badge bg-inverse-danger">Désactiver</span>
+                                        @endif
                                     </td>
                                     <td class="text-right">
                                         <div class="dropdown dropdown-action">
                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
                                             <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_leave"><i class="fa fa-pencil m-r-5"></i> Modifier</a>
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Supprimer</a>
+                                                @if ($cat->active == 1)
+                                                    <a class="dropdown-item" href="{{route('vendeur-isActivated-categorie',$cat->id)}}" ><i class="fa fa-dot-circle-o text-danger"></i> Désactiver</a>
+                                                @else
+                                                    <a class="dropdown-item" href="{{route('vendeur-isActivated-categorie',$cat->id)}}" ><i class="fa fa-dot-circle-o text-success"></i> Activer</a>
+                                                @endif
+                                                <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" id="edit_categorie" data-url="{{route('vendeur-show-edit-categorie',$cat->id)}}"><i class="fa fa-pencil m-r-5 text-danger"></i> Modifier</a>
+                                                <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" id="delete_categorie" data-url="{{route('vendeur-deleteCategorieModal',$cat->id)}}"><i class="fa fa-trash-o m-r-5 text-danger"></i> Supprimer</a>
                                             </div>
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <h2 class="table-avatar">
-                                            <a href="#" class="avatar"><img alt="" src="assets-back/img/products/image-3.png"></a>
-                                            <a>Catégorie-06</span></a>
-                                        </h2>
-                                    </td>
-                                    <td>Catégorie-06</td>
-                                    <td>Description 06</td>
-                                    <td class="text-center">
-                                        <div class="dropdown action-label">
-                                            <a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
-                                                <i class="fa fa-dot-circle-o text-success"></i>Active
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#approve_leave"><i class="fa fa-dot-circle-o text-success"></i>Active</a>
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#desactive_status"><i class="fa fa-dot-circle-o text-danger"></i> Desactive</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="dropdown dropdown-action">
-                                            <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_leave"><i class="fa fa-pencil m-r-5"></i> Modifier</a>
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Supprimer</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h2 class="table-avatar">
-                                            <a href="#" class="avatar"><img alt="" src="assets-back/img/products/image-4.png"></a>
-                                            <a>Catégorie-04</span></a>
-                                        </h2>
-                                    </td>
-                                    <td>Catégorie-04</td>
-                                    <td>Description 04</td>
-                                    <td class="text-center">
-                                        <div class="dropdown action-label">
-                                            <a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
-                                                <i class="fa fa-dot-circle-o text-success"></i>Active
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#approve_leave"><i class="fa fa-dot-circle-o text-success"></i>Active</a>
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#desactive_status"><i class="fa fa-dot-circle-o text-danger"></i> Desactive</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="dropdown dropdown-action">
-                                            <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_leave"><i class="fa fa-pencil m-r-5"></i> Modifier</a>
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Supprimer</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h2 class="table-avatar">
-                                            <a href="#" class="avatar"><img alt="" src="assets-back/img/products/image-6.png"></a>
-                                            <a>Catégorie-03</a>
-                                        </h2>
-                                    </td>
-                                    <td>Catégorie-03</td>
-                                    <td>Description 03</td>
-                                    <td class="text-center">
-                                        <div class="dropdown action-label">
-                                            <a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
-                                                <i class="fa fa-dot-circle-o text-danger"></i>Desactive
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#approve_leave"><i class="fa fa-dot-circle-o text-success"></i>Active</a>
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#desactive_status"><i class="fa fa-dot-circle-o text-danger"></i> Desactive</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="dropdown dropdown-action">
-                                            <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_leave"><i class="fa fa-pencil m-r-5"></i> Modifier</a>
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Supprimer</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h2 class="table-avatar">
-                                            <a href="#" class="avatar"><img alt="" src="assets-back/img/products/image-7.png"></a>
-                                            <a>Catégorie-02</a>
-                                        </h2>
-                                    </td>
-                                    <td>Catégorie-02</td>
-                                    <td>Description02</td>
-                                    <td class="text-center">
-                                        <div class="dropdown action-label">
-                                            <a class="btn btn-white btn-sm btn-rounded dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false">
-                                                <i class="fa fa-dot-circle-o text-success"></i>Active
-                                            </a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#approve_leave"><i class="fa fa-dot-circle-o text-success"></i>Active</a>
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#desactive_status"><i class="fa fa-dot-circle-o text-danger"></i> Desactive</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="text-right">
-                                        <div class="dropdown dropdown-action">
-                                            <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
-                                            <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_leave"><i class="fa fa-pencil m-r-5"></i> Modifier</a>
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_approve"><i class="fa fa-trash-o m-r-5"></i> Supprimer</a>
-                                            </div>
-                                        </div>
-                                    </td>
-
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -229,30 +101,18 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <form action="{{route('vendeur-add-categorie')}}" method="POST">
+                            @csrf
                             <div class="form-group">
-                                <label>Designation <span class="text-danger">*</span></label>
+                                {{-- <input type="text" class="d-none" name="user_id" value="{{$vendeur->id}}"> --}}
+                                <label>Nom categorie <span class="text-danger">*</span></label>
                                 <div >
-                                    <input class="form-control" type="text">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Statut catégorie<span class="text-danger">*</span></label>
-                                <select class="select">
-                                    <option>Active</option>
-                                    <option>Desactive</option>
-
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Image <span class="text-danger">*</span></label>
-                                <div class="">
-                                    <input class="form-control" type="file">
+                                    <input class="form-control" type="text" name="name">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label>Description<span class="text-danger">*</span></label>
-                                <textarea rows="4" class="form-control"></textarea>
+                                <textarea rows="4" class="form-control" name="description"></textarea>
                             </div>
                             <div class="submit-section">
                                 <button class="btn btn-primary submit-btn">Enregistrer</button>
@@ -265,7 +125,7 @@
         <!-- /Add catégorie-product Modal -->
 
         <!-- Edit catégorie-product Modal -->
-        <div id="edit_leave" class="modal custom-modal fade" role="dialog">
+        <div id="editCategorieModal" class="modal custom-modal fade" role="dialog">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -275,33 +135,24 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <label>Designation <span class="text-danger">*</span></label>
-                                <div >
-                                    <input class="form-control" type="text">
+                        <form action="{{route('vendeur-edit-categorie')}}" method="POST">
+                            @csrf
+                            @method('PUT')
+                            <div id="editCategorie">
+                                {{-- <div class="form-group">
+                                    <input type="text" class="d-none" value="{{$vendeur->id}}">
+                                    <label>Nom categorie <span class="text-danger">*</span></label>
+                                    <div >
+                                        <input class="form-control" type="text" name="name">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Statut catégorie<span class="text-danger">*</span></label>
-                                <select class="select">
-                                    <option>Active</option>
-                                    <option>Desactive</option>
-
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label>Image <span class="text-danger">*</span></label>
-                                <div class="">
-                                    <input class="form-control" type="file">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label>Description<span class="text-danger">*</span></label>
-                                <textarea rows="4" class="form-control"></textarea>
+                                <div class="form-group">
+                                    <label>Description<span class="text-danger">*</span></label>
+                                    <textarea rows="4" class="form-control" name="description"></textarea>
+                                </div> --}}
                             </div>
                             <div class="submit-section">
-                                <button class="btn btn-primary submit-btn">Enregistrer</button>
+                                <button class="btn btn-primary submit-btn">Modifier</button>
                             </div>
                         </form>
                     </div>
@@ -311,7 +162,7 @@
         <!-- /Edit catégorie-product Modal -->
 
         <!-- Active status catégorie-product  Modal -->
-        <div class="modal custom-modal fade" id="approve_leave" role="dialog">
+        <div class="modal custom-modal fade" id="deleteCategorieModal" role="dialog">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-body">
@@ -320,13 +171,13 @@
                             <p>Voulez-vous vraiment Activer cette catégorie?</p>
                         </div>
                         <div class="modal-btn delete-action">
-                            <div class="row">
-                                <div class="col-6">
+                            <div id="deleteCategorie" class="row">
+                                {{-- <div class="col-6">
                                     <a href="javascript:void(0);" class="btn btn-primary continue-btn">Modifier</a>
                                 </div>
                                 <div class="col-6">
                                     <a href="javascript:void(0);" data-dismiss="modal" class="btn btn-primary cancel-btn">Annuler</a>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>

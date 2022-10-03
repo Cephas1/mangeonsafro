@@ -57,7 +57,7 @@
                                             <a href="javascript:void(0);">{{$fav->name}}</a>
                                         </h2>
                                     </td>
-                                    <td>{{$fav->price}} €</td>
+                                    <td>{{number_format($fav->price,2)}} €</td>
                                     <td class="text-right">
                                         <div class="dropdown dropdown-action">
                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>

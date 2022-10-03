@@ -76,10 +76,10 @@
                                 <tr>
                                     <td>
                                         <h2 class="table-avatar">
-                                            <a href="javascript:void(0);" data-toggle="modal" id="listProduit" data-url="{{route('client-details-orders',$listOrder->code)}}" data-total="{{$listOrder->total}}">CM-{{$listOrder->code}}</a>
+                                            <a href="javascript:void(0);" data-toggle="modal" id="listProduit" data-url="{{route('client-details-orders',$listOrder->code)}}" data-total="{{ number_format($listOrder->total,2)}}">CM-{{$listOrder->code}}</a>
                                         </h2>
                                     </td>
-                                    <td>{{$listOrder->total}} €</td>
+                                    <td>{{ number_format($listOrder->total,2)}} €</td>
                                     <td>
                                         @if ($listOrder->order_state == '1')
                                             <span class="badge bg-inverse-success">Livrer</span>

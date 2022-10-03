@@ -1,5 +1,9 @@
+<?php
+use App\http\Controllers\Stevie\headerController;
+$nbr_fav= headerController::nbrFavoris();
+$nbr_basket= headerController::nbrBaskets();
+?>
     <!-- Page Preloder -->
-    {{-- {{dd(Auth::user()->role_id)}} --}}
     <div id="preloder">
         <div class="loader"></div>
     </div>
@@ -11,8 +15,8 @@
         </div>
         <div class="humberger__menu__cart">
             <ul>
-                <li><a href="{{route('favoris')}}"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                <li><a href="{{route('shopping-cart')}}"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                <li><a href="{{route('favoris')}}"><i class="fa fa-heart"></i> <span>{{$nbr_fav}}</span></a></li>
+                <li><a href="{{route('shopping-cart')}}"><i class="fa fa-shopping-bag"></i> <span>{{$nbr_basket}}</span></a></li>
             </ul>
             <!-- <div class="header__cart__price"> <span>$150.00</span></div> -->
         </div>
@@ -33,7 +37,21 @@
                         <li><span><i class="fa fa-user"></i> Mon compte</span>
                             <ul class="header__menu__dropdown">
                                 @if (Auth::user()->role_id == 3)
+
                                     <li><a href="{{route('client-home')}}"><i class="fa fa-tachometer"></i>Mon tableau de bord</a></li>
+
+                                @elseif(Auth::user()->role_id == 1)
+
+                                    <li><a href="{{route('Admin-home')}}"><i class="fa fa-tachometer"></i>Mon tableau de bord</a></li>
+
+                                @elseif(Auth::user()->role_id == 2)
+
+                                    <li><a href="{{route('Admin-home')}}"><i class="fa fa-tachometer"></i>Mon tableau de bord</a></li>
+
+                                @elseif (Auth::user()->role_id == 6)
+
+                                    <li><a href="{{route('vendeur-home')}}"><i class="fa fa-tachometer"></i>Mon tableau de bord</a></li>
+
                                 @endif
                                 <li><a href="{{route('logout')}}"><i class="fa fa-sign-out"></i> Déconnexion</a></li>
                             </ul>
@@ -108,11 +126,25 @@
                             @auth
                                 <div class="header__top__right__auth com-a">
                                     <div><span><i class="fa fa-user"></i>Mon compte</span>
-                                        <ul>
+                                        <ul class="header__menu__dropdown">
                                             @if (Auth::user()->role_id == 3)
-                                            <li><a href="{{route('client-home')}}"><i class="fa fa-tachometer"></i>Mon tableau de bord</a></li>
+
+                                                <li><a href="{{route('client-home')}}"><i class="fa fa-tachometer"></i>Mon tableau de bord</a></li>
+
+                                            @elseif(Auth::user()->role_id == 1)
+
+                                                <li><a href="{{route('Admin-home')}}"><i class="fa fa-tachometer"></i>Mon tableau de bord</a></li>
+
+                                            @elseif(Auth::user()->role_id == 2)
+
+                                                <li><a href="{{route('Admin-home')}}"><i class="fa fa-tachometer"></i>Mon tableau de bord</a></li>
+
+                                            @elseif (Auth::user()->role_id == 6)
+
+                                                <li><a href="{{route('vendeur-home')}}"><i class="fa fa-tachometer"></i>Mon tableau de bord</a></li>
+
                                             @endif
-                                            <li><a href="{{route('logout')}}"><i class="fa fa-sign-out"></i>Déconnexion</a></li>
+                                            <li><a href="{{route('logout')}}"><i class="fa fa-sign-out"></i> Déconnexion</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -150,8 +182,8 @@
                 <div class="col-lg-2">
                     <div class="header__cart">
                         <ul>
-                            <li><a href="{{route('favoris')}}"><i class="fa fa-heart"></i> <span>1</span></a></li>
-                            <li><a href="{{route('shopping-cart')}}"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+                            <li><a href="{{route('favoris')}}"><i class="fa fa-heart"></i> <span>{{$nbr_fav}}</span></a></li>
+                            <li><a href="{{route('shopping-cart')}}"><i class="fa fa-shopping-bag"></i> <span>{{$nbr_basket}}</span></a></li>
                         </ul>
                         <!-- <div class="header__cart__price">item: <span>$150.00</span></div> -->
                     </div>

@@ -13,7 +13,17 @@ class Product extends Model
 
     public function images()
     {
-        return $this->hasMany(ImageProduct::class);
+        return $this->morphMany(Image::class, 'imageable');
+    }
+
+    public function shop()
+    {
+        return $this->belongsTo(Shop::class);
+    }
+
+    public function vote()
+    {
+        return $this->hasMany(Vote::class, 'votesable_id');
     }
 
     public function categories()

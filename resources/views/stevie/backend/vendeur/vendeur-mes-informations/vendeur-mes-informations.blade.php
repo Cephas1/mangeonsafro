@@ -12,7 +12,7 @@
                     <div class="col-sm-12">
                         <h3 class="page-title">Information sur ma boutique</h3>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{route('vendeur-home',$vendeur->id)}}">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('vendeur-home')}}">Dashboard</a></li>
                             <li class="breadcrumb-item active">Ma boutique</li>
                         </ul>
                     </div>
@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="profile-basic">
                                     <div class="row">
-                                        <div class="col-md-5">
+                                        <div class="col-md-4">
                                             <div class="profile-info-left">
                                                 <h3 class="user-name m-t-0 mb-0">{{$shop->shop_name}}</h3>
                                                 <h6 class="text-muted">Statut de la boutique</h6>
@@ -40,64 +40,76 @@
                                                 <div class="staff-id">ID Boutique: FT-{{$shop->id_shop}}</div>
                                                 <div class="small doj text-muted">Date de création: {{$shop->date_creation}}</div>
                                                 <div class="staff-id">Genre: {{$shop->categorie}}</div>
+                                                <div class="staff-id">Responsable commerce: <a href="{{route('vendeur-profile')}}">{{$shop->user_first_name}} {{$shop->user_name}}</a></div>
                                             </div>
                                         </div>
-                                        <div class="col-md-7 row">
-                                            <div class="col-12 d-flex">
-                                                <div class="title">Téléphone:</div>
-                                                <div class="text m-l-5"><a href="">{{$shop->shop_phone}}</a></div>
-                                            </div>
-                                            <div class="col-12 d-flex">
-                                                <div class="title">Email:</div>
-                                                <div class="text m-l-5"><a href="">{{$shop->shop_email}}</a></div>
-                                            </div>
-                                            {{-- <div class="col-12 d-flex">
-                                                <div class="title">Adresse:</div>
-                                                <div class="text m-l-5">{{$shop->shop_addres}}</div>
-                                            </div> --}}
-                                            {{-- <div class="col-12 d-flex">
-                                                <div class="title">Adresse:</div>
-                                                <div class="text m-l-5">{{$shop->shop_ville}}</div>
-                                            </div> --}}
-                                            {{-- <div class="col-12 d-flex">
-                                                <div class="title">Adresse:</div>
-                                                <div class="text m-l-5">{{$shop->shop_pays}}</div>
-                                            </div> --}}
-                                            <div class="col-12 d-flex">
-                                                <div class="title">Adresse:</div>
-                                                <div class="text m-l-5">{{$shop->web_site}}</div>
-                                            </div>
-                                            <div class="col-12 d-flex">
-                                                <div class="title">Responsable commerce:</div>
-                                                <div class="text m-l-5">
-                                                    <a href="profile.html">
-                                                        {{$shop->user_first_name}} {{$shop->user_name}}
-                                                    </a>
-                                                </div>
-                                            </div>
-                                            {{-- <ul class="personal-info">
+                                        <div class="col-md-8">
+                                            <ul class="personal-info">
                                                 <li>
                                                     <div class="title">Téléphone:</div>
+                                                    @if ($shop->shop_phone=="")
+                                                        ...
+                                                    @else
                                                     <div class="text"><a href="">{{$shop->shop_phone}}</a></div>
+                                                    @endif
                                                 </li>
                                                 <li>
                                                     <div class="title">Email:</div>
+                                                    @if ($shop->shop_email=="")
+                                                        ...
+                                                    @else
                                                     <div class="text"><a href="">{{$shop->shop_email}}</a></div>
+                                                    @endif
                                                 </li>
                                                 <li>
                                                     <div class="title">Adresse:</div>
-                                                    <div class="text">{{$shop->web_site}}</div>
+                                                    @if ($shop->shop_address=="")
+                                                        ...
+                                                    @else
+                                                    <div class="text">{{$shop->shop_address}}</div>
+                                                    @endif
                                                 </li>
                                                 <li>
+                                                    <div class="title">Ville:</div>
+                                                    @if ($shop->shop_city=="")
+                                                        ...
+                                                    @else
+                                                    <div class="text"><a href="">{{$shop->shop_city}}</a></div>
+                                                    @endif
+                                                </li>
                                                 <li>
+                                                    <div class="title">Pays:</div>
+                                                    @if ($shop->shop_country=="")
+                                                        ...
+                                                    @else
+                                                    <div class="text"><a href="">{{$shop->shop_country}}</a></div>
+                                                    @endif
+                                                </li>
+                                                <li>
+                                                    <div class="title">Site web:</div>
+                                                    @if ($shop->web_site=="")
+                                                        ...
+                                                    @else
+                                                    <div class="text">{{$shop->web_site}}</div>
+                                                    @endif
+                                                </li>
+                                                <li>
+                                                    <div class="title">Description:</div>
+                                                    @if ($shop->shop_description=="")
+                                                        ...
+                                                    @else
+                                                    <div class="text">{{$shop->shop_description}}</div>
+                                                    @endif
+                                                </li>
+                                                {{-- <li>
                                                     <div class="title">Responsable commerce:</div>
                                                     <div class="text">
                                                        <a href="profile.html">
                                                             {{$shop->user_first_name}} {{$shop->user_name}}
                                                         </a>
                                                     </div>
-                                                </li>
-                                            </ul> --}}
+                                                </li> --}}
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -118,42 +130,60 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <form>
+                            <form action="{{route('vendeur-edit-shop')}}" method="POST">
+                                {{-- <input type="text" name="id_shop" value="{{$shop->id_shop}}" class="d-none"> --}}
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="profile-img-wrap edit-img">
-                                            <img class="inline-block" src="assets-back/img/profiles/shop-1.jpg" alt="shop">
+                                            <img class="inline-block" src="{{asset('assets-back/img/profiles/shop-1.jpg')}}" alt="shop">
                                             <div class="fileupload btn">
                                                 <span class="btn-text">edit</span>
-                                                <input class="upload" type="file">
+                                                <input class="upload" type="file" name="image">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Nom de la boutique</label>
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" class="form-control" name="name" value="{{$shop->shop_name}}">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Genre</label>
-                                                    <select class="form-control">
-                                                        <option value="restaurant selected">Restaurants</option>
-                                                        <option value="boucherie">Traiteurs</option>
+                                                    <select class="form-control" name="categorie">
+                                                        @foreach ($cat as $cat )
+                                                            @if ($cat->id == $shop->id_cat)
+                                                                <option value="{{$cat->id}}" selected>{{$cat->name}}</option>
+                                                            @else
+                                                                <option value="{{$cat->id}}">{{$cat->name}}</option>
+                                                            @endif
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
+                                                    <label>Description</label>
+                                                    <input type="text" class="form-control" name="description" value="{{$shop->shop_description}}">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Adresse site web</label>
+                                                    <input type="text" class="form-control" name="web_site" value="{{$shop->web_site}}">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
                                                     <label>Téléphone</label>
-                                                    <input type="text" class="form-control" >
+                                                    <input type="text" class="form-control" name="phone" value="{{$shop->shop_phone}}">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Adresse email</label>
-                                                    <input type="text" class="form-control">
+                                                    <input type="text" class="form-control" name="email" value="{{$shop->shop_email}}">
                                                 </div>
                                             </div>
                                         </div>
@@ -163,25 +193,27 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Address</label>
-                                            <input type="text" class="form-control" >
+                                            <input type="text" class="form-control" name="address" value="{{$shop->shop_address}}">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>ville</label>
-                                            <input type="text" class="form-control" >
+                                            <input type="text" class="form-control" name="city" value="{{$shop->shop_city}}">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Pays</label>
-                                            <input type="text" class="form-control" >
+                                            <input type="text" class="form-control" name="country" value="{{$shop->shop_country}}">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="submit-section">
                                     <button class="btn btn-primary submit-btn">Modifier</button>
                                 </div>
+                                @csrf
+                                @method('PUT')
                             </form>
                         </div>
                     </div>

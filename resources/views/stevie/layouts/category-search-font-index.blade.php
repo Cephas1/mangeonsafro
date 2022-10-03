@@ -7,8 +7,9 @@
             <div class="col-lg-9">
                 <div class="hero__search">
                     <div class="hero__search__form">
-                        <form action="#">
-                            <input type="text" placeholder="De quoi avez-vous besoin?">
+                        <form action={{ route('home.search') }} method="GET" role="search">
+                            @csrf
+                            <input type="text" placeholder="De quoi avez-vous besoin?" name="term">
                             <button type="submit" class="site-btn">RECHERCHE</button>
                         </form>
                     </div>
@@ -29,11 +30,11 @@
                         <span>L’Afrique et les Caraïbes </span>
                         <h2>en mille et <br/>une saveurs !!!</h2>
                         <!-- <p>Free Pickup and Delivery Available</p> -->
-                        <a href="commerce-page.html" class="primary-btn">Acheter Maintenant</a>
+                        {{--<a href="commerce-page.html" class="primary-btn">Acheter Maintenant</a>--}}
                     </div>
                 </div>
             </div>
-            <div class="col-lg-12 com-m">
+            <!--<div class="col-lg-12 com-m">
                 <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                     <li class="nav-item">
                       <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Tous</a>
@@ -45,7 +46,7 @@
                       <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Fait maison</a>
                     </li>
                   </ul>
-            </div>
+            </div>-->
         </div>
     </div>
 </section>

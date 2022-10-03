@@ -35,6 +35,21 @@ class ProductController extends Controller
         //return view('stevie.frontend.commerce.commerce', compact('products', 'productCount'));
     }
 
+    public function siteIndex()
+    {
+        $products = Products::all();
+        //dd($products);
+        $productCount = Products::count();
+        //$productsCategories = Categorie_product::get();
+        //$categoryProducts = CategorieProduct::get();
+        //dd($categoryProducts);
+        //$shops = Shop::get();
+
+        //$data = [];
+
+        return view('stevie.frontend.shop-grid.shop-grid', compact('products', 'productCount' /*, 'productsCategories', 'shops', 'categoryProducts'*/));
+        //return view('stevie.frontend.commerce.commerce', compact('products', 'productCount'));
+    }
 
     public function isActivated(int $id){
         $product = Products::find($id);
@@ -109,6 +124,21 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         return view('backend.products.show');
+    }
+
+    public function siteShow(int $id){
+        $product = Product::find($id);
+        $prod = $product->load('vote');
+
+        $votes = 0;
+
+        for ($i=0; $i < count($prod->vote); $i++) {
+            $votes += $prod->vote[$i]->vote;
+        }
+        $votes = $votes/count($prod->vote);
+
+        //dd($votes);
+        return view('stevie.frontend.product-details.product-details', ['product' => $product, 'votes' => $votes/count($prod->vote)]);
     }
 
     /**
