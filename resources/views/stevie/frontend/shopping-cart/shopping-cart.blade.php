@@ -155,7 +155,7 @@
                                                 <ul>
                                                     <li>Total <span>
                                                         @foreach ($Order_total as $total )
-                                                            {{$total->total}}
+                                                            {{number_format($total->total,2)}}
                                                         @endforeach €
                                                     </span></li>
                                                 </ul>

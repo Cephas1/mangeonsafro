@@ -34,7 +34,7 @@
                                     <ul class="product__item__pic__hover">
                                         <li><a href="{{route('isfavoris',$favoris->id)}}"><i class="fa fa-heart"></i></a></li>
                                         <li><a href="#" data-toggle="modal" data-target="#evalModal"><i class="fa fa-star-o"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
+                                        <li><a href="{{route('product-details',$favoris->id)}}"><i class="fa fa-shopping-cart"></i></a></li>
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
