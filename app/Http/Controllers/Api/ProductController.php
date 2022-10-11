@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\Categorie_product;
+use App\Models\Favori;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -93,5 +95,38 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function showFavoris(Request $request){
+        $user_id = $request->user_id;
+        $fav = DB::table('favoris')->select(db::raw('products.id,products.name,products.price'))
+        ->join('users', 'favoris.user_id', '=', 'users.id')
+        ->join('products', 'favoris.favorisable_id', '=', 'products.id')
+        ->where('users.id', $user_id)
+        ->where('favoris.favorisable_type', 'Product')->get();
+        return response()->json(['favoris'=>$fav]);
+    }
+
+    public function isFavoris(Request $request){
+
+        $user_id = $request->user_id;
+        $product_id = $request->product_id;
+        $fav = Favori::where('favorisable_id',$product_id)->where('user_id',$user_id)->get();
+        $count = count($fav);
+        if($count >=1){
+            foreach($fav as $fav){
+                $id_fav = $fav->id;
+            }
+            db::delete('delete from favoris where id = ?',[$id_fav]);
+            return response()->json(['message'=>'Favoris retirer avec succes']);
+        }else{
+            $favoris = new Favori();
+            $favoris->user_id= $user_id;
+            $favoris->favorisable_id = $product_id;
+            $favoris->favorisable_type = 'Product';
+            $favoris->save();
+            return response()->json(['message'=>'Favoris ajouter avec succes']);
+        }
     }
 }

@@ -19,7 +19,7 @@
                 </div>
             </div>
             <!-- /Page Header -->
-            @foreach ($shop as $shop )
+
             <div class="card mb-0" style="max-width: none; max-height: none;">
                 <div class="card-body">
                     <div class="row">
@@ -34,55 +34,59 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="profile-info-left">
-                                                <h3 class="user-name m-t-0 mb-0">{{$shop->shop_name}}</h3>
+                                                <h3 class="user-name m-t-0 mb-0">{{$shop->name}}</h3>
                                                 <h6 class="text-muted">Statut de la boutique</h6>
                                                 <!-- <small class="text-muted">Web Designer</small> -->
-                                                <div class="staff-id">ID Boutique: FT-{{$shop->id_shop}}</div>
-                                                <div class="small doj text-muted">Date de création: {{$shop->date_creation}}</div>
-                                                <div class="staff-id">Genre: {{$shop->categorie}}</div>
-                                                <div class="staff-id">Responsable commerce: <a href="{{route('vendeur-profile')}}">{{$shop->user_first_name}} {{$shop->user_name}}</a></div>
+                                                <div class="staff-id">ID Boutique: FT-{{$shop->id}}</div>
+                                                <div class="small doj text-muted">Date de création: {{$shop->created_at}}</div>
+                                                <div class="staff-id">Genre: @foreach ($cat as $catg )
+                                                    @if ($catg->id == $shop->categorie_shop_id)
+                                                        {{$catg->name}}
+                                                    @endif
+                                                @endforeach</div>
+                                                <div class="staff-id">Responsable commerce: <a href="{{route('vendeur-profile')}}">{{$vendeur->first_name}} {{$vendeur->name}}</a></div>
                                             </div>
                                         </div>
                                         <div class="col-md-8">
                                             <ul class="personal-info">
                                                 <li>
                                                     <div class="title">Téléphone:</div>
-                                                    @if ($shop->shop_phone=="")
+                                                    @if ($shop->phone=="")
                                                         ...
                                                     @else
-                                                    <div class="text"><a href="">{{$shop->shop_phone}}</a></div>
+                                                    <div class="text"><a href="">{{$shop->phone}}</a></div>
                                                     @endif
                                                 </li>
                                                 <li>
                                                     <div class="title">Email:</div>
-                                                    @if ($shop->shop_email=="")
+                                                    @if ($shop->email=="")
                                                         ...
                                                     @else
-                                                    <div class="text"><a href="">{{$shop->shop_email}}</a></div>
+                                                    <div class="text"><a href="">{{$shop->email}}</a></div>
                                                     @endif
                                                 </li>
                                                 <li>
                                                     <div class="title">Adresse:</div>
-                                                    @if ($shop->shop_address=="")
+                                                    @if ($shop->address=="")
                                                         ...
                                                     @else
-                                                    <div class="text">{{$shop->shop_address}}</div>
+                                                    <div class="text">{{$shop->address}}</div>
                                                     @endif
                                                 </li>
                                                 <li>
                                                     <div class="title">Ville:</div>
-                                                    @if ($shop->shop_city=="")
+                                                    @if ($shop->city=="")
                                                         ...
                                                     @else
-                                                    <div class="text"><a href="">{{$shop->shop_city}}</a></div>
+                                                    <div class="text"><a href="">{{$shop->city}}</a></div>
                                                     @endif
                                                 </li>
                                                 <li>
                                                     <div class="title">Pays:</div>
-                                                    @if ($shop->shop_country=="")
+                                                    @if ($shop->country=="")
                                                         ...
                                                     @else
-                                                    <div class="text"><a href="">{{$shop->shop_country}}</a></div>
+                                                    <div class="text"><a href="">{{$shop->country}}</a></div>
                                                     @endif
                                                 </li>
                                                 <li>
@@ -95,10 +99,10 @@
                                                 </li>
                                                 <li>
                                                     <div class="title">Description:</div>
-                                                    @if ($shop->shop_description=="")
+                                                    @if ($shop->description=="")
                                                         ...
                                                     @else
-                                                    <div class="text">{{$shop->shop_description}}</div>
+                                                    <div class="text">{{$shop->description}}</div>
                                                     @endif
                                                 </li>
                                                 {{-- <li>
@@ -145,18 +149,18 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Nom de la boutique</label>
-                                                    <input type="text" class="form-control" name="name" value="{{$shop->shop_name}}">
+                                                    <input type="text" class="form-control" name="name" value="{{$shop->name}}">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Genre</label>
                                                     <select class="form-control" name="categorie">
-                                                        @foreach ($cat as $cat )
-                                                            @if ($cat->id == $shop->id_cat)
-                                                                <option value="{{$cat->id}}" selected>{{$cat->name}}</option>
+                                                        @foreach ($cat as $catg )
+                                                            @if ($catg->id == $shop->id)
+                                                                <option value="{{$catg->id}}" selected>{{$catg->name}}</option>
                                                             @else
-                                                                <option value="{{$cat->id}}">{{$cat->name}}</option>
+                                                                <option value="{{$catg->id}}">{{$catg->name}}</option>
                                                             @endif
                                                         @endforeach
                                                     </select>
@@ -165,7 +169,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Description</label>
-                                                    <input type="text" class="form-control" name="description" value="{{$shop->shop_description}}">
+                                                    <input type="text" class="form-control" name="description" value="{{$shop->description}}">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -177,13 +181,13 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Téléphone</label>
-                                                    <input type="text" class="form-control" name="phone" value="{{$shop->shop_phone}}">
+                                                    <input type="text" class="form-control" name="phone" value="{{$shop->phone}}">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Adresse email</label>
-                                                    <input type="text" class="form-control" name="email" value="{{$shop->shop_email}}">
+                                                    <input type="text" class="form-control" name="email" value="{{$shop->email}}">
                                                 </div>
                                             </div>
                                         </div>
@@ -193,19 +197,19 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Address</label>
-                                            <input type="text" class="form-control" name="address" value="{{$shop->shop_address}}">
+                                            <input type="text" class="form-control" name="address" value="{{$shop->address}}">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>ville</label>
-                                            <input type="text" class="form-control" name="city" value="{{$shop->shop_city}}">
+                                            <input type="text" class="form-control" name="city" value="{{$shop->city}}">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Pays</label>
-                                            <input type="text" class="form-control" name="country" value="{{$shop->shop_country}}">
+                                            <input type="text" class="form-control" name="country" value="{{$shop->country}}">
                                         </div>
                                     </div>
                                 </div>
@@ -220,7 +224,7 @@
                 </div>
             </div>
             <!-- /Profile Modal -->
-            @endforeach
+
         </div>
         <!-- /Page Content -->
 

@@ -38,7 +38,7 @@
                                         <div class="form-group">
                                             <label>Date d'anniversaire</label>
                                             <div class="cal-icon">
-                                                <input class="form-control datetimepicker" name="birthday" type="text" value="{{$vendeur->birthday}}">
+                                                <input class="form-control datepicker" name="birthday" type="text" {{"value=".$vendeur->birthday}}>
                                             </div>
                                         </div>
                                     </div>

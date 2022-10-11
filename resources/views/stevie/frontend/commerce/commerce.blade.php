@@ -46,7 +46,7 @@
                 <div class="col-lg-12 text-center">
                     @if ($shopCount>=13)
                         <div class="product__pagination banniereHeader">
-                            {{$shopProducts->links('stevie.layouts.paginate')}}
+                            {{$shops->links('stevie.layouts.paginate')}}
                         </div>
                     @endif
                 </div>

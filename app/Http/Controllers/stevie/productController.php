@@ -52,7 +52,7 @@ class productController extends Controller
                 return redirect()->back();
             }
         }else{
-            return route('login');
+            return redirect(route('login'));
         }
     }
 

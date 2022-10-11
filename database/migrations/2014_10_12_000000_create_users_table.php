@@ -28,6 +28,7 @@ class CreateUsersTable extends Migration
             $table->string('city')->nullable();
             $table->string('country')->nullable();
             $table->string('phone')->nullable();
+            $table->boolean('active')->nullable()->default(1);
             $table->timestamps();
         });
     }

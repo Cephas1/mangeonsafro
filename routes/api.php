@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\ShopController;
 use App\Http\Controllers\Api\OrderController;
+use App\Http\Controllers\Api\ProfileController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -29,7 +30,8 @@ Route::prefix('v1')->group(function () {
     Route::get('products', [ProductController::class, 'index']);
     Route::get('product/{id}', [App\Http\Controllers\Api\ProductController::class, 'show']);
     Route::get('products/search/{word}', [ProductController::class, 'find']);
-
+    Route::get('favoris', [ProductController::class, 'showFavoris']);
+    Route::get('isFavoris', [ProductController::class, 'isFavoris']);
     //Route::apiResource('shops', ShopController::class);
     Route::get('shops', [ShopController::class, 'index']);
     Route::get('shops/{name}', [ShopController::class, 'indexByCategory']);
@@ -39,4 +41,7 @@ Route::prefix('v1')->group(function () {
 
     Route::get('/orders/{id}', [OrderController::class, 'index']);
     Route::post('/order', [OrderController::class, 'store']);
+
+    Route::get('profile', [ProfileController::class, 'index']);
+    Route::get('edit-profile', [ProfileController::class, 'edit']);
 });

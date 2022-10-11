@@ -19,7 +19,7 @@ class clientController extends Controller
         //dd($test);
         $clients = User::all();
         $client = $clients->find($id);
-        $showOrders = DB::table('Orders')->join('users', 'orders.user_id', '=', 'users.id')->where('users.id', $client->id)->get();
+        $showOrders = DB::table('orders')->join('users', 'orders.user_id', '=', 'users.id')->where('users.id', $client->id)->get();
         //Nombre de commande totale
         $nbrOrder = count($showOrders->groupBy('code'));
         //Nombre de commande valider
@@ -58,7 +58,7 @@ class clientController extends Controller
         $client->phone = $request->input('phone');
         $client->address = $request->input('address');
         $client->city = $request->input('city');
-        $client->country = $request->input('contry');
+        $client->country = $request->input('country');
         $client->update();
         return redirect()->back();
     }

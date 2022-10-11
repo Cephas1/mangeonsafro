@@ -1,8 +1,9 @@
-<?php
-use App\http\Controllers\Stevie\headerController;
+@php
+use App\http\Controllers\stevie\headerController;
 $nbr_fav= headerController::nbrFavoris();
 $nbr_basket= headerController::nbrBaskets();
-?>
+@endphp
+
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>

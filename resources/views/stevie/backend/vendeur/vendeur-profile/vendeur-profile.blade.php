@@ -103,7 +103,7 @@
                                                 @endif
                                             </li>
                                             <li>
-                                                <div class="staff-msg"><a class="btn btn-custom" href="#" data-target="#edit_password" data-toggle="modal">Modifier le mot de passe</a></div>
+                                                {{-- <div class="staff-msg"><a class="btn btn-custom" href="#" data-target="#edit_password" data-toggle="modal">Modifier le mot de passe</a></div> --}}
                                             </li>
                                         </ul>
                                     </div>

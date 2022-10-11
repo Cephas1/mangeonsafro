@@ -62,7 +62,7 @@
                                         <div class="dropdown dropdown-action">
                                             <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
                                             <div class="dropdown-menu dropdown-menu-right">
-                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#add_produit"><i class="fa fa-plus m-r-5"></i> Ajouter au panier</a>
+                                                {{-- <a class="dropdown-item" href="#" data-toggle="modal" data-target="#add_produit"><i class="fa fa-plus m-r-5"></i> Ajouter au panier</a> --}}
                                                 <a class="dropdown-item" href="{{route('client-delete-favoris',$fav->id)}}"  id="deleteProduit"><i class="fa fa-trash-o m-r-5"></i> Retirer</a>
                                             </div>
                                         </div>

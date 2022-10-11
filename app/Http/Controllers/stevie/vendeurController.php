@@ -41,19 +41,23 @@ class vendeurController extends Controller
         $id= Auth::user()->id;
         $vendeurs = User::all();
         $clients = User::all();
-        $vendeur = $vendeurs->find($id);
+        $id_shop= shop::where('user_id',$id)->get();
+        foreach($id_shop as $id_shop){
+            $shop= $id_shop->id;
+        }
 
+        $vendeur = $vendeurs->find($id);
         //Debut recherche
         $search = $request['search']??"";
         if($search !=""){
         $listOrders = DB::table('orders')->select(db::raw('orders.code, orders.user_id ,sum(orders.price * orders.quantity) total, orders.order_state, orders.created_at'))
         ->join('shops','orders.shop_id','=','shops.id')
-        ->join('users','shops.user_id','=','users.id')
+        ->join('users','shops.user_id','=','users.id')->where('orders.shop_id',$shop)
         ->where('users.id',$vendeur->id)->groupBy(['orders.code', 'orders.order_state', 'orders.created_at', 'orders.user_id'])->orderBy('code')->having('orders.code','LIKE',"%$search%")->get();
         }else{
         $listOrders = DB::table('orders')->select(db::raw('orders.code, orders.user_id ,sum(orders.price * orders.quantity) total, orders.order_state, orders.created_at'))
         ->join('shops','orders.shop_id','=','shops.id')
-        ->join('users','shops.user_id','=','users.id')
+        ->join('users','shops.user_id','=','users.id')->where('orders.shop_id',$shop)
         ->where('users.id',$vendeur->id)->groupBy(['orders.code', 'orders.order_state', 'orders.created_at', 'orders.user_id'])->orderBy('code')->get();
         }
         //Fin recherche
@@ -79,12 +83,17 @@ class vendeurController extends Controller
     }
 
     public function detailsCommande($code){
+        $id_user= Auth::id();
+        $id_shop= shop::where('user_id',$id_user)->get();
+        foreach($id_shop as $id_shop){
+            $shop= $id_shop->id;
+        }
         $outputs = "";
 
         $output = "";
         $detailOrders= db::table('orders')
         ->join('products', 'orders.product_id', '=', 'products.id')
-        ->where('orders.code', $code)->get();
+        ->where('orders.code', $code)->where('orders.shop_id',$shop)->get();
         foreach ($detailOrders as $detailOrder) {
             $output .= '
                 <tr>
@@ -132,8 +141,12 @@ class vendeurController extends Controller
     }
 
     public function orderLivred($code ){
-        //$id_user= Auth::user()->id;
-        $state= db::table('orders')->where('code',$code)
+        $id_user= Auth::id();
+        $id_shop= shop::where('user_id',$id_user)->get();
+        foreach($id_shop as $id_shop){
+            $shop= $id_shop->id;
+        }
+        $state= db::table('orders')->where('code',$code)->where('shop_id',$shop)
         ->update(['order_state'=>1]);
         return redirect()->back();
     }
@@ -288,10 +301,17 @@ class vendeurController extends Controller
         $vendeurs = User::all();
         $vendeur = $vendeurs->find($id);
         $cat = CategorieShop::all();
-        $shop = DB::table('shops')->select(db::raw('shops.name shop_name, shops.description shop_description,shops.web_site, shops.email shop_email, shops.phone shop_phone, users.name user_name, users.first_name user_first_name, categorie_shops.name categorie, shops.created_at date_creation, shops.id id_shop, shops.country shop_country, shops.address shop_address, shops.city shop_city,categorie_shops.id id_cat'))
-        ->join('users','shops.user_id','=','users.id')
-        ->join('categorie_shops','shops.categorie_shop_id','=','categorie_shops.id')
-        ->where('users.id',$vendeur->id)->get();
+        //$shop = DB::table('shops')->select(db::raw('shops.name shop_name, shops.description shop_description,shops.web_site, shops.email shop_email, shops.phone shop_phone, users.name user_name, users.first_name user_first_name, categorie_shops.name categorie, shops.created_at date_creation, shops.id id_shop, shops.country shop_country, shops.address shop_address, shops.city shop_city,categorie_shops.id id_cat'))
+        //->join('users','shops.user_id','=','users.id')
+        //->join('categorie_shops','shops.categorie_shop_id','=','categorie_shops.id')
+        //->where('users.id',$vendeur->id)->groupBy('')->get();
+        //dd($cat);
+        $shops = db::table('shops')->distinct('user_id')->where('user_id',$id)->get();
+        foreach($shops as $shop)
+        {
+            $shop = $shop;
+        }
+        $shop = $shop;
         //dd($shop);
         return view('stevie.backend.vendeur.vendeur-mes-informations.vendeur-mes-informations',[
             'cat'=> $cat,
@@ -470,7 +490,7 @@ class vendeurController extends Controller
         $vendeur->phone = $request->input('phone');
         $vendeur->address = $request->input('address');
         $vendeur->city = $request->input('city');
-        $vendeur->country = $request->input('contry');
+        $vendeur->country = $request->input('country');
         $vendeur->update();
         return redirect()->back();
     }

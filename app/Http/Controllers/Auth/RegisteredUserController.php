@@ -45,9 +45,16 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        User::count() <= 1 ?
-            $user->assignRole('super-admin') :
-            $user->assignRole('client');
+        if(user::count()<=1){
+            $user->role_id = 2;
+            $user->update();
+        }else{
+            $user->role_id = 3;
+            $user->update();
+        }
+        //User::count() <= 1 ?
+            //$user->assignRole('super-admin') :
+            //$user->assignRole('client');
 
         // event(new Registered($user));
 
